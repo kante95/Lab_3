@@ -30,12 +30,17 @@ In this experiment we have built five different circuits. The first is an open l
 \section{Materials}
 \begin{itemize}
 \item Operational amplifier uA741
-\item Resistor, nominal value: 100 $\ohm$, 220 $\ohm$
-\item Power supply
-\item Other stuff
+\item Resistors, nominal value: 100 $\ohm$, 220 $\ohm$
+\item Power supply RIGOL DP831A
+\item Waveform generator RIGOL DG1032
+\item Multimeter RIGOL DM3068
+\item Oscilloscope AGILENT 54261A
 \end{itemize}
 \section{Experiment setup}
-\begin{figure}[H]
+In the first four circuits the output of the waveform generator was a sine wave of 100Hz frequency and a peak-peak voltage of 100mV.
+We measured the waveform output signal and the output voltage $v_o$ of the ap-amp. The measurements were performed using an oscilloscope triggered externally, the signal acquired is an 8 cyles average. The voltage supply of the op-amp was set to $v_{cc} = 15$V for all the circuits.\\
+For the last circuit we used another sine wave signal with the same 100Hz frequency and a different peak-peak voltage. The oscilloscope's setting and the measurement taken was the same as before.
+\begin{figure}
 \centering
 \begin{circuitikz}
  \draw(0,0) node[op amp,yscale=-1] (opamp) {}
@@ -47,7 +52,7 @@ In this experiment we have built five different circuits. The first is an open l
 \draw(-3,-1) to[sV] (-3,.5) to[short] (opamp.+);
 \draw(-3,-1) node[ground] {};
 \end{circuitikz}
-\caption{Open loop circuit }
+\caption{Open loop circuit}
 \end{figure}
 \begin{figure}[H]
 \centering

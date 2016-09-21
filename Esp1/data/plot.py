@@ -21,7 +21,6 @@ for i in file:
 	plt.xlabel("time [s]")
 	plt.ylabel("Voltage [V]")
 
-
 plt.show() 
 
 

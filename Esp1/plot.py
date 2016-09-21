@@ -69,7 +69,7 @@ dR = []
 cnt = 0
 for resitance in R:
     dR.append(get_error(resitance))
-    print 'Resistance' + ' ' + str(cnt) + ': ' + str(resitance) + '+-' + str(get_error(resitance))
+    print('Resistance' + ' ' + str(cnt) + ': ' + str(resitance) + '+-' + str(get_error(resitance)))
     cnt += 1
 
 R2_div_R1 = R[2] / R[1]
@@ -80,6 +80,7 @@ teo_follow_gain_vout = follow_gain_vin * (1 + R2_div_R1)
 amp_invertent_vout_err = err_prop(amp_invertent_vin, dv, R2_div_R1, R2_div_R1_err, '*')
 teo_amp_invertent_vout = amp_invertent_vin * R2_div_R1
 
+<<<<<<< HEAD
 v1_div_r2 = f_vin1 / R[1]
 v2_div_r3 = f_vin2 / R[3]
 v1_div_r2_err = err_prop(f_vin1, dv, R[1], dR[1], '/')
@@ -104,3 +105,14 @@ print 'V_in1', f_vin1, '+-', dv
 print 'V_in2', f_vin2, '+-', dv
 print 'V_out', f_vout, '+-', dv
 print 'Theoric v_out', vout_teo, '+-', vout_teo_err
+=======
+print('Emitter follower:')
+print('V_in', follow_gain_vin, '+-', dv)
+print('V_out', follow_gain_vout, '+-', dv)
+print('Theoric v_out', teo_follow_gain_vout, '+-', follow_gain_vout_err)
+
+print("Invertent amplifier")
+print('V_in', amp_invertent_vin, '+-', dv)
+print('V_out', amp_invertent_vout, '+-', dv)
+print('Theoric v_out', teo_amp_invertent_vout, '+-', teo_amp_invertent_vout)
+>>>>>>> 9f43ebf4bae6e80787f9a059a268eb63967b9f13

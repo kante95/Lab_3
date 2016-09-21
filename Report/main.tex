@@ -1,0 +1,99 @@
+\documentclass[oneside]{book}
+
+\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage{float}
+\usepackage{tabularx}
+\usepackage[toc,page]{appendix}
+\usepackage{gensymb}
+\usepackage{subcaption}
+\usepackage{tikz}
+\usepackage{circuitikz}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{colortbl}
+\usepackage{xcolor}
+\usepackage{xfrac}
+\usepackage[a4paper, inner=1.5cm, outer=3cm, top=3cm, 
+bottom=3cm, bindingoffset=1cm]{geometry} 
+
+\usepackage{fancyhdr}
+\renewcommand{\chaptername}{Experiment}
+
+
+\begin{document}
+\input{title}
+\tableofcontents
+\chapter{Basic circuits with an operational amplifier}
+In this experiment we have built five different circuits. The first is an open loop circuit with the operational amplifier uA741, the goal was to find the maximum voltage outputed by the op-amp as justified from the equation $v_o = A_{ol}(v_+-v_-)$ where $A_{ol}$ tends to infinity in the ideal model. The last four circuits are in closed loop configuration with a negative feedback, they consist on a follower, a non inverting amplifier, an inverting amplifier and a weighted summing amplifier. We have measured the voltage input and the voltage output of every circut.
+\section{Materials}
+\begin{itemize}
+\item Operational amplifier uA741
+\item Resistor, nominal value: 100 $\ohm$, 220 $\ohm$
+\item Power supply
+\item Other stuff
+\end{itemize}
+\section{Experiment setup}
+\begin{figure}[H]
+\centering
+\begin{circuitikz}
+ \draw(0,0) node[op amp,yscale=-1] (opamp) {}
+%(opamp.+) node[left] {$v_+$}
+(opamp.-) ++ (-.3,0) node[ground] {} -- (opamp.-) 
+(opamp.out) node[right] {$v_o$}
+(opamp.up) ++(0,-.5) node[below] {$-v_{cc}$} -- (opamp.up)
+(opamp.down) ++ (0,.5) node[above] {$+v_{cc}$} -- (opamp.down);
+\draw(-3,-1) to[sV] (-3,.5) to[short] (opamp.+);
+\draw(-3,-1) node[ground] {};
+\end{circuitikz}
+\caption{Open loop circuit }
+\end{figure}
+\begin{figure}[H]
+\centering
+\begin{circuitikz}
+ \draw(0,0) node[op amp,yscale=-1] (opamp) {}
+%(opamp.+) node[left] {$v_+$}
+(opamp.-) ++ (-.3,0) -- (opamp.-) 
+(opamp.-) ++ (-.3,0) -- (-1.5,-1.8) -- (1,-1.8) -- (1,0)
+(opamp.out) node[right] {$v_o$}
+(opamp.up) ++(0,-.5) node[below] {$-v_{cc}$} -- (opamp.up)
+(opamp.down) ++ (0,.5) node[above] {$+v_{cc}$} -- (opamp.down);
+\draw(-3,-1) to[sV] (-3,.5) to[short] (opamp.+);
+\draw(-3,-1) node[ground] {};
+\end{circuitikz}
+\caption{Follower}
+\end{figure}
+\begin{figure}[H]
+\centering
+\begin{circuitikz}
+ \draw(0,0) node[op amp,yscale=-1] (opamp) {}
+%(opamp.+) node[left] {$v_+$}
+(opamp.-) ++ (-.3,0) -- (opamp.-) 
+(opamp.-) ++ (-.3,0) to[R = $R_1$] (-3,-0.5) to (-3,-1) node[ground]{}
+(opamp.-) ++ (-.3,0) -- (-1.5,-1.8) to[R,l_=$R_2$] (1,-1.8) -- (1,0)
+(opamp.out) node[right] {$v_o$}
+(opamp.up) ++(0,-.5) node[below] {$-v_{cc}$} -- (opamp.up)
+(opamp.down) ++ (0,.5) node[above] {$+v_{cc}$} -- (opamp.down);
+\draw(-4,-1) to[sV] (-4,.5) to[short] (opamp.+);
+\draw(-4,-1) node[ground] {};
+\end{circuitikz}
+\caption{Non inverting amplifier}
+\end{figure}
+\begin{figure}[H]
+\centering
+\begin{circuitikz}
+ \draw(0,0) node[op amp,yscale=-1] (opamp) {}
+%(opamp.+) node[left] {$v_+$}
+(opamp.-) ++ (-.3,0) -- (opamp.-) 
+(opamp.-) ++ (-.3,0) to[R = $R_1$] (-3.4,-0.5) to[sV] (-3.4,-1.7) node[ground]{}
+(opamp.-) ++ (-.3,0) -- (-1.5,-1.8) to[R,l_=$R_2$] (1,-1.8) -- (1,0)
+(opamp.out) node[right] {$v_o$}
+(opamp.up) ++(0,-.5) node[below] {$-v_{cc}$} -- (opamp.up)
+(opamp.down) ++ (0,.5) node[above] {$+v_{cc}$} -- (opamp.down);
+\draw(-4.3,.5)node[ground] {} to[short] (opamp.+);
+\end{circuitikz}
+\caption{Inverting amplifier}
+\end{figure}
+\section{Data analysis}
+\end{document} 

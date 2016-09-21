@@ -44,7 +44,7 @@ R1 = 99.8913
 R3 = 99.8990
 R = [0, R1, R2, R3]
 dR = []
-cnt = 1
+cnt = 0
 for resitance in R:
     dR.append(get_error(resitance))
     print('Resistance' + ' ' + str(cnt) + ': ' + str(resitance) + '+-' + str(get_error(resitance)))
@@ -58,7 +58,7 @@ teo_follow_gain_vout = follow_gain_vin * (1 + R2_div_R1)
 amp_invertent_vout_err = err_prop(amp_invertent_vin, dv, R2_div_R1, R2_div_R1_err, '*')
 teo_amp_invertent_vout = amp_invertent_vin * R2_div_R1
 
-print('Emitter follower:')
+print('Non inverting amplifier:')
 print('V_in', follow_gain_vin, '+-', dv)
 print('V_out', follow_gain_vout, '+-', dv)
 print('Theoric v_out', teo_follow_gain_vout, '+-', follow_gain_vout_err)

@@ -1,4 +1,0 @@
-\contentsline {chapter}{\numberline {1}Basic circuits with an operational amplifier}{2}
-\contentsline {section}{\numberline {1.1}Materials}{2}
-\contentsline {section}{\numberline {1.2}Experiment setup}{2}
-\contentsline {section}{\numberline {1.3}Data analysis}{4}

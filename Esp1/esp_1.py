@@ -3,6 +3,9 @@ import matplotlib.pyplot as plt
 import numpy as np
 from error_lib import *
 
+plt.rc('text', usetex=True)
+#plt.rc('font', family='serif')
+
 
 FONDO_SCALA = 0.16
 dv = FONDO_SCALA / (2 ** 8)
@@ -29,17 +32,18 @@ for file in files:
     t, vin, vout = read_data(file, numcols)
     plt.figure(file)
     plt.grid(True)
-    plt.plot(t, vin)
-    plt.plot(t, vout)
-    plt.xlabel("time [s]")
+    plt.plot(t*1000, vin)
+    plt.plot(t*1000, vout)
+    plt.xlim(t[0]*1000,t[-1]*1000)
+    plt.xlabel("Time [ms]")
     plt.ylabel("Voltage [V]")
     if file == 'scope5.csv':
-        plt.legend(['V1_in', 'V2_in', 'V_out'])
+        plt.legend([r'$v_{in1}$', r'$v_{in2}$', '$v_o$'])
         f_vin1 = max(vin[:, 0])
         f_vin2 = max(vin[:, 1])
         f_vout = max(vout)
     else:
-        plt.legend(['V_in', 'V_out'])
+        plt.legend([r'$v_{in}$', r'$v_{o}$'])
     if file == 'scope3.csv':
         follow_gain_vout = max(vout)
         follow_gain_vin = max(vin)[0]
@@ -48,8 +52,9 @@ for file in files:
         amp_invertent_vin = max(vin)[0]
     elif file == 'scope1.csv':
         print 'Max volatage in open loop:', max(vout), 'V\n'
+    plt.savefig(file+'.png');
 
-# plt.show()
+#plt.show()
 
 R1 = 99.8913
 R2 = 218.371

@@ -129,13 +129,34 @@ For the last circuit we used another sine wave signal with the same 100Hz freque
 \caption{Weighted summing amplifier}
 \end{figure}
 \section{Data analysis}
-In the open loop configuration we get an output (visible in the figure one) that has a max absolute value of $14.35\pm 0.16$\footnote{Error based on oscilloscope's 8 bit resolution} V and changes sign with the input. This is what we can expect from the ideal model of the op-amp as justified from the equation $v_o = A_{ol}(v_+-v_-)$ where $A_{ol}$ tends to infinity. In the physical case the output voltage is costrained by the saturation voltage that's determinated by the voltage applied to the op-amp.\\
-\newline
-In the emitter follower we expect, ideally, an output voltage equal to the input one. But we can see in the plot a small discrepancy between the two signals: that is determined, as before, by the non-ideality of the op-amp.\\
-\newline 
-In the non-invertent amplifier configuration we expect the output to be: $V_o = V_{in} (1 + \frac{R_2}{R_1})$. We can see the measured output is compatible with the theoretical value avalable in the table().\\
-\newline
-In the circuit x the output should be : $V_o = - V_{in} \frac{R_2}{R_1}$. We see in the table x that the experimental value is compatible.\\
-\newline
-In the circuit y we used two inputs for aquiring an output voltage. This configuration sums these signals using the resistors $R_1$ and $R_2$ as weghts, giving as output $V_o = - R_3 (\frac{V_1}{R_1} + \frac{V_2}{R_3})$, that we correctly measured. 
+\begin{figure}[H]
+\centering
+\includegraphics[width=.7\textwidth]{img/scope1.png}
+\caption{Open loop configuration}
+\end{figure}
+In the open loop configuration we get an output (visible in the figure one) that has a max absolute value of $14.35\pm 0.16$\footnote{Error based on oscilloscope's 8 bit resolution} V and changes sign with the input. This is what we can expect from the ideal model of the op-amp as justified from the equation $v_o = A_{ol}(v_+-v_-)$ where $A_{ol}$ tends to infinity. In the physical case the output voltage is costrained by the saturation voltage that's determinated by the voltage applied to the op-amp.
+\begin{figure}[H]
+\centering
+\includegraphics[width=.7\textwidth]{img/scope2.png}
+\caption{Emitter follower}
+\end{figure}
+In the emitter follower we expect, ideally, an output voltage equal to the input one. But we can see in the plot a small discrepancy between the two signals: that is determined, as before, by the non-ideality of the op-amp.
+\begin{figure}[H]
+\centering
+\includegraphics[width=.7\textwidth]{img/scope3.png}
+\caption{Non-inverting amplifier}
+\end{figure}
+In the non-inverting amplifier configuration we expect the output to be: $v_o = v_{in} (1 + \frac{R_2}{R_1})$. We can see the measured output is compatible with the theoretical value avalable in the table().
+\begin{figure}[H]
+\centering
+\includegraphics[width=.7\textwidth]{img/scope4.png}
+\caption{Inverting amplifier}
+\end{figure}
+In the circuit x the output should be : $v_o = - v_{in} \frac{R_2}{R_1}$. We see in the table x that the experimental value is compatible.
+\begin{figure}[H]
+\centering
+\includegraphics[width=.7\textwidth]{img/scope5.png}
+\caption{Weighted summing circuit}
+\end{figure}
+In the circuit y we used two inputs for aquiring an output voltage. This configuration sums these signals using the resistors $R_1$ and $R_2$ as weights, giving as output $v_o = - R_3 (\frac{v_1}{R_1} + \frac{v_2}{R_3})$, that we correctly measured. 
 \end{document} 

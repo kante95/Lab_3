@@ -1,3 +1,6 @@
+# This code was nor written nor approved by LorenzoBi
+
+
 import matplotlib.pyplot as plt
 # -*- coding: utf-8 -*-
 import numpy as np

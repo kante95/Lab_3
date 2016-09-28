@@ -160,5 +160,24 @@ In the circuit x the output should be : $v_o = - v_{in} \frac{R_2}{R_1}$. We see
 \end{figure}
 In the circuit y we used two inputs for aquiring an output voltage. This configuration sums these signals using the resistors $R_1$ and $R_2$ as weights, giving as output $v_o = - R_3 (\frac{v_1}{R_1} + \frac{v_2}{R_3})$, that we correctly measured.
 \chapter{Let's get more confident with our little friend op-amp}
-We designed a non-inverting amplifier with a variable gain by using a trimmer. The second circuit designed is a summing amplifier with an unitary gain. We built a current source generator of $1$mA and tested it with a variable load. After we tested the efficacy of the emitter follower configuration of mismatching the source's impedence. Last we designed a differential amplifier with a predetermined gain.
+We designed a non-inverting amplifier with a variable gain by using a trimmer. The second circuit designed was a summing amplifier with an unitary gain. We built a current source generator of $1$mA and tested it with a variable load. We tested the efficacy of the emitter follower configuration in mismatching the source's impedence. Last we designed a differential amplifier with a predetermined gain.
+\section{Materials}
+\begin{itemize}
+\item Operational amplifier uA741
+\item Resistors and trimmers
+\item Power supply RIGOL DP831A
+\item Waveform generator RIGOL DG1032
+\item Multimeter RIGOL DM3068
+\item Oscilloscope (To be inserted)
+\item Two capacitance of nominal value of $100$nF
+\end{itemize}
+\section{Experiment setup}
+In all the circuit we placed two capacitors connecting the op-amp's pins for the power supplying to the ground. This was done with the aim of reducing the noise in the output.
+In the current generator we used a DC voltage generator of $x$V and we placed the trimmer in the feedback branch. In all the other circuits we used an input with an amplitude of $1$V and a frequency of $100$Hz.
+In the summing amplifier we used resistors $R_1$ $R_2$ and $R_3$ $R_4$ of equal ratio, for obtaining a gain of one.
+In the emitter follower test, we first built the circuit in figure X and then the circuit in figure Y and we examined the difference in the output.
+In the differential amplifier we first used just one input signal V$1$ and we put to ground the non-inverting input. This way we were able to measure the gain of the circuit. And we built the configuration in figure X using V$1 =$ V$2$ and we tried to get an output equal to $0$ by changing the resistace of the trimmer that is in serie with R$1$.
+
+
 \end{document} 
+\grid

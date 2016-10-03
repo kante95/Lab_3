@@ -8,7 +8,7 @@ plt.rc('text', usetex=True)
 
 
 FONDO_SCALA = 0.16
-dv = FONDO_SCALA / (2 ** 8)
+dv = 1.414*FONDO_SCALA / (2 ** 8)
 
 files = ['scope1.csv', 'scope2.csv', 'scope3.csv', 'scope4.csv', 'scope5.csv']
 
@@ -39,22 +39,23 @@ for file in files:
     plt.ylabel("Voltage [V]")
     if file == 'scope5.csv':
         plt.legend([r'$v_{in1}$', r'$v_{in2}$', '$v_o$'])
-        f_vin1 = max(vin[:, 0])
-        f_vin2 = max(vin[:, 1])
-        f_vout = max(vout)
+        f_vin1 = max(vin[:, 0])-min(vin[:, 0])
+        f_vin2 = max(vin[:, 1])-min(vin[:, 1])
+        f_vout = max(vout)-min(vout)
     else:
         plt.legend([r'$v_{in}$', r'$v_{o}$'])
     if file == 'scope3.csv':
-        follow_gain_vout = max(vout)
-        follow_gain_vin = max(vin)[0]
+        follow_gain_vout = max(vout)-min(vout)
+        follow_gain_vin = max(vin)[0] - min(vin)[0]
     elif file == 'scope4.csv':
-        amp_invertent_vout = max(vout)
-        amp_invertent_vin = max(vin)[0]
+        amp_invertent_vout = max(vout)-min(vout)
+        amp_invertent_vin = max(vin)[0]- min(vin)[0]
     elif file == 'scope1.csv':
         print 'Max volatage in open loop:', max(vout), 'V\n'
-    plt.savefig(file+'.png');
+        print 'Min volatage in open loop:', min(vout), 'V\n'
+    #plt.savefig(file+'.png');
 
-#plt.show()
+plt.show()
 
 R1 = 99.8913
 R2 = 218.371

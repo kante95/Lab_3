@@ -26,6 +26,7 @@ bottom=3cm, bindingoffset=1cm]{geometry}
 \usepackage{fancyhdr}
 \renewcommand{\chaptername}{Experiment}
 
+\input{volt.tex}
 
 \begin{document}
 \input{title}
@@ -174,6 +175,109 @@ We designed a non-inverting amplifier with a variable gain by using a trimmer. T
 \item Two capacitance of nominal value of $100$nF
 \end{itemize}
 \section{Experiment setup}
+\begin{figure}[H]
+\centering
+\begin{circuitikz}
+\draw(0,0) node[op amp] (opamp) {}
+	%(opamp.+) node[left] {$v_+$}
+	(opamp.+) ++ (-.3,0) node[ground] {} -- (opamp.+) 
+	(opamp.out) to[short] (1.8,0) node[right] {$v_o$}
+	(opamp.down) ++(0,-.7) node[below] {$-v_{cc}$} -- (opamp.down)
+	(opamp.up) ++ (0,.7) node[above] {$+v_{cc}$} -- (opamp.up)
+	(opamp.down) ++ (0,-.25)to[C,/tikz/circuitikz/bipoles/length=1cm] (1,-.8)node[ground,rotate = 90,yshift = 1em] {}
+	(opamp.up) ++ (0,.25)to[C,/tikz/circuitikz/bipoles/length=1cm] (1,.8)node[ground,rotate = 90,yshift = 1em] {};
+	\draw(-4,-1) to[sV,l=$v_{in}$] (-4,.5) to[R=$R_{in}$] (-2,.5) to[short] (opamp.-);
+	\draw(-4,-1) node[ground] {};
+	
+	\draw(-1.5,.5) to[short](-1.5,2.2) to[R=$R_f$](0,2.2) to[vR=$R_x$] (1.5,2.2)  to[short](1.5,0);
+\end{circuitikz}
+\caption{Roba}
+\end{figure}
+\begin{figure}[H]
+\centering
+\begin{circuitikz}
+\draw(0,0) node[op amp] (opamp) {}
+	%(opamp.+) node[left] {$v_+$}
+	%(opamp.+) ++ (-.3,0) node[ground] {} -- (opamp.+) 
+	(opamp.out) to[short] (1.8,0) node[right] {$v_o$}
+	(opamp.down) ++(0,-.7) node[below] {$-v_{cc}$} -- (opamp.down)
+	(opamp.up) ++ (0,.7) node[above] {$+v_{cc}$} -- (opamp.up)
+	(opamp.down) ++ (0,-.25)to[C,/tikz/circuitikz/bipoles/length=1cm] (1,-.8)node[ground,rotate = 90,yshift = 1em] {}
+	(opamp.up) ++ (0,.25)to[C,/tikz/circuitikz/bipoles/length=1cm] (1,.8)node[ground,rotate = 90,yshift = 1em] {};
+	\draw(-4,-.5)node[left]{$v_1$} to[R=$R_{1}$,o-] (-2,-.5) to[short] (opamp.+);
+	\draw(-4,-1.5)node[left]{$v_2$} to[R=$R_{2}$,o-] (-2,-1.5) to[short] (-2,-.5);
+
+	\draw(opamp.-) -- (-1.5,.5) to[short](-1.5,2.2) to[R=$R_4$](1.5,2.2) to[short](1.5,0);
+	\draw(-1.5,2.2) to[R=$R_3$] (-4,2.2)node[ground] {};
+\end{circuitikz}
+\caption{Roba}
+\end{figure}
+\begin{figure}[H]
+\centering
+\begin{circuitikz}
+\draw(0,0) node[op amp] (opamp) {}
+	%(opamp.+) node[left] {$v_+$}
+	(opamp.+) ++ (-.3,0) node[ground] {} -- (opamp.+) 
+	(opamp.out) to[short] (1.8,0) node[right] {$v_o$}
+	(opamp.down) ++(0,-.7) node[below] {$-v_{cc}$} -- (opamp.down)
+	(opamp.up) ++ (0,.7) node[above] {$+v_{cc}$} -- (opamp.up)
+	(opamp.down) ++ (0,-.25)to[C,/tikz/circuitikz/bipoles/length=1cm] (1,-.8)node[ground,rotate = 90,yshift = 1em] {}
+	(opamp.up) ++ (0,.25)to[C,/tikz/circuitikz/bipoles/length=1cm] (1,.8)node[ground,rotate = 90,yshift = 1em] {};
+	\draw(-4,-.8) to[battery1] (-4,.5) to[R=$R_{3}$] (-2,.5) to[short] (opamp.-);
+	\draw(-4,-.5) node[ground] {};
+	
+	\draw(-1.5,.5) to[short](-1.5,2.2) to[R=$R_x$] (1.7,2.2)to[myvoltmeter](1.7,0);
+\end{circuitikz}
+\caption{Roba}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\begin{circuitikz}
+\draw(0,0)node[ground]{} to[sV] (0,2) to[R=$R$,-o]node[right,xshift=.8em] {$v_o$} (2,2);
+\draw(1.8,2) to[R=$R_L$](1.8,0)node[ground]{};
+\end{circuitikz}
+\caption{Roba}
+\end{figure}
+\begin{figure}[H]
+\centering
+\begin{circuitikz}
+\draw(0,0) node[op amp] (opamp) {}
+	%(opamp.+) node[left] {$v_+$}
+	(opamp.+) ++ (-.3,0) node[ground] {} -- (opamp.+) 
+	(opamp.out) to[short,-o] (1.8,0) node[right] {$v_o$}
+	(opamp.down) ++(0,-.7) node[below] {$-v_{cc}$} -- (opamp.down)
+	(opamp.up) ++ (0,.7) node[above] {$+v_{cc}$} -- (opamp.up)
+	(opamp.down) ++ (0,-.25)to[C,/tikz/circuitikz/bipoles/length=1cm] (1,-.8)node[ground,rotate = 90,yshift = 1em] {}
+	(opamp.up) ++ (0,.25)to[C,/tikz/circuitikz/bipoles/length=1cm] (1,.8)node[ground,rotate = 90,yshift = 1em] {};
+	\draw(-4,-1) to[sV,l=$v_{in}$] (-4,.5) to[R=$R$] (-2,.5) to[short] (opamp.-);
+	\draw(-4,-1) node[ground] {};
+	\draw(-1.5,.5) to[short](-1.5,2.2)to[short] (1.5,2.2)  to[short](1.5,0);
+	\draw(1.6,0) to[R=$R_L$] (1.6,-2)node[ground]{};
+\end{circuitikz}
+\caption{Roba}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\begin{circuitikz}
+\draw(0,0) node[op amp] (opamp) {}
+	%(opamp.+) node[left] {$v_+$}
+	%(opamp.+) ++ (-.3,0) node[ground] {} -- (opamp.+) 
+	(opamp.out) to[short] (1.8,0) node[right] {$v_o$}
+	(opamp.down) ++(0,-.7) node[below] {$-v_{cc}$} -- (opamp.down)
+	(opamp.up) ++ (0,.7) node[above] {$+v_{cc}$} -- (opamp.up)
+	(opamp.down) ++ (0,-.25)to[C,/tikz/circuitikz/bipoles/length=1cm] (1,-.8)node[ground,rotate = 90,yshift = 1em] {}
+	(opamp.up) ++ (0,.25)to[C,/tikz/circuitikz/bipoles/length=1cm] (1,.8)node[ground,rotate = 90,yshift = 1em] {};
+	\draw(-4,-.5)node[left]{$v_B$} to[R=$R_{f}$,o-] (-2,-.5) to[short] (opamp.+);
+	\draw((-2,-.5) to[R=$R_{y}$] (-2,-2.5) node[ground]{};
+
+	\draw(opamp.-) -- (-1.5,.5) to[short](-1.5,2.2) to[R=$R_F$](1.5,2.2) to[short](1.5,0);
+	\draw(-1.5,2.2) to[R=$R_1$,-o] (-4,2.2)node[left] {$v_A$};
+\end{circuitikz}
+\caption{Roba}
+\end{figure}
+
 In all the circuit we placed two capacitors connecting the op-amp's pins for the power supplying to the ground. This was done with the aim of reducing the noise in the output.
 In the current generator we used a DC voltage generator of $x$V and we placed the trimmer in the feedback branch. In all the other circuits we used an input with an amplitude of $1$V and a frequency of $100$Hz.
 In the summing amplifier we used resistors $R_1$ $R_2$ and $R_3$ $R_4$ of equal ratio, for obtaining a gain of one.

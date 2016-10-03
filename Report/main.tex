@@ -120,13 +120,14 @@ For the last circuit we used another sine wave signal with the same 100Hz freque
 	(opamp.out) node[right] {$v_o$}
 	(opamp.down) ++(0,-.5) node[below] {$-v_{cc}$} -- (opamp.down)
 	(opamp.up) ++ (0,.5) node[above] {$+v_{cc}$} -- (opamp.up);
-	\draw(-5,-1) to[sV] (-5,.5) to[R=$R_3$] (-3,.5) to[short] (opamp.-);
+	\draw(-5,-1) to[sV,l=$v_{in2}$] (-5,.5) to[R=$R_3$] (-3,.5) to[short] (opamp.-);
 	\draw(-5,-1) node[ground] {};
-	\draw(-5,2) to[sV] (-5,3.5) to[R=$R_1$] (-3,3.5) to[short] (-3,.5);
+	\draw(-5,2) to[sV,l=$v_{in1}$] (-5,3.5) to[R=$R_1$] (-3,3.5) to[short] (-3,.5);
 	\draw(-5,2) node[ground] {};
 	\draw(-2,.5) to[short](-2,2.2) to[R=$R_2$](1,2.2) to[short](1,0);
 \end{circuitikz}
 \caption{Weighted summing amplifier}
+\label{weightedsummingamplifier}
 \end{figure}
 \section{Data analysis}
 \begin{figure}[H]
@@ -153,13 +154,13 @@ In the non-inverting amplifier configuration we expect the output to be: $v_o = 
 \includegraphics[width=.7\textwidth]{img/scope4.png}
 \caption{Inverting amplifier}
 \end{figure}
-In the circuit x the output should be : $v_o = - v_{in} \frac{R_2}{R_1}$. The pk-pk of the output is $219.4\pm 0.8$ mV that is compatible with theoretical value $219.8\pm 1.9$ mV.
+In the inverting amplifier the output should be : $v_o = - v_{in} \frac{R_2}{R_1}$. The pk-pk of the output is $219.4\pm 0.8$ mV that is compatible with theoretical value $219.8\pm 1.9$ mV.
 \begin{figure}[H]
 \centering
 \includegraphics[width=.7\textwidth]{img/scope5.png}
 \caption{Weighted summing circuit}
 \end{figure}
-In the circuit y we used two inputs for aquiring an output voltage. This configuration sums these signals $v_1 = 135.1\pm 0.8$ mV and $v_2 = 101.3\pm 0.8$ mV using the resistors $R_1$ and $R_3$ as weights, giving as output $v_o = - R_2 (\frac{v_1}{R_1} + \frac{v_2}{R_3})$, which gives a pk-pk value of $516.7\pm 2.7$ mV. The theory in this case it's not at all compatible with the measurament $506\pm 0.8$ mV, but that's, most likely, caused by the noise in the output.
+In the circuit \eqref{weightedsummingamplifier} we used two inputs for aquiring an output voltage. This configuration sums these signals $v_1 = 135.1\pm 0.8$ mV and $v_2 = 101.3\pm 0.8$ mV using the resistors $R_1$ and $R_3$ as weights, giving as output $v_o = - R_2 (\frac{v_1}{R_1} + \frac{v_2}{R_3})$, which gives a pk-pk value of $516.7\pm 2.7$ mV. The theory in this case it's not at all compatible with the measurament $506\pm 0.8$ mV, but that's, most likely, caused by the noise in the output.
 \chapter{Let's get more confident with our little friend op-amp}
 We designed a non-inverting amplifier with a variable gain by using a trimmer. The second circuit designed was a summing amplifier with an unitary gain. We built a current source generator of $1$mA and tested it with a variable load. We tested the efficacy of the emitter follower configuration in mismatching the source's impedence. Last we designed a differential amplifier with a predetermined gain.
 \section{Materials}

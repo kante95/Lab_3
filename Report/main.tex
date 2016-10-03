@@ -31,7 +31,7 @@ bottom=3cm, bindingoffset=1cm]{geometry}
 \input{title}
 \tableofcontents
 \chapter{Basic circuits with an operational amplifier}
-In this experiment we have built five different circuits. The first is an open loop circuit with the operational amplifier uA741, the goal was to find the maximum voltage outputed by the op-amp. The last four circuits are in closed loop configuration with a negative feedback, they consist in a follower, a non inverting amplifier, an inverting amplifier and a weighted summing amplifier. We have measured the voltage input and the voltage output of every circut.
+In this experiment we have built five different circuits. The first is an open loop circuit with the operational amplifier uA741, the goal was to find the maximum voltage output by the op-amp. The last four circuits are in closed loop configuration with a negative feedback, they consist in a follower, a non inverting amplifier, an inverting amplifier and a weighted summing amplifier. We have measured the voltage input and the voltage output of every circut.
 \section{Materials}
 \begin{itemize}
 \item Operational amplifier uA741
@@ -43,7 +43,7 @@ In this experiment we have built five different circuits. The first is an open l
 \end{itemize}
 \section{Experiment setup}
 In the first four circuits the output of the waveform generator was a sine wave of 100Hz frequency and a peak-peak voltage of 100mV.
-We measured the waveform output signal and the output voltage $v_o$ of the op-amp. The measurements were performed using an oscilloscope triggered externally, the signal acquired is an 8 cyles average. The voltage supply of the op-amp was set to $v_{cc} = 15$V for all the circuits.\\
+We measured the waveform input signal $v_{in}$ and the output voltage $v_o$ of the op-amp. The measurements were performed using an oscilloscope triggered externally, the signal acquired is an 8 cycles average. The voltage supply of the op-amp was set to $v_{cc} = 15$V for all the circuits.\\
 \begin{figure}[H]
 \centering
 \begin{minipage}{.5\textwidth}
@@ -110,7 +110,7 @@ We measured the waveform output signal and the output voltage $v_o$ of the op-am
 \caption{Inverting amplifier}
 \end{minipage}
 \end{figure}
-For the last circuit we used another sine wave signal with the same 100Hz frequency and a different peak-peak voltage. The oscilloscope's setting and the measurement taken was the same as before.\\The values of the resistor are:  $R_1 =99.89 \pm 0.02$, $R_2 = 218.37\pm 0.04$, $R_3 = 99.89\pm 0.02$, measurement made with the multimeter.
+For the last circuit we used another sine wave signal with the same 100Hz frequency and a different peak-peak voltage. The oscilloscope's setting and the measurement taken was the same as before.\\The values of the resistor are:  $R_1 =99.89 \pm 0.02$, $R_2 = 218.37\pm 0.04$, $R_3 = 99.89\pm 0.02$ (the measurement were made with the multimeter).
 \begin{figure}[H]
 \centering
 \begin{circuitikz}
@@ -134,31 +134,32 @@ For the last circuit we used another sine wave signal with the same 100Hz freque
 \includegraphics[width=.7\textwidth]{img/scope1.png}
 \caption{Open loop configuration}
 \end{figure}
-In the open loop configuration we get an output (visible in the figure one) that has a max absolute value of $14.35\pm 0.16$\footnote{Error based on oscilloscope's 8 bit resolution} V and changes sign with the input. This is what we can expect from the ideal model of the op-amp as justified from the equation $v_o = A_{ol}(v_+-v_-)$ where $A_{ol}$ tends to infinity. In the physical case the output voltage is costrained by the saturation voltage that's determinated by the voltage applied to the op-amp.
+In the open loop configuration we get an output (visible in the figure one) that has a max absolute value of $14.35\pm 0.16$\footnote{Error based on oscilloscope's 8 bit resolution} V and a minimum value of $-12.94\pm 0.16^1$ V. In the ideal model we would expect the output to be infinite, as justified from the equation $v_o = A_{ol}(v_+-v_-)$ where $A_{ol}$ tends to infinity. In the physical case the output voltage is costrained by the saturation voltage that's determinated by the voltage applied to the op-amp.
+The minimum and maximum value of the output have different absolute value, due to the lack of symmetry between the \emph{npn} and \emph{pnp} trasistors in the final push-pull stage of the op-amp. 
 \begin{figure}[H]
 \centering
 \includegraphics[width=.7\textwidth]{img/scope2.png}
 \caption{Emitter follower}
 \end{figure}
-In the emitter follower we expect, ideally, an output voltage equal to the input one. But we can see in the plot a small discrepancy between the two signals: that is determined, as before, by the non-ideality of the op-amp.
+In the emitter follower we expect, ideally, an output voltage equal to the input one. But we can see in the plot a small discrepancy between the two signals: that is determined probably by the op-amp's offset, as we can see a downward translation in the output, and also by some other non ideal features of the op-amp.
 \begin{figure}[H]
 \centering
 \includegraphics[width=.7\textwidth]{img/scope3.png}
 \caption{Non-inverting amplifier}
 \end{figure}
-In the non-inverting amplifier configuration we expect the output to be: $v_o = v_{in} (1 + \frac{R_2}{R_1})$. We can see the measured output is compatible with the theoretical value avalable in the table().
+In the non-inverting amplifier configuration we expect the output to be: $v_o = v_{in} (1 + \frac{R_2}{R_1})$. The theoretical value calculated using the $v_{in}$ and $R_2$, $R_1$ is $320.3\pm 1.9$ mV. This prediction is not compatible with the output measured $313.4\pm 0.8$, probably because the op-amp is not ideal. 
 \begin{figure}[H]
 \centering
 \includegraphics[width=.7\textwidth]{img/scope4.png}
 \caption{Inverting amplifier}
 \end{figure}
-In the circuit x the output should be : $v_o = - v_{in} \frac{R_2}{R_1}$. We see in the table x that the experimental value is compatible.
+In the circuit x the output should be : $v_o = - v_{in} \frac{R_2}{R_1}$. The pk-pk of the output is $219.4\pm 0.8$ mV that is compatible with theoretical value $219.8\pm 1.9$ mV.
 \begin{figure}[H]
 \centering
 \includegraphics[width=.7\textwidth]{img/scope5.png}
 \caption{Weighted summing circuit}
 \end{figure}
-In the circuit y we used two inputs for aquiring an output voltage. This configuration sums these signals using the resistors $R_1$ and $R_2$ as weights, giving as output $v_o = - R_3 (\frac{v_1}{R_1} + \frac{v_2}{R_3})$, that we correctly measured.
+In the circuit y we used two inputs for aquiring an output voltage. This configuration sums these signals $v_1 = 135.1\pm 0.8$ mV and $v_2 = 101.3\pm 0.8$ mV using the resistors $R_1$ and $R_3$ as weights, giving as output $v_o = - R_2 (\frac{v_1}{R_1} + \frac{v_2}{R_3})$, which gives a pk-pk value of $516.7\pm 2.7$ mV. The theory in this case it's not at all compatible with the measurament $506\pm 0.8$ mV, but that's, most likely, caused by the noise in the output.
 \chapter{Let's get more confident with our little friend op-amp}
 We designed a non-inverting amplifier with a variable gain by using a trimmer. The second circuit designed was a summing amplifier with an unitary gain. We built a current source generator of $1$mA and tested it with a variable load. We tested the efficacy of the emitter follower configuration in mismatching the source's impedence. Last we designed a differential amplifier with a predetermined gain.
 \section{Materials}

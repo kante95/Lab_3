@@ -191,7 +191,7 @@ We designed a non-inverting amplifier with a variable gain by using a trimmer. T
 	
 	\draw(-1.5,.5) to[short](-1.5,2.2) to[R=$R_f$](0,2.2) to[vR=$R_x$] (1.5,2.2)  to[short](1.5,0);
 \end{circuitikz}
-\caption{Roba}
+\caption{Non-inverting variable amplifier}
 \end{figure}
 \begin{figure}[H]
 \centering
@@ -210,7 +210,7 @@ We designed a non-inverting amplifier with a variable gain by using a trimmer. T
 	\draw(opamp.-) -- (-1.5,.5) to[short](-1.5,2.2) to[R=$R_4$](1.5,2.2) to[short](1.5,0);
 	\draw(-1.5,2.2) to[R=$R_3$] (-4,2.2)node[ground] {};
 \end{circuitikz}
-\caption{Roba}
+\caption{Non-inverting summing amplifier, unitary gain}
 \end{figure}
 \begin{figure}[H]
 \centering
@@ -228,7 +228,7 @@ We designed a non-inverting amplifier with a variable gain by using a trimmer. T
 	
 	\draw(-1.5,.5) to[short](-1.5,2.2) to[R=$R_x$] (1.7,2.2)to[myvoltmeter](1.7,0);
 \end{circuitikz}
-\caption{Roba}
+\caption{Current source generator}
 \end{figure}
 
 \begin{figure}[H]
@@ -237,7 +237,7 @@ We designed a non-inverting amplifier with a variable gain by using a trimmer. T
 \draw(0,0)node[ground]{} to[sV] (0,2) to[R=$R$,-o]node[right,xshift=.8em] {$v_o$} (2,2);
 \draw(1.8,2) to[R=$R_L$](1.8,0)node[ground]{};
 \end{circuitikz}
-\caption{Roba}
+\caption{Test circuit without follower}
 \end{figure}
 \begin{figure}[H]
 \centering
@@ -255,7 +255,7 @@ We designed a non-inverting amplifier with a variable gain by using a trimmer. T
 	\draw(-1.5,.5) to[short](-1.5,2.2)to[short] (1.5,2.2)  to[short](1.5,0);
 	\draw(1.6,0) to[R=$R_L$] (1.6,-2)node[ground]{};
 \end{circuitikz}
-\caption{Roba}
+\caption{Test circuit with follower}
 \end{figure}
 
 \begin{figure}[H]
@@ -275,12 +275,13 @@ We designed a non-inverting amplifier with a variable gain by using a trimmer. T
 	\draw(opamp.-) -- (-1.5,.5) to[short](-1.5,2.2) to[R=$R_F$](1.5,2.2) to[short](1.5,0);
 	\draw(-1.5,2.2) to[R=$R_1$,-o] (-4,2.2)node[left] {$v_A$};
 \end{circuitikz}
-\caption{Roba}
+\caption{differential amplifier}
 \end{figure}
 
-In all the circuit we placed two capacitors connecting the op-amp's pins for the power supplying to the ground. This was done with the aim of reducing the noise in the output.
-In the current generator we used a DC voltage generator of $x$V and we placed the trimmer in the feedback branch. In all the other circuits we used an input with an amplitude of $1$V and a frequency of $100$Hz.
-In the summing amplifier we used resistors $R_1$ $R_2$ and $R_3$ $R_4$ of equal ratio, for obtaining a gain of one.
+In each circuit we powered the OP-AMP with a 15V peak-peak DC voltage and, in order to reduce possible noise, we added two 10nF capacitors connecting  the op-amp's pins for the power supply with the ground. The input voltage used was always a 1V peak-peak sine wave at 100Hz.\\
+Non-inverting amplifier: we placed a 1k$\Omega$ trimmer along the feedback branch in series to a 5k$\Omega$ fixed resistor (added to prevent a possible trimmer breakage). In order to have an open loop gain A=5, we put a 1k$\Omega$ resistor in the inverting pin.\\
+Summing amplifier: caring for simple calculations, we used $R_1$=$R_2$=$?\Omega$ and demanding an unitary gain, we also chose $R_3$=$R_4$=$?\Omega$.\\
+Current generator: besides a resistance $R_3=?\Omega$?
 In the emitter follower test, we first built the circuit in figure X and then the circuit in figure Y and we examined the difference in the output.
 In the differential amplifier we first used just one input signal V$1$ and we put to ground the non-inverting input. This way we were able to measure the gain of the circuit. And we built the configuration in figure X using V$1 =$ V$2$ and we tried to get an output equal to $0$ by changing the resistace of the trimmer that is in serie with R$1$.
 

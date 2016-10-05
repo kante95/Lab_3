@@ -320,6 +320,10 @@ In the first circuit we aquired $V_{os}$ directly, by measuring with the multimi
 We used the second circuit to amplify $V_{os}$, thus we used the output to calculate $V_{os}$.
 The third circuit is identical to  the second circuit except for the added resistor in parallel that connect v$_-$ to the ground. This was done for removing the influence of the current of bias in the measurament. It is, using this circuit, that we tried to remove $V_{os}$ by using a trimmer connected to the pins 1 and 5 and trying to make the output closest that we could to 0.
 The fourth circuit and fifth are used for measuring the current of bias indirectly using how the two currents are related to the output.
+The sixth circuit was used for measuring the maximum current that the op-amp can erogate. In this configuration the oscilloscope's internal resitor was set to $50 \Omega$
+In the seventh circuit we measured the slew rate. The capacitor use was 1 $\pm$ 0.05 nF and a resistor of 2 $\pm$ 0.1 k$\Omega$. The input used was a 10 V  square wave, so we aquired the image of the raising output.
+In the last circuit we measured the common gain by using the differential amplifier with the same input 2 V peak-peak and 100 Hz.
+
 \begin{figure}[H]
 \centering
 \begin{circuitikz}

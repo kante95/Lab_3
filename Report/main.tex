@@ -305,7 +305,29 @@ In this set of experiments we dealt with the problems of a real op-amp such as t
 \item Multimeter RIGOL DM3068
 \item Oscilloscope BOH
 \end{itemize}
+
+\begin{tabular}{ |p{3cm}||p{3cm}|p{3cm}| }
+ \hline
+ \multicolumn{3}{|c|}{List of resistors used} \\
+ \hline
+ Resistor name & Value [$\Omega$] & Uncertainty [$\Omega$]\\
+ \hline
+ R$_{\text{M}\Omega}$   & 982.0 $\times$ 10$^3$ & 0.1 $\times$ 10$^3$  \\
+ R$_{100\text{k}\Omega}$& 99.22 $\times$ 10$^3$ & 0.01 $\times$ 10$^3$ \\
+ R$_{10\text{k}\Omega}$ &   9906.2            & 1.2         \\
+ R$_{\text{k}\Omega}$   &  1001.4             & 0.1         \\
+ R$_{10\Omega}$         &  9.963              & 0.01        \\
+ R$_{\text{k}\Omega}^*$ &  9926.4             & 1.2         \\
+ R$_{10\Omega}^*$       &10.00                & 0.01        \\
+ 
+ \hline
+\end{tabular}
 \section{Experiment setup}
+In all the circuits we placed on the power supply's pins two capacitor each, one with high capacitace (nominal value 470 $\pm$ 23 nF) and one with low capacitance (10.0 $\pm$ 0.5 nF). These were used for suppressing the high-frequency noise and contrastig the effect of any eventual change in the voltage of the power supply, that could move the offset voltage.
+In the first circuit we aquired $V_{os}$ directly, by measuring with the multimiter the output voltage.
+We used the second circuit to amplify $V_{os}$, thus we used the output to calculate $V_{os}$.
+The third circuit is identical to  the second circuit except for the added resistor in parallel that connect v$_-$ to the ground. This was done for removing the influence of the current of bias in the measurament. It is, using this circuit, that we tried to remove $V_{os}$ by using a trimmer connected to the pins 1 and 5 and trying to make the output closest that we could to 0.
+The fourth circuit and fifth are used for measuring the current of bias indirectly using how the two currents are related to the output.
 \begin{figure}[H]
 \centering
 \begin{circuitikz}

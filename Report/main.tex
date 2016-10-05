@@ -278,6 +278,14 @@ We designed a non-inverting amplifier with a variable gain by using a trimmer. T
 \caption{differential amplifier}
 \end{figure}
 
+<<<<<<< HEAD
+In each circuit we powered the OP-AMP with a 15V peak-peak DC voltage and, in order to reduce possible noises, we added two 10nF capacitors connecting  the op-amp's pins for the power supply with the ground. The input voltage used was always a 1V peak-peak sine wave at 100Hz.\\
+Non-inverting amplifier: we placed a 1k$\Omega$ trimmer along the feedback branch in series to a 5k$\Omega$ fixed resistor ($R_f$, added to prevent a possible trimmer breakage). In order to have the needed open loop gain A=5, we put a 1k$\Omega$ resistor ($R_{in}$) in the inverting pin.\\
+Summing amplifier: caring for the simplest calculations, we used $R_1$=$R_2$=$?\Omega$ and demanding an unitary gain, we also chose $R_3$=$R_4$=$?\Omega$.\\
+Current generator: besides a resistance $R_3=?\Omega$ at the signal entrance (inverting pin, 4.7V DC), we added a 10k$\Omega$ trimmer along the feedback branch. The non-invertent pin was set to common voltage.\\
+Emitter follower test: at first we built a circuit without the emitter follower using two resistors in series: $R=100k\Omega$ and $R_L=20k\Omega$ and measuring the voltage at $R_L$ ends, than we added the OP-AMP between the two resistors and checked the changes with the previous voltage.\\
+Differential amplifier: we first set to ground the non-inverting input, being able to set up the gain of the circuit (we chose it to be 2 with $R_F =?\Omega$ and $R_1=?\Omega$). Once measured the output we put the same signal also at the non-inverting pin and two resistors as in figure ?, $R_f=?\Omega$ and a ?$\Omega$ trimmer ($R_y$), setting the last in order to obtain a null output voltage. At this point we sent a signal and measured the output.\\
+=======
 In each circuit we powered the OP-AMP with a 15V peak-peak DC voltage and, in order to reduce possible noise, we added two 10nF capacitors connecting  the op-amp's pins for the power supply with the ground. The input voltage used was always a 1V peak-peak sine wave at 100Hz.\\
 Non-inverting amplifier: we placed a 1k$\Omega$ trimmer along the feedback branch in series to a 5k$\Omega$ fixed resistor (added to prevent a possible trimmer breakage). In order to have an open loop gain A=5, we put a 1k$\Omega$ resistor in the inverting pin.\\
 Summing amplifier: caring for simple calculations, we used $R_1$=$R_2$=$?\Omega$ and demanding an unitary gain, we also chose $R_3$=$R_4$=$?\Omega$.\\
@@ -509,5 +517,6 @@ The fourth circuit and fifth are used for measuring the current of bias indirect
 \caption{Roba}
 \end{figure}
 \section{Data analysis}
+>>>>>>> ec35d71389374ad5ab0ac8ed0124fc1b17825d94
 \end{document} 
 

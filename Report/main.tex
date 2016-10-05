@@ -278,11 +278,111 @@ We designed a non-inverting amplifier with a variable gain by using a trimmer. T
 \caption{differential amplifier}
 \end{figure}
 
+<<<<<<< HEAD
 In each circuit we powered the OP-AMP with a 15V peak-peak DC voltage and, in order to reduce possible noises, we added two 10nF capacitors connecting  the op-amp's pins for the power supply with the ground. The input voltage used was always a 1V peak-peak sine wave at 100Hz.\\
 Non-inverting amplifier: we placed a 1k$\Omega$ trimmer along the feedback branch in series to a 5k$\Omega$ fixed resistor ($R_f$, added to prevent a possible trimmer breakage). In order to have the needed open loop gain A=5, we put a 1k$\Omega$ resistor ($R_{in}$) in the inverting pin.\\
 Summing amplifier: caring for the simplest calculations, we used $R_1$=$R_2$=$?\Omega$ and demanding an unitary gain, we also chose $R_3$=$R_4$=$?\Omega$.\\
 Current generator: besides a resistance $R_3=?\Omega$ at the signal entrance (inverting pin, 4.7V DC), we added a 10k$\Omega$ trimmer along the feedback branch. The non-invertent pin was set to common voltage.\\
 Emitter follower test: at first we built a circuit without the emitter follower using two resistors in series: $R=100k\Omega$ and $R_L=20k\Omega$ and measuring the voltage at $R_L$ ends, than we added the OP-AMP between the two resistors and checked the changes with the previous voltage.\\
 Differential amplifier: we first set to ground the non-inverting input, being able to set up the gain of the circuit (we chose it to be 2 with $R_F =?\Omega$ and $R_1=?\Omega$). Once measured the output we put the same signal also at the non-inverting pin and two resistors as in figure ?, $R_f=?\Omega$ and a ?$\Omega$ trimmer ($R_y$), setting the last in order to obtain a null output voltage. At this point we sent a signal and measured the output.\\
+=======
+In each circuit we powered the OP-AMP with a 15V peak-peak DC voltage and, in order to reduce possible noise, we added two 10nF capacitors connecting  the op-amp's pins for the power supply with the ground. The input voltage used was always a 1V peak-peak sine wave at 100Hz.\\
+Non-inverting amplifier: we placed a 1k$\Omega$ trimmer along the feedback branch in series to a 5k$\Omega$ fixed resistor (added to prevent a possible trimmer breakage). In order to have an open loop gain A=5, we put a 1k$\Omega$ resistor in the inverting pin.\\
+Summing amplifier: caring for simple calculations, we used $R_1$=$R_2$=$?\Omega$ and demanding an unitary gain, we also chose $R_3$=$R_4$=$?\Omega$.\\
+Current generator: besides a resistance $R_3=?\Omega$?
+In the emitter follower test, we first built the circuit in figure X and then the circuit in figure Y and we examined the difference in the output.
+In the differential amplifier we first used just one input signal V$1$ and we put to ground the non-inverting input. This way we were able to measure the gain of the circuit. And we built the configuration in figure X using V$1 =$ V$2$ and we tried to get an output equal to $0$ by changing the resistace of the trimmer that is in serie with R$1$.
+
+\chapter{Unfortunately the op-amp is not so ideal}
+In this set of experiments we dealt with the problems of a real op-amp such as the offset $v_{os}$, the bias currents $i_{b+},i_{b-}$, the slew-rate, the maximum current outputed and the common gain $A_{cm}$, we performed the measures of these real parameters. The offset is studied with 3 different circuit and then compensated with a trimmer in the configuration suggested by the op-amp's datasheet. The bias currents was measured in two way, one for the bias current in the $+$'s op-amp input and one for the $-$'s op-amp input. The other parameters are studied simply adjusting the input for the measurement's purpose.
+
+\section{Materials}
+\begin{itemize}
+\item Operational amplifier uA741
+\item Resistors, trimmer
+\item Power supply RIGOL DP831A
+\item Waveform generator RIGOL DG1032
+\item Multimeter RIGOL DM3068
+\item Oscilloscope BOH
+\end{itemize}
+\section{Experiment setup}
+\begin{figure}[H]
+\centering
+\begin{circuitikz}
+ 	\draw(0,0) node[op amp] (opamp) {}
+	%(opamp.+) node[left] {$v_+$}
+	(opamp.-) ++ (-.3,0) -- (opamp.-) 
+	(opamp.-) ++ (-.3,0) -- (-1.5,1.8) -- (1.6,1.8) -- (1.6,0)
+	(opamp.out) to [short,-o](1.8,0) node[right] {$v_o$}
+	(opamp.up) ++(0,.5) node[above] {$-v_{cc}$} -- (opamp.up)
+	(opamp.down) ++ (0,-.5) node[below] {$+v_{cc}$} -- (opamp.down)
+	(opamp.down) ++ (0,-.25)to[C,/tikz/circuitikz/bipoles/length=1cm] (1,-.8)node[ground,rotate = 90,yshift = 1em] {}
+	(opamp.up) ++ (0,.25)to[C,/tikz/circuitikz/bipoles/length=1cm] (1,.8)node[ground,rotate = 90,yshift = 1em] {};
+	\draw(opamp.+) ++ (-.3,0)node[ground] {} -- (opamp.+);
+	\end{circuitikz}
+\caption{Offset voltage's direct measure}
+\end{figure}
+\begin{figure}[H]
+\centering
+\begin{circuitikz}
+\draw(0,0) node[op amp] (opamp) {}
+	%(opamp.+) node[left] {$v_+$}
+	(opamp.+) ++ (-.3,0) node[ground] {} -- (opamp.+) 
+	(opamp.out) to [short,-o](1.8,0) node[right] {$v_o$}
+	(opamp.down) ++(0,-.5) node[below] {$-v_{cc}$} -- (opamp.down)
+	(opamp.up) ++ (0,.5) node[above] {$+v_{cc}$} -- (opamp.up)
+	(opamp.down) ++ (0,-.25)to[C,/tikz/circuitikz/bipoles/length=1cm] (1,-.8)node[ground,rotate = 90,yshift = 1em] {}
+	(opamp.up) ++ (0,.25)to[C,/tikz/circuitikz/bipoles/length=1cm] (1,.8)node[ground,rotate = 90,yshift = 1em] {};
+	\draw(-3.5,.5) to[R=$R_3$] (-1.5,.5) to[short] (opamp.-);
+	\draw(-3.5,.5) node[ground] {};
+	\draw(-1.5,.5) to[short](-1.5,2.2) to[R=$R_2$](1.5,2.2) to[short](1.5,0);
+\end{circuitikz}
+\caption{Roba}
+\end{figure}
+\begin{figure}[H]
+\centering
+\begin{circuitikz}
+\draw(0,0) node[op amp] (opamp) {}
+	%(opamp.+) node[left] {$v_+$}
+	%(opamp.+) ++ (-.3,0) node[ground] {} -- (opamp.+) 
+	(opamp.out) to [short,-o](1.8,0) node[right] {$v_o$}
+	(opamp.down) ++(0,-.5) node[below] {$-v_{cc}$} -- (opamp.down)
+	(opamp.up) ++ (0,.5) node[above] {$+v_{cc}$} -- (opamp.up)
+	(opamp.down) ++ (0,-.25)to[C,/tikz/circuitikz/bipoles/length=1cm] (1,-.8)node[ground,rotate = 90,yshift = 1em] {}
+	(opamp.up) ++ (0,.25)to[C,/tikz/circuitikz/bipoles/length=1cm] (1,.8)node[ground,rotate = 90,yshift = 1em] {};
+	\draw(-3.5,.5) to[R=$R_3$] (-1.5,.5) to[short] (opamp.-);
+	\draw(-3.5,.5) node[ground] {};
+	\draw(-1.5,.5) to[short](-1.5,2.2) to[R=$R_2$](1.5,2.2) to[short](1.5,0);
+	
+	\draw(opamp.+) to[short](-1.7,-.5)to[short](-1.7,-1) to[short](-2.1,-1) to[R](-2.1,-3)to[short](-1.7,-3)node[ground]{};
+	\draw(-1.7,-1)to[short](-1.3,-1)to[R](-1.3,-3)to[short](-1.7,-3);
+\end{circuitikz}
+\caption{Roba}
+\end{figure}
+\begin{figure}[H]
+\centering
+\begin{circuitikz}
+\draw(0,0) node[op amp] (opamp) {}
+	%(opamp.+) node[left] {$v_+$}
+	%(opamp.+) ++ (-.3,0) node[ground] {} -- (opamp.+) 
+	(opamp.out) to [short,-o](1.8,0) node[right] {$v_o$}
+	(opamp.down) ++(0,-.5) node[below] {$-v_{cc}$} -- (opamp.down)
+	(opamp.up) ++ (0,.5) node[above] {$+v_{cc}$} -- (opamp.up)
+	(opamp.down) ++ (0,-.25)to[C,/tikz/circuitikz/bipoles/length=1cm] (1,-.8)node[ground,rotate = 90,yshift = 1em] {}
+	(opamp.up) ++ (0,.25)to[C,/tikz/circuitikz/bipoles/length=1cm] (1,.8)node[ground,rotate = 90,yshift = 1em] {};
+	\draw(-3.5,.5) to[R=$R_3$] (-1.5,.5) to[short] (opamp.-);
+	\draw(-3.5,.5) node[ground] {};
+	\draw(-1.5,.5) to[short](-1.5,2.2) to[R=$R_2$](1.5,2.2) to[short](1.5,0);
+	\draw(opamp.+) to[short](-1.2,-.5)to[R](-1.2,-2.5)node[ground]{};
+
+	\draw(opamp.down) ++ (-.45,-.25)to[short](-0.53,-2)to[R](1.53,-2);
+	\draw(opamp.down) ++ (.8,.48) to[short](.715,-.35) to[short](1.53,-.35) to[short](1.53,-2);
+	%\draw(opamp.down) ++ (0,.5) to [short](0,-.5);
+\end{circuitikz}
+\caption{Roba}
+\end{figure}
+
+\section{Data analysis}
+>>>>>>> ec35d71389374ad5ab0ac8ed0124fc1b17825d94
 \end{document} 
-\grid
+

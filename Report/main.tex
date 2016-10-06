@@ -111,7 +111,7 @@ We measured the waveform input signal $v_{in}$ and the output voltage $v_o$ of t
 \caption{Inverting amplifier}
 \end{minipage}
 \end{figure}
-For the last circuit we used another sine wave signal with the same 100Hz frequency and a different peak-peak voltage. The oscilloscope's setting and the measurement taken was the same as before.\\The values of the resistor are:  $R_1 =99.89 \pm 0.02$, $R_2 = 218.37\pm 0.04$, $R_3 = 99.89\pm 0.02$ (the measurement were made with the multimeter).
+For the last circuit we used another sine wave signal with the same 100Hz frequency and a different peak-peak voltage. The oscilloscope's setting and the measurement taken was the same as before.\\The values of the resistor are:  $R_1 =99.89 \pm 0.02\,\Omega$, $R_2 = 218.37\pm 0.04\,\Omega$, $R_3 = 99.89\pm 0.02\,\Omega$ (the measurement were made with the multimeter).
 \begin{figure}[H]
 \centering
 \begin{circuitikz}
@@ -149,7 +149,7 @@ In the emitter follower we expect, ideally, an output voltage equal to the input
 \includegraphics[width=.7\textwidth]{img/scope3.png}
 \caption{Non-inverting amplifier}
 \end{figure}
-In the non-inverting amplifier configuration we expect the output to be: $v_o = v_{in} (1 + \frac{R_2}{R_1})$. The theoretical value calculated using the $v_{in}$ and $R_2$, $R_1$ is $320.3\pm 1.9$ mV. This prediction is not compatible with the output measured $313.4\pm 0.8$, probably because the op-amp is not ideal. 
+In the non-inverting amplifier configuration we expect the output to be: $v_o = v_{in} (1 + \frac{R_2}{R_1})$. The theoretical value calculated using the $v_{in}$ and $R_2$, $R_1$ is $320.3\pm 1.9$ mV. This prediction is not compatible with the output measured $313.4\pm 0.8$ mV, probably because the op-amp is not ideal. 
 \begin{figure}[H]
 \centering
 \includegraphics[width=.7\textwidth]{img/scope4.png}
@@ -162,8 +162,9 @@ In the inverting amplifier the output should be : $v_o = - v_{in} \frac{R_2}{R_1
 \caption{Weighted summing circuit}
 \end{figure}
 In the circuit \eqref{weightedsummingamplifier} we used two inputs for aquiring an output voltage. This configuration sums these signals $v_1 = 135.1\pm 0.8$ mV and $v_2 = 101.3\pm 0.8$ mV using the resistors $R_1$ and $R_3$ as weights, giving as output $v_o = - R_2 (\frac{v_1}{R_1} + \frac{v_2}{R_3})$, which gives a pk-pk value of $516.7\pm 2.7$ mV. The theory in this case it's not at all compatible with the measurament $506\pm 0.8$ mV, but that's, most likely, caused by the noise in the output.
+
 \chapter{Let's get more confident with our little friend op-amp}
-We designed a non-inverting amplifier with a variable gain by using a trimmer. The second circuit designed was a summing amplifier with an unitary gain. We built a current source generator of $1$mA and tested it with a variable load. We tested the efficacy of the emitter follower configuration in mismatching the source's impedence. Last we designed a differential amplifier with a predetermined gain.
+We designed a non-inverting amplifier with a variable gain by using a trimmer. The second circuit designed was a summing amplifier with an unitary gain. We built a current source generator of $1$ mA and tested it with a variable load. We tested the efficacy of the emitter follower configuration in mismatching the source's impedence. Last we designed a differential amplifier with a predetermined gain.
 \section{Materials}
 \begin{itemize}
 \item Operational amplifier uA741
@@ -171,12 +172,19 @@ We designed a non-inverting amplifier with a variable gain by using a trimmer. T
 \item Power supply RIGOL DP831A
 \item Waveform generator RIGOL DG1032
 \item Multimeter RIGOL DM3068
-\item Oscilloscope (To be inserted)
+\item Oscilloscope RIGOL MS02102A
 \item Two capacitance of nominal value of $100$nF
 \end{itemize}
 \section{Experiment setup}
+In each circuit we powered the op-amp with a $\pm15$ V DC voltage and, in order to reduce possible noises, we added two 100nF capacitors connecting the op-amp's pins for the power supply with the ground. The input signal has a frequency of 100 Hz and a peak-peak voltage of 1V except for the differential amplifier.For every specific circuit we designed them as follow:
+\begin{itemize}
+\item Inverting amplifier: we placed a 10k$\Omega$ trimmer along the feedback branch in series to a resistor $R_f = 983.9 \pm 0.1 \Omega$. In order to have a minimal gain of 5, we used $R_{in} = 199.84\pm 0.03 \Omega$ as in figure \eqref{Non-inverting variable amplifier}.
+\item Summing amplifier: caring for the simplest calculations, we used $R_1 = 1484.7 \pm 0.2 \Omega \simeq R_2= 1483.5\pm 0.2\Omega$ so the equation is $\displaystyle\frac{v_1+v_2}{2}\left(1+\frac{R_4}{R_3}\right)$. For obtaining the sum of the input in output, we had to choose $R_3 = R_4 = 1001.3 \pm 0.1 \Omega$. The inputs $v_1$ and $v_2$ are the same 100 Hz, 1 V peak-peak sine wave signal.
+
 \begin{figure}[H]
 \centering
+\begin{minipage}{.5\textwidth}
+  \centering
 \begin{circuitikz}
 \draw(0,0) node[op amp] (opamp) {}
 	%(opamp.+) node[left] {$v_+$}
@@ -191,10 +199,10 @@ We designed a non-inverting amplifier with a variable gain by using a trimmer. T
 	
 	\draw(-1.5,.5) to[short](-1.5,2.2) to[R=$R_f$](0,2.2) to[vR=$R_x$] (1.5,2.2)  to[short](1.5,0);
 \end{circuitikz}
-\caption{Non-inverting variable amplifier}
-\end{figure}
-\begin{figure}[H]
-\centering
+\caption{Inverting variable amplifier}\label{Non-inverting variable amplifier}
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
+  \centering
 \begin{circuitikz}
 \draw(0,0) node[op amp] (opamp) {}
 	%(opamp.+) node[left] {$v_+$}
@@ -211,36 +219,21 @@ We designed a non-inverting amplifier with a variable gain by using a trimmer. T
 	\draw(-1.5,2.2) to[R=$R_3$] (-4,2.2)node[ground] {};
 \end{circuitikz}
 \caption{Non-inverting summing amplifier, unitary gain}
+\end{minipage}
 \end{figure}
+\item Emitter follower test: at first we built a circuit without the emitter follower using an input impedence of $R=100.2\pm 1\, \text{k}\Omega$ and a load of $R_L=19.8\pm 2\,\text{k}\Omega$.  Then we added the op-amp stage and compared the output measurements in the 2 different cases.
 \begin{figure}[H]
 \centering
-\begin{circuitikz}
-\draw(0,0) node[op amp] (opamp) {}
-	%(opamp.+) node[left] {$v_+$}
-	(opamp.+) ++ (-.3,0) node[ground] {} -- (opamp.+) 
-	(opamp.out) to[short] (1.8,0) node[right] {$v_o$}
-	(opamp.down) ++(0,-.7) node[below] {$-v_{cc}$} -- (opamp.down)
-	(opamp.up) ++ (0,.7) node[above] {$+v_{cc}$} -- (opamp.up)
-	(opamp.down) ++ (0,-.25)to[C,/tikz/circuitikz/bipoles/length=1cm] (1,-.8)node[ground,rotate = 90,yshift = 1em] {}
-	(opamp.up) ++ (0,.25)to[C,/tikz/circuitikz/bipoles/length=1cm] (1,.8)node[ground,rotate = 90,yshift = 1em] {};
-	\draw(-4,-.8) to[battery1] (-4,.5) to[R=$R_{3}$] (-2,.5) to[short] (opamp.-);
-	\draw(-4,-.5) node[ground] {};
-	
-	\draw(-1.5,.5) to[short](-1.5,2.2) to[R=$R_x$] (1.7,2.2)to[myvoltmeter](1.7,0);
-\end{circuitikz}
-\caption{Current source generator}
-\end{figure}
-
-\begin{figure}[H]
-\centering
+\begin{minipage}{.5\textwidth}
+  \centering
 \begin{circuitikz}
 \draw(0,0)node[ground]{} to[sV] (0,2) to[R=$R$,-o]node[right,xshift=.8em] {$v_o$} (2,2);
 \draw(1.8,2) to[R=$R_L$](1.8,0)node[ground]{};
 \end{circuitikz}
 \caption{Test circuit without follower}
-\end{figure}
-\begin{figure}[H]
-\centering
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
+  \centering
 \begin{circuitikz}
 \draw(0,0) node[op amp] (opamp) {}
 	%(opamp.+) node[left] {$v_+$}
@@ -256,10 +249,37 @@ We designed a non-inverting amplifier with a variable gain by using a trimmer. T
 	\draw(1.6,0) to[R=$R_L$] (1.6,-2)node[ground]{};
 \end{circuitikz}
 \caption{Test circuit with follower}
+\end{minipage}
 \end{figure}
+
+\item Current generator: the aim of this circuit is to generate a stable fixed current indipendent from the load. We generated a $1$ mA current using a DC voltage source of 5 V and a 4.9693 $\pm$ 0.7 k$\Omega$ resistor. The load was simulated with a trimmer. 
+\item Differential amplifier: the full equation the circuit in figure \eqref{differential amplifier} is the following:
+\[v_o = \frac{R_F}{R_1}\left[\frac{v_b}{1+R_f/Ry}\left(1+\frac{R_1}{R_f}\right)-v_a\right]\]
+we first set to ground $v_b$, in this way we were able to set up the gain of the circuit (we chose it to be $A=2$ with $R_F =3\pm 0.2\, \text{k}\Omega$ (5\% error of nominalvalue)). After that we put the same signal of $v_a$ in $v_b$ with a resistor $R_f$ and a variable resistor $R_y$ made with $R_2$ in series with a trimmer. We managed with the trimmer to get the output as close to zero as possibile. This means in the equation $R_f/R_y = R_1/R_F$ so the new output is exaclty what we want $v_0 = A(v_b-v_a)$. For testing the amplifier we used $v_a= 5$ V DC and for $v_b$ a sine wave 1 V peak-peak 100 Hz with an offset of 5 V.
+\end{itemize}
 
 \begin{figure}[H]
 \centering
+\begin{minipage}{.5\textwidth}
+  \centering
+\begin{circuitikz}
+\draw(0,0) node[op amp] (opamp) {}
+	%(opamp.+) node[left] {$v_+$}
+	(opamp.+) ++ (-.3,0) node[ground] {} -- (opamp.+) 
+	(opamp.out) to[short] (1.8,0) node[right] {$v_o$}
+	(opamp.down) ++(0,-.7) node[below] {$-v_{cc}$} -- (opamp.down)
+	(opamp.up) ++ (0,.7) node[above] {$+v_{cc}$} -- (opamp.up)
+	(opamp.down) ++ (0,-.25)to[C,/tikz/circuitikz/bipoles/length=1cm] (1,-.8)node[ground,rotate = 90,yshift = 1em] {}
+	(opamp.up) ++ (0,.25)to[C,/tikz/circuitikz/bipoles/length=1cm] (1,.8)node[ground,rotate = 90,yshift = 1em] {};
+	\draw(-4,-.8) to[battery1] (-4,.5) to[R=$R_{3}$] (-2,.5) to[short] (opamp.-);
+	\draw(-4,-.5) node[ground] {};
+	
+	\draw(-1.5,.5) to[short](-1.5,2.2) to[vR=$R_x$] (1.7,2.2)to[myvoltmeter](1.7,0);
+\end{circuitikz}
+\caption{Current source generator}
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
+  \centering
 \begin{circuitikz}
 \draw(0,0) node[op amp] (opamp) {}
 	%(opamp.+) node[left] {$v_+$}
@@ -270,28 +290,20 @@ We designed a non-inverting amplifier with a variable gain by using a trimmer. T
 	(opamp.down) ++ (0,-.25)to[C,/tikz/circuitikz/bipoles/length=1cm] (1,-.8)node[ground,rotate = 90,yshift = 1em] {}
 	(opamp.up) ++ (0,.25)to[C,/tikz/circuitikz/bipoles/length=1cm] (1,.8)node[ground,rotate = 90,yshift = 1em] {};
 	\draw(-4,-.5)node[left]{$v_B$} to[R=$R_{f}$,o-] (-2,-.5) to[short] (opamp.+);
-	\draw((-2,-.5) to[R=$R_{y}$] (-2,-2.5) node[ground]{};
+	\draw((-2,-.5) to[vR=$R_{y}$] (-2,-2.5) node[ground]{};
 
 	\draw(opamp.-) -- (-1.5,.5) to[short](-1.5,2.2) to[R=$R_F$](1.5,2.2) to[short](1.5,0);
 	\draw(-1.5,2.2) to[R=$R_1$,-o] (-4,2.2)node[left] {$v_A$};
 \end{circuitikz}
-\caption{differential amplifier}
+\caption{differential amplifier}\label{differential amplifier}
+\end{minipage}
 \end{figure}
-
-<<<<<<< HEAD
-In each circuit we powered the OP-AMP with a 15V peak-peak DC voltage and, in order to reduce possible noises, we added two 10nF capacitors connecting  the op-amp's pins for the power supply with the ground. The input voltage used was always a 1V peak-peak sine wave at 100Hz.\\
-Non-inverting amplifier: we placed a 1k$\Omega$ trimmer along the feedback branch in series to a 5k$\Omega$ fixed resistor ($R_f$, added to prevent a possible trimmer breakage). In order to have the needed open loop gain A=5, we put a 1k$\Omega$ resistor ($R_{in}$) in the inverting pin.\\
-Summing amplifier: caring for the simplest calculations, we used $R_1$=$R_2$=$?\Omega$ and demanding an unitary gain, we also chose $R_3$=$R_4$=$?\Omega$.\\
-Current generator: besides a resistance $R_3=?\Omega$ at the signal entrance (inverting pin, 4.7V DC), we added a 10k$\Omega$ trimmer along the feedback branch. The non-invertent pin was set to common voltage.\\
-Emitter follower test: at first we built a circuit without the emitter follower using two resistors in series: $R=100k\Omega$ and $R_L=20k\Omega$ and measuring the voltage at $R_L$ ends, than we added the OP-AMP between the two resistors and checked the changes with the previous voltage.\\
-Differential amplifier: we first set to ground the non-inverting input, being able to set up the gain of the circuit (we chose it to be 2 with $R_F =?\Omega$ and $R_1=?\Omega$). Once measured the output we put the same signal also at the non-inverting pin and two resistors as in figure ?, $R_f=?\Omega$ and a ?$\Omega$ trimmer ($R_y$), setting the last in order to obtain a null output voltage. At this point we sent a signal and measured the output.\\
-=======
-In each circuit we powered the OP-AMP with a 15V peak-peak DC voltage and, in order to reduce possible noise, we added two 10nF capacitors connecting  the op-amp's pins for the power supply with the ground. The input voltage used was always a 1V peak-peak sine wave at 100Hz.\\
-Non-inverting amplifier: we placed a 1k$\Omega$ trimmer along the feedback branch in series to a 5k$\Omega$ fixed resistor (added to prevent a possible trimmer breakage). In order to have an open loop gain A=5, we put a 1k$\Omega$ resistor in the inverting pin.\\
-Summing amplifier: caring for simple calculations, we used $R_1$=$R_2$=$?\Omega$ and demanding an unitary gain, we also chose $R_3$=$R_4$=$?\Omega$.\\
-Current generator: besides a resistance $R_3=?\Omega$?
-In the emitter follower test, we first built the circuit in figure X and then the circuit in figure Y and we examined the difference in the output.
-In the differential amplifier we first used just one input signal V$1$ and we put to ground the non-inverting input. This way we were able to measure the gain of the circuit. And we built the configuration in figure X using V$1 =$ V$2$ and we tried to get an output equal to $0$ by changing the resistace of the trimmer that is in serie with R$1$.
+\section{Data analysis}
+  GRAPHIC 2.7: VARIABLE INVERTING AMPLIFIER\\
+In the inverting amplifier we used a trimmer in order to vary the gain: increasing its resistance we get also a gain increase. When the output voltage reaches the value of the power one ($\pm 15$V), it cannot increase further and the signal goes flat, as we can see in figure 2.7 (light blue line): this behavior is called "Clipping".\\
+The graphic also shows a discrepance between the absolut value of maximum and minimum voltage during the clipping: this is due to the asimmetry between \emph{pnp} and \emph{npn} transistors in the OP-AMP.\\
+\\
+In the non-inverting summing amplifier circuit we wanted the output to be the simple sum of the signals in entrance, that were identical (sines, 1V peak-peak, 100Hz). We used
 
 \chapter{Unfortunately the op-amp is not so ideal}
 In this set of experiments we dealt with the problems of a real op-amp such as the offset $v_{os}$, the bias currents $i_{b+},i_{b-}$, the slew-rate, the maximum current outputed and the common gain $A_{cm}$, we performed the measures of these real parameters. The offset is studied with 3 different circuit and then compensated with a trimmer in the configuration suggested by the op-amp's datasheet. The bias currents was measured in two way, one for the bias current in the $+$'s op-amp input and one for the $-$'s op-amp input. The other parameters are studied simply adjusting the input for the measurement's purpose.
@@ -303,7 +315,7 @@ In this set of experiments we dealt with the problems of a real op-amp such as t
 \item Power supply RIGOL DP831A
 \item Waveform generator RIGOL DG1032
 \item Multimeter RIGOL DM3068
-\item Oscilloscope BOH
+\item Oscilloscope RIGOL MS02102A
 \end{itemize}
 
 \begin{tabular}{ |p{3cm}||p{3cm}|p{3cm}| }
@@ -517,6 +529,5 @@ The fourth circuit and fifth are used for measuring the current of bias indirect
 \caption{Roba}
 \end{figure}
 \section{Data analysis}
->>>>>>> ec35d71389374ad5ab0ac8ed0124fc1b17825d94
 \end{document} 
 

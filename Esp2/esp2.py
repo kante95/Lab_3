@@ -41,7 +41,11 @@ dRin = get_error(Rin)
 dR3 = get_error(R3)
 dR2 = get_error(R2)
 dR1 = get_error(R1)
+dR = get_error(100178)
+dRl = get_error(19863)
+dRc = get_error(4969.3)
 
+print dRF,dRin,dR3,dR2,dR2,dR,dRl,dRc
 
 plt.figure("Variable amplifier")
 _, _, vout1 = read_data("1_1.csv")

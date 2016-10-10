@@ -90,7 +90,7 @@ In each circuit we powered the op-amp with a $\pm15$ V DC voltage and, in order 
 \item Current generator: the aim of this circuit is to generate a stable fixed current indipendent from the load. We generated a $1$ mA current using a DC voltage source of 5 V and a 4.9693 $\pm$ 0.7 k$\Omega$ resistor. The load was simulated with a trimmer. 
 \item Differential amplifier: the full equation the circuit in figure \eqref{differential amplifier} is the following:
 \[v_o = \frac{R_F}{R_1}\left[\frac{v_b}{1+R_f/Ry}\left(1+\frac{R_1}{R_f}\right)-v_a\right]\]
-we first set to ground $v_b$, in this way we were able to set up the gain of the circuit (we chose it to be $A=2$ with $R_F =3\pm 0.2\, \text{k}\Omega$ (5\% error of nominalvalue)). After that we put the same signal of $v_a$ in $v_b$ with a resistor $R_f$ and a variable resistor $R_y$ made with $R_2$ in series with a trimmer. We managed with the trimmer to get the output as close to zero as possibile. This means in the equation $R_f/R_y = R_1/R_F$ so the new output is exaclty what we want $v_0 = A(v_b-v_a)$. For testing the amplifier we used $v_a= 5$ V DC and for $v_b$ a sine wave 1 V peak-peak 100 Hz with an offset of 5 V.
+we first set to ground $v_b$, in this way we were able to set up the gain of the circuit (we chose it to be $A=2$ with $R_F =3\pm 0.2\, \text{k}\Omega$ (5\% error of nominalvalue)). After that we put the same signal of $v_a$ in $v_b$ with a resistor $R_f$ and a variable resistor $R_y$ made with $R_2$ in series with a trimmer. We managed with the trimmer to get the output as close to zero as possibile (Figure \eqref{Tuning_diff-amplifier}). This means in the equation $R_f/R_y = R_1/R_F$ so the new output is exaclty what we want $v_0 = A(v_b-v_a)$. For testing the amplifier we used $v_a= 5$ V DC and for $v_b$ a sine wave 1 V peak-peak 100 Hz with an offset of 5 V.
 \end{itemize}
 
 \begin{figure}[H]
@@ -133,6 +133,11 @@ we first set to ground $v_b$, in this way we were able to set up the gain of the
 \caption{differential amplifier}\label{differential amplifier}
 \end{minipage}
 \end{figure}
+\begin{figure}[H]
+\centering
+\includegraphics[width=.7\textwidth]{2/Tuning_diff-amplifier.png}
+\caption{Calibration of the differential amplifier}\label{Tuning_diff-amplifier}
+\end{figure}
 \section{Data analysis}
 \begin{figure}[H]
 \centering
@@ -141,6 +146,24 @@ we first set to ground $v_b$, in this way we were able to set up the gain of the
 \end{figure}
 In the inverting amplifier we used a trimmer in order to vary the gain, in fact the equation is:
 \[v_{o} = -v_{in}\frac{R_f+R_x}{R_{in}}\]
-so increasing $R_x$ cause output to linear increasing. The output voltage is limited by the op-amps's power supply voltage, it cannot increase further and the signal goes flat, as we can see in figure \eqref{Variableamplifier} (light blue line), this behavior is called "Clipping". The graphic also shows a discrepance between the absolut value of maximum and minimum voltage during the clipping: this is due to the asimmetry between \emph{pnp} and \emph{npn} transistors in the op-amp's final stage.\\
-
-In the non-inverting summing amplifier circuit we wanted the output to be the simple sum of the signals in entrance, that were identical (sines, 1V peak-peak, 100Hz). We used
+so increasing $R_x$ cause output to linear increasing. The output voltage is limited by the op-amps's power supply voltage, it cannot increase further and the signal goes flat, as we can see in figure \eqref{Variableamplifier} (light blue line), this behavior is called ``Clipping''. The graphic also shows a discrepance between the absolut value of maximum and minimum voltage during the clipping: this is due to the asimmetry between \emph{pnp} and \emph{npn} transistors in the op-amp's final stage.
+\begin{figure}[H]
+\centering
+\includegraphics[width=.7\textwidth]{2/Weighted_amplifier.png}
+\caption{Weighted summing amplifier}\label{Weighted_amplifier}
+\end{figure}
+In the non-inverting summing amplifier circuit we wanted the output to be the simple sum of the signals in entrance, that were identical: it means that the output signal must have double amplitude compared to the input one. The peak-peak voltage's theoretical expectation is $2.0496 \pm 0.0009$ V while the measured one is $2.032 \pm 0.001 $ V. The incompatibility probably is due to the op-amp's non-ideality.
+\begin{figure}[H]
+\centering
+\includegraphics[width=.7\textwidth]{2/Emitter_follower_compared.png}
+\caption{Emitter follower comparison}\label{Emitter_follower_compared}
+\end{figure}
+Let's now analyse the differences between circuits with and without follower stage. We can see in figure \eqref{Emitter_follower_compared} that using the follower we obtain a replicated signal while without it the signal is shrinked due to the input impedence, in fact the op-amp stage's purpose is the impedence mismatching.\\
+\newline
+In the current generator circuit we firstly measured the output current that was the expected one, than we observed the indipendency from the trimmer resistence of the current value.
+\begin{figure}[H]
+\centering
+\includegraphics[width=.7\textwidth]{2/Differential_amplifier.png}
+\caption{Differential amplifier}\label{Differential amplifier}
+\end{figure}
+In the differential amplifier circuit we measured an output cleared from the DC part present in the input, the output value was the AC part doubled compared to the input one. This is exactly how we expected the circuit to behave.

@@ -3,3 +3,10 @@
 \contentsline {section}{\numberline {1.2}Experiment setup}{2}
 \contentsline {section}{\numberline {1.3}Data analysis}{4}
 \contentsline {chapter}{\numberline {2}Let's get more confident with our little friend op-amp}{7}
+\contentsline {section}{\numberline {2.1}Materials}{7}
+\contentsline {section}{\numberline {2.2}Experiment setup}{7}
+\contentsline {section}{\numberline {2.3}Data analysis}{9}
+\contentsline {chapter}{\numberline {3}Unfortunately the op-amp is not so ideal}{10}
+\contentsline {section}{\numberline {3.1}Materials}{10}
+\contentsline {section}{\numberline {3.2}Experiment setup}{10}
+\contentsline {section}{\numberline {3.3}Data analysis}{13}

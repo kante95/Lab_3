@@ -56,7 +56,7 @@ plt.plot(t*1000, vin, '', t * 1000, vout1, '', t * 1000, vout2, '', t * 1000, vo
 plt.xlabel("Time [ms]")
 plt.ylabel("Voltage [V]")
 plt.legend([r'$v_{in}$', r'$v_{o}$', r'$v_o$', r'$v_o$'], loc=2)
-
+plt.savefig("Variable_amplifier.png")
 
 plt.figure("Weighted amplifier")
 t, vin, vout = read_data("2_1.csv")
@@ -66,6 +66,7 @@ plt.plot(t * 1000, vout)
 plt.xlabel("Time [ms]")
 plt.ylabel("Voltage [V]")
 plt.legend([r'$v_{in}$', r'$v_{o}$'])
+plt.savefig("Weighted_amplifier.png")
 
 pkpk_Vin = max(vin) - min(vin)
 sum_Vin_Vin = pkpk_Vin
@@ -86,7 +87,9 @@ plt.plot(t * 1000, vout)
 plt.plot(t * 1000, vout2)
 plt.xlabel("Time [ms]")
 plt.ylabel("Voltage [V]")
-plt.legend([r'$v_{in}$', r'Senza follower', r'Con follower'])
+plt.legend([r'$v_{in}$', r'without follower', r'with follower'],fontsize=9)
+plt.savefig("Emitter_follower_compared.png")
+
 
 plt.figure("Tuning diff-amplifier")
 t, vin, vout = read_data("5_1.csv")
@@ -96,6 +99,8 @@ plt.plot(t * 1000, vout)
 plt.xlabel("Time [ms]")
 plt.ylabel("Voltage [V]")
 plt.legend([r'$v_{in}$', r'$v_0$'])
+plt.savefig("Tuning_diff-amplifier.png")
+
 
 plt.figure("Differential amplifier")
 t, vin, vout = read_data("5_2.csv")
@@ -105,6 +110,7 @@ plt.plot(t * 1000, vout)
 plt.xlabel("Time [ms]")
 plt.ylabel("Voltage [V]")
 plt.legend([r'$v_{in}$', r'$v_0$'])
+plt.savefig("Differential amplifier.png")
 
 plt.show()
  

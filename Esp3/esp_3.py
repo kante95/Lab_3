@@ -138,6 +138,6 @@ a, b, _, db, chi2 = regressione_lineare(t[slew_part], vout[slew_part], dv * np.o
 print 'The slew rate is:', round_to_err(b, db), '+-', round_to_last2(db), 'V / s'
 plot((t, vin, vout), 'Slew Ratio')
 plt.plot([-0.002, 0.012], [from_v, from_v], [-0.002, 0.012], [to_v, to_v], 'r')
-# plt.plot(t[slew_part] * 1000, (a + b * t[slew_part]), 'brown')
+#plt.plot(t[slew_part] * 1000, (a + b * t[slew_part]), 'brown')
 
 plt.show()

@@ -1,0 +1,27 @@
+\chapter{The gain with a changing frequency}
+ABSTRACT
+
+\section{Materials}
+\begin{itemize}
+\item Operational amplifier uA741
+\item Resistors, trimmer
+\item Power supply RIGOL DP831A
+\item Waveform generator RIGOL DG1032
+\item Multimeter RIGOL DM3068
+\item Oscilloscope RIGOL MS02102A
+\end{itemize}
+The resistor chosen were $R_1, R_2, R_3 = 10\text{k} \Omega$, $R_4 = 10 \Omega$, $R_5 = 100 \Omega, R_6 = 1\text{k}\Omega$ with an error of $5\%$ of the value.
+\section{Experimental setup}
+
+In this experience we took the measurament in all circuis by changing the frequency of the input, that was a  sine wave signal. The voltage chosen is not important, because we are interested in the ratio between the amplitude of two signal.
+In the first circuit was used for calculating the gain in the open loop configuration $A_{ol}$ in low frequencies by measuring $v_A$ and $v_{o}$. This circuit was chosen for low freqencies instead of the second one, beacause the gain is too high for allowing us to acquiring directly the voltage difference between the two input pins. 
+We didn't measure at lower frequencies than 30 Hz because the noise didn't allow us to make a reliable extimate of the amplitude of the two signals.\\
+In the second circuit we measured $v_{o}$ and the voltage of the non inverting pin $v_-$. The frequencies measured went from 10 - 200 kHz, because with high frequencies the absulute value of $A_{ol}$ is low enough.
+In the last two circuits we built an non inverting amplifier with gain of 100 and 10.
+
+\section{Data Analysis}
+
+In the first circuit we can extimate the open loop gain by using $A_{ol} = - \frac{v_{o}}{v_A} \frac{R_3 + R_4}{R_4}$.
+In the second circuit we calculated $A_{ol} = - \frac{v_{o}}{v_-}$. \\
+We can see from the plot that the data appears to be on a straight line, we can also see if that line is compatible with the values in the datasheet. We can compute the theoretical open loop gain with: $$A_{ol}^{teo}(f) = \frac{A}{1 + j\frac{f}{f_0}}$$ Where $A = 1.5 \times 10^5$ and $f_0 = 8$ Hz are two parameters available in the datasheet, $j$ is the immaginary unit and $f$ is the frequency. We can see from the plot that our data is consistent with the theory and the datasheet.
+For the last two circuit we plotted $\frac{v_{o}}{v_-}$

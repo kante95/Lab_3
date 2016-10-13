@@ -1,5 +1,5 @@
 \chapter{Unfortunately the op-amp is not so ideal}
-In this set of experiments we dealt with the problems of a real op-amp such as the offset $v_{os}$, the bias currents $i_{b+},i_{b-}$, the slew-rate, the maximum current outputed and the common gain $A_{cm}$, we performed the measures of these real parameters. The offset is studied with 3 different circuit and then compensated with a trimmer in the configuration suggested by the op-amp's datasheet. The bias currents was measured in two way, one for the bias current in the $+$'s op-amp input and one for the $-$'s op-amp input. The other parameters are studied simply adjusting the input for the measurement's purpose.
+In this set of experiments we dealt with the problems of a real op-amp such as the offset $v_{os}$, the bias currents $i_{b+},i_{b-}$, the slew-rate, the maximum current output and the common gain $A_{cm}$, we performed the measures of these real parameters. The offset is studied with 3 different circuit and then compensated with a trimmer in the configuration suggested by the op-amp's datasheet. The bias currents was measured in two way, one for the bias current in the $+$'s op-amp input and one for the $-$'s op-amp input. The other parameters are studied simply adjusting the input for the measurement's purpose.
 
 \section{Materials}
 \begin{itemize}
@@ -10,7 +10,8 @@ In this set of experiments we dealt with the problems of a real op-amp such as t
 \item Multimeter RIGOL DM3068
 \item Oscilloscope RIGOL MS02102A
 \end{itemize}
-
+\begin{table}[H]
+\centering
 \begin{tabular}{ |p{3cm}||p{3cm}|p{3cm}| }
  \hline
  \multicolumn{3}{|c|}{List of resistors used} \\
@@ -22,24 +23,19 @@ In this set of experiments we dealt with the problems of a real op-amp such as t
  R$_{10\text{k}\Omega}$ &   9906.2            & 1.2         \\
  R$_{\text{k}\Omega}$   &  1001.4             & 0.1         \\
  R$_{10\Omega}$         &  9.963              & 0.01        \\
- R$_{\text{k}\Omega}^*$ &  9926.4             & 1.2         \\
+ R$_{10\text{k}\Omega}^*$ &  9926.4             & 1.2         \\
  R$_{10\Omega}^*$       &10.00                & 0.01        \\
  
  \hline
 \end{tabular}
+\end{table}
 \section{Experiment setup}
-In all the circuits we placed on the power supply's pins two capacitor each, one with high capacitace (nominal value 470 $\pm$ 23 nF) and one with low capacitance (10.0 $\pm$ 0.5 nF). These were used for suppressing the high-frequency noise and contrastig the effect of any eventual change in the voltage of the power supply, that could move the offset voltage.\\
-In the first circuit we aquired $V_{os}$ directly, by measuring with the multimiter the output voltage.
-We used the second circuit to amplify $V_{os}$, thus we used the output to calculate $V_{os}$.\\
-The third circuit is identical to  the second circuit except for the added resistor in parallel that connect v$_-$ to the ground. This was done for removing the influence of the current of bias in the measurament. It is, using this circuit, that we tried to remove $V_{os}$ by using a trimmer connected to the pins 1 and 5 and trying to make the output closest that we could to 0.\\
-The fourth circuit and fifth are used for measuring the current of bias indirectly using how the two currents are related to the output.\\
-The sixth circuit was used for measuring the maximum current that the op-amp can erogate. In this configuration the oscilloscope's internal resitor was set to $50 \Omega$\\
-In the seventh circuit we measured the slew rate. The capacitor use was 1 $\pm$ 0.05 nF and a resistor of 2 $\pm$ 0.1 k$\Omega$. The input used was a 10 V  square wave, so we aquired the image of the raising output.\\
-In the last circuit we measured the common gain by using the differential amplifier with the same input 2 V peak-peak and 100 Hz.\\
-
+In all the circuits we placed on the power supply's pins two capacitor each, one with high capacitace (nominal value 470 $\pm$ 23 nF) and one with low capacitance (10.0 $\pm$ 0.5 nF). These were used for suppressing the high-frequency noise and contrastig the effect of any eventual change in the voltage of the power supply, that could move the offset voltage.
 \begin{figure}[H]
 \centering
-\begin{circuitikz}
+\begin{minipage}{.32\textwidth}
+  \centering
+  \begin{circuitikz}
  	\draw(0,0) node[op amp] (opamp) {}
 	%(opamp.+) node[left] {$v_+$}
 	(opamp.-) ++ (-.3,0) -- (opamp.-) 
@@ -51,12 +47,11 @@ In the last circuit we measured the common gain by using the differential amplif
 	(opamp.up) ++ (0,.25)to[C,/tikz/circuitikz/bipoles/length=1cm] (1,.8)node[ground,rotate = 90,yshift = 1em] {};
 	\draw(opamp.+) ++ (-.3,0)node[ground] {} -- (opamp.+);
 	\end{circuitikz}
-\caption{Offset voltage's direct measure}
-\label{offset direct}
-\end{figure}
-\begin{figure}[H]
-\centering
-\begin{circuitikz}
+\caption{Offset voltage's direct measure}\label{offset direct}
+\end{minipage}%
+\begin{minipage}{.32\textwidth}
+  \centering
+  \begin{circuitikz}
 \draw(0,0) node[op amp] (opamp) {}
 	%(opamp.+) node[left] {$v_+$}
 	(opamp.+) ++ (-.3,0) node[ground] {} -- (opamp.+) 
@@ -65,15 +60,14 @@ In the last circuit we measured the common gain by using the differential amplif
 	(opamp.up) ++ (0,.5) node[above] {$+v_{cc}$} -- (opamp.up)
 	(opamp.down) ++ (0,-.25)to[C,/tikz/circuitikz/bipoles/length=1cm] (1,-.8)node[ground,rotate = 90,yshift = 1em] {}
 	(opamp.up) ++ (0,.25)to[C,/tikz/circuitikz/bipoles/length=1cm] (1,.8)node[ground,rotate = 90,yshift = 1em] {};
-	\draw(-3.5,.5) to[R=$R_3$] (-1.5,.5) to[short] (opamp.-);
-	\draw(-3.5,.5) node[ground] {};
-	\draw(-1.5,.5) to[short](-1.5,2.2) to[R=$R_2$](1.5,2.2) to[short](1.5,0);
+	\draw(-3.1,.5) to[R,l=R$_{10\Omega}$] (-1.5,.5) to[short] (opamp.-);
+	\draw(-3.1,.5) node[ground] {};
+	\draw(-1.5,.5) to[short](-1.5,2.2) to[R,l=R$_{10\text{k}\Omega}$](1.5,2.2) to[short](1.5,0);
 \end{circuitikz}
-\label{offset amp}
-\caption{Roba}
-\end{figure}
-\begin{figure}[H]
-\centering
+\caption{Offset voltage's direct measure with gain}\label{offset amp}
+\end{minipage}%
+\begin{minipage}{.32\textwidth}
+  \centering
 \begin{circuitikz}
 \draw(0,0) node[op amp] (opamp) {}
 	%(opamp.+) node[left] {$v_+$}
@@ -83,18 +77,23 @@ In the last circuit we measured the common gain by using the differential amplif
 	(opamp.up) ++ (0,.5) node[above] {$+v_{cc}$} -- (opamp.up)
 	(opamp.down) ++ (0,-.25)to[C,/tikz/circuitikz/bipoles/length=1cm] (1,-.8)node[ground,rotate = 90,yshift = 1em] {}
 	(opamp.up) ++ (0,.25)to[C,/tikz/circuitikz/bipoles/length=1cm] (1,.8)node[ground,rotate = 90,yshift = 1em] {};
-	\draw(-3.5,.5) to[R=$R_3$] (-1.5,.5) to[short] (opamp.-);
-	\draw(-3.5,.5) node[ground] {};
-	\draw(-1.5,.5) to[short](-1.5,2.2) to[R=$R_2$](1.5,2.2) to[short](1.5,0);
+	\draw(-3,.5) to[R,l=R$_{10\Omega}$] (-1.5,.5) to[short] (opamp.-);
+	\draw(-3,.5) node[ground] {};
+	\draw(-1.5,.5) to[short](-1.5,2.2) to[R,l=R$_{10\text{k}\Omega}$](1.5,2.2) to[short](1.5,0);
 	
-	\draw(opamp.+) to[short](-1.7,-.5)to[short](-1.7,-1) to[short](-2.1,-1) to[R](-2.1,-3)to[short](-1.7,-3)node[ground]{};
-	\draw(-1.7,-1)to[short](-1.3,-1)to[R](-1.3,-3)to[short](-1.7,-3);
+	\draw(opamp.+) to[short](-1.7,-.5)to[short](-1.7,-1) to[short](-2.1,-1) to[R,l_=R$^*_{10\text{k}\Omega}$](-2.1,-3)to[short](-1.7,-3)node[ground]{};
+	\draw(-1.7,-1)to[short](-1.3,-1)to[R,l=R$^*_{10\Omega}$](-1.3,-3)to[short](-1.7,-3);
 \end{circuitikz}
-\label{offset amp corrected}
-\caption{Roba}
+\caption{Offset voltage's direct measure with gain and bias current correction}\label{offset amp corrected}
+\end{minipage}
 \end{figure}
+In the first circuit we aquired $v_{os}$ directly by measuring with the multimiter the output voltage.
+We used the second circuit to amplify $v_{os}$, thus we used the output to calculate $v_{os}$.\\
+The third circuit is identical to  the second circuit except for the added resistors in parallel that connect $+$ to the ground. This was done for removing the influence of the bias current in the measurament. Exploiting this last circuit we removed $v_{os}$ by using a trimmer and trying to make the output closest that we could to 0.
 \begin{figure}[H]
 \centering
+\begin{minipage}{.5\textwidth}
+  \centering
 \begin{circuitikz}
 \draw(0,0) node[op amp] (opamp) {}
 	%(opamp.+) node[left] {$v_+$}
@@ -104,10 +103,10 @@ In the last circuit we measured the common gain by using the differential amplif
 	(opamp.up) ++ (0,.5) node[above] {$+v_{cc}$} -- (opamp.up)
 	(opamp.down) ++ (0,-.25)to[C,/tikz/circuitikz/bipoles/length=1cm] (1,-.8)node[ground,rotate = 90,yshift = 1em] {}
 	(opamp.up) ++ (0,.25)to[C,/tikz/circuitikz/bipoles/length=1cm] (1,.8)node[ground,rotate = 90,yshift = 1em] {};
-	\draw(-3.5,.5) to[R=$R_3$] (-1.5,.5) to[short] (opamp.-);
+	\draw(-3.5,.5) to[R,l=R$_{\text{k}\Omega}$] (-1.5,.5) to[short] (opamp.-);
 	\draw(-3.5,.5) node[ground] {};
-	\draw(-1.5,.5) to[short](-1.5,2.2) to[R=$R_2$](1.5,2.2) to[short](1.5,0);
-	\draw(opamp.+) to[short](-1.2,-.5)to[R](-1.2,-2.5)node[ground]{};
+	\draw(-1.5,.5) to[short](-1.5,2.2) to[R,l=R$_{100\text{k}\Omega}$](1.5,2.2) to[short](1.5,0);
+	\draw(opamp.+) to[short](-1.2,-.5)to[R,l_=R$_{\text{M}\Omega}$](-1.2,-2.5)node[ground]{};
 
 	\draw(opamp.down) ++ (-.45,-.25)to[short](-0.53,-2)to[R](1.53,-2);
 	\draw(opamp.down) ++ (.6,.36) to[short](.515,-.35) to[short](1.53,-.35) to[short](1.53,-2);
@@ -117,10 +116,9 @@ In the last circuit we measured the common gain by using the differential amplif
 	\draw(-.085,-1.3) to[short](-.085,-1.45)node[below]{\scriptsize$-v_{cc}$};
 	\draw[-stealth](.415,-1.3) -- (.415,-1.76);
 \end{circuitikz}
-\caption{Roba}
-\label{positive bias}
-\end{figure}
-\begin{figure}[H]
+\caption{Positive bias current measure}\label{current positive}
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
 \centering
 \begin{circuitikz}
 \draw(0,0) node[op amp] (opamp) {}
@@ -132,9 +130,9 @@ In the last circuit we measured the common gain by using the differential amplif
 	(opamp.down) ++ (0,-.25)to[C,/tikz/circuitikz/bipoles/length=1cm] (1,-.8)node[ground,rotate = 90,yshift = 1em] {}
 	(opamp.up) ++ (0,.25)to[C,/tikz/circuitikz/bipoles/length=1cm] (1,.8)node[ground,rotate = 90,yshift = 1em] {};
 	
-	\draw(-5,.49) to[R=$R_3$] (-3,.49) to[R](-1,.49);%to[short](opamp.-);
+	\draw(-5,.49) to[R,l=R$_{\text{k}\Omega}$] (-3,.49) to[R,l=R$_{100\text{k}\Omega}$](-1,.49);%to[short](opamp.-);
 	\draw(-5,.49) node[ground] {};
-	\draw(-3,.49) to[short](-3,2.2) to[R=$R_2$](1.5,2.2) to[short](1.5,0);
+	\draw(-3,.49) to[short](-3,2.2) to[R,l=R$_{\text{M}\Omega}$](1.5,2.2) to[short](1.5,0);
 	%\draw(opamp.+) to[short](-1.2,-.5)node[ground]{};
 
 	\draw(opamp.down) ++ (-.45,-.25)to[short](-0.53,-2)to[R](1.53,-2);
@@ -145,10 +143,14 @@ In the last circuit we measured the common gain by using the differential amplif
 	\draw(-.085,-1.3) to[short](-.085,-1.45)node[below]{\scriptsize$-v_{cc}$};
 	\draw[-stealth](.415,-1.3) -- (.415,-1.76);
 \end{circuitikz}
-\caption{Roba}
-\label{negative bias}
+\caption{Negative bias current measure}\label{current negative}
+\end{minipage}
 \end{figure}
+The fourth circuit and fifth are used for measuring the current of bias indirectly using how the two currents are related to the output.\\
+The sixth circuit was used for measuring the maximum current that the op-amp can erogate. In this configuration the oscilloscope's internal resitor was set to $50 \Omega$\\
 \begin{figure}[H]
+\centering
+\begin{minipage}{.5\textwidth}
 \centering
 \begin{circuitikz}
  	\draw(0,0) node[op amp] (opamp) {}
@@ -173,11 +175,9 @@ In the last circuit we measured the common gain by using the differential amplif
 
 	\draw(2.5,0)to[short,-o](2.8,0)node[right] {$v_o$};
 	\end{circuitikz}
-\caption{Offset voltage's direct measure}
-\label{max current}
-\end{figure}
-
-\begin{figure}[H]
+	\caption{Max current measure}\label{max current}
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
 \centering
 \begin{circuitikz}
  	\draw(0,0) node[op amp] (opamp) {}
@@ -202,9 +202,11 @@ In the last circuit we measured the common gain by using the differential amplif
 
 	\draw(2.5,-.3)to[short](3,-.3)to[R](3,-1.8)to[short](2.5,-1.8);
 	\end{circuitikz}
-\caption{Offset voltage's direct measure}
-\label{common gain}
+	\caption{Slew rate}\label{slew rate}
+\end{minipage}
 \end{figure}
+In the seventh circuit we measured the slew rate. As load the capacitor used was 1 $\pm$ 0.05 nF and the resistor 2 $\pm$ 0.1 k$\Omega$. The input used was a 10 V  square wave, so we aquired the image of the raising output.\\
+In the last circuit we measured the common gain by using the differential amplifier with the same input 2 V peak-peak and 100 Hz.\\
 \begin{figure}[H]
 \centering
 \begin{circuitikz}
@@ -215,11 +217,11 @@ In the last circuit we measured the common gain by using the differential amplif
 	(opamp.up) ++ (0,.5) node[above] {$+v_{cc}$} -- (opamp.up)
 	(opamp.down) ++ (0,-.25)to[C,/tikz/circuitikz/bipoles/length=1cm] (1,-.8)node[ground,rotate = 90,yshift = 1em] {}
 	(opamp.up) ++ (0,.25)to[C,/tikz/circuitikz/bipoles/length=1cm] (1,.8)node[ground,rotate = 90,yshift = 1em] {};
-	\draw(-3.5,.5) to[R=$R_3$] (-1.5,.5) to[short] (opamp.-);
+	\draw(-3.5,.5) to[R=$R_1$] (-1.5,.5) to[short] (opamp.-);
 	\draw(-3.5,.5) to[short](-3.5,-.5);
-	\draw(-1.5,.5) to[short](-1.5,2.2) to[R=$R_2$](1.5,2.2) to[short](1.5,0);
+	\draw(-1.5,.5) to[short](-1.5,2.2) to[R=$R_f$](1.5,2.2) to[short](1.5,0);
 
-	\draw(-3.5,-.5) to[R] (-1.5,-.5) to[short] (opamp.+);
+	\draw(-3.5,-.5) to[R=$R_1||R_f$] (-1.5,-.5) to[short] (opamp.+);
 	\draw(-3.5,-.5) to[sV](-3.5,-2)node[ground]{};
 
 	\draw(opamp.down) ++ (-.45,-.25)to[short](-0.53,-2)to[R](1.53,-2);
@@ -230,15 +232,36 @@ In the last circuit we measured the common gain by using the differential amplif
 	\draw(-.085,-1.3) to[short](-.085,-1.45)node[below]{\scriptsize$-v_{cc}$};
 	\draw[-stealth](.415,-1.3) -- (.415,-1.76);
 \end{circuitikz}
-\caption{Roba}
-\label{slew rate}
+\caption{Common Gain}\label{common gain}
 \end{figure}
+
 \section{Data analysis}
-In the emitter follower \eqref{offset direct} the output measured is $-1.484 \pm 0.005$ mV. Being such a small output we expect to have problem with parassite resistor and other form of  noise, that's why we don't consider the output too reliable, but it gives an order of magnitude that is in agreement with the datasheet of the op-amp, that propouses a typical value of 1 mV and a maximum value of 5 mV.\\
-In the amplifier \eqref{offset amp} we can find $v_{os}$, by using $$v_{os} = \frac{v_{out}}{1 + \frac{R_{10\text{k}\Omega}}{R_{10\Omega}}}$$ From the calculation we get $v_{os} = -1.333 +- 0.001$ V, which is has the same order of magnitude and same sign of the previous result.\\
+In the emitter follower \eqref{offset direct} the output measured is $-1.484 \pm 0.005$ mV. Being such a small output we expect to have problem with parassite resistor and other form of noise, that's why we don't consider the output too reliable, but it gives us an order of magnitude that is in agreement with the datasheet of the op-amp, that propouses a typical value of 1 mV and a maximum value of 5 mV.\\
+In the amplifier \eqref{offset amp} we can find $v_{os}$, by using
+\[v_{os} = \frac{v_{o}}{1 + \frac{R_{10\text{k}\Omega}}{R_{10\Omega}}}\]
+from the calculation we get $v_{os} = -1.333 \pm 0.001$ mV, which is has the same order of magnitude and same sign of the previous result.\\
 Then as stated in the experimental setup we corrected the circuit \eqref{offset amp corrected} for compensating the effect of the current of bias. With the same formula used for the previous amplifier we get an offset voltage of $1.307 \pm 0.001$ mV. We used this circuit for nulling the offset with the trimmer.\\
-In the fourth circuit $\eqref{current positive}$ we calculated the current flowing in the non invertent pin by using $$i_{b+} = \frac{v_{out}}{R_{\text{M}\Omega} (1 + \frac{R_{100\text{k}\Omega}}{R_{1\text{k}\Omega}})}$$ The value calculated is $-39.042 +- 0.009$nA.\\
-In the fifth circuit \eqref{current negative} instead we calculate the current flowing in the invertent pin by using $$i_{b-} = \frac{v_{out}}{R_{100\text{k}\Omega}} \frac{R_{\text{k}\Omega}}{R_{\text{M}\Omega}}$$ The value is $-39.724 +- 0.009$nA. Now can compute the current of bias $i_b = \frac{|i_{b-}| + |i_{b+}|}{2} = 39.383 \pm 0.006$ nA and the offset current $i_o = ||i_{b-}| - |i_{b+}|| = 0.68 \pm 0.01$ nA. $i_b$ is less than 100 nA and near the typical value of 10 nA, as the datasheet states, but the offset current is a bit low being around a third of the typical value 2 nA.\\
-In the sixth circuit \eqref{max current} we calculated the maximum current erogated by computing the maximum/minimum output voltage over the resistance in the oscilloscope. In the plot is visible the different absolute value of the maximum and minimum output voltage,( that's probably caused by ............). So we opted to calculating two different maximum currents: $i_{max} = 0.0201 +- 0.0001$ A (when the output was positive)and $i_{min} = 0.0328 +- 0.0001$ (when the output was negative).
-In the seventh circuit \eqref{common gain} we find that the slew rate of the op-amp used is $0.85 \frac{\text{V}}{\mu s}$, which is bigger than the typical value $0.5 \frac{\text{V}}{\mu s}$. One possible explenation of this would be that the slew rate depends on the amplitude of the signal, in our experiment the voltage was 50 times as large as in the test of visible in the datasheet, otherwise we have to conclude that our op-amp, has some difects that cause a larger slewrate...........\\
-In the last circuit \eqref{slew rate} we measured the commond gain, by using $$A_{CM} = \frac{2 v_{out}}{v_{in1} + v_{in2}}$$,  which gave us an unitary gain, as it is evident in the plot.
+In the fourth circuit \eqref{current positive} we calculated the current flowing in the non invertent pin by using $$i_{b+} = \frac{v_{o}}{R_{\text{M}\Omega} (1 + \frac{R_{100\text{k}\Omega}}{R_{1\text{k}\Omega}})}$$ The value calculated is $-39.042 \pm 0.009$ nA.\\
+In the fifth circuit \eqref{current negative} instead we calculate the current flowing in the invertent pin by using 
+\[i_{b-} = \frac{v_{o}}{R_{100\text{k}\Omega}} \frac{R_{\text{k}\Omega}}{R_{\text{M}\Omega}}\]above
+ the value is $-39.724 \pm 0.009$ nA. Now we can compute the current of bias $i_b = \frac{|i_{b-}| + |i_{b+}|}{2} = 39.383 \pm 0.006$ nA and the offset current $i_o = ||i_{b-}| - |i_{b+}|| = 0.68 \pm 0.01$ nA. $i_b$ is less than 100 nA and near the typical value of 10 nA, as the datasheet states, but the offset current is a bit low being around a third of the typical value 2 nA.
+\begin{figure}[H]
+\centering
+\includegraphics[width=.6\textwidth]{3/Maximum_current_erogated.png}
+\caption{Saturated output caused by the maximum current erogated}
+\end{figure}
+In the sixth circuit \eqref{max current} we calculated the maximum current erogated by computing the maximum/minimum output voltage over the resistance in the oscilloscope. In the plot is visible the different absolute value of the maximum and minimum output voltage, that's probably because the op-amp isn't perfectly symmetric in the packaging. So we opted to calculating two different maximum currents: $i_{max} = 0.0201 \pm 0.0001$ A (when the output was positive) and $i_{min} = 0.0328 \pm 0.0001$ (when the output was negative).
+\begin{figure}[H]
+\centering
+\includegraphics[width=.6\textwidth]{3/Slew_Ratio.png}
+\caption{Saturated output caused by the maximum current erogated, red lines is 10\% and 90\% of the output}
+\end{figure}
+In the seventh circuit \eqref{slew rate} we find that the slew rate of the op-amp used is $0.85 \frac{\text{V}}{\mu s}$, which is bigger than the typical value $0.5 \frac{\text{V}}{\mu s}$. One possible explenation of this would be that the slew rate depends on the amplitude of the signal, in our experiment the voltage was 50 times as large as in the test of visible in the datasheet, otherwise we have to conclude that our op-amp, has some difects that cause a larger slewrate.
+\begin{figure}[H]
+\centering
+\includegraphics[width=.7\textwidth]{3/Amplification_in_common_mode.png}
+\caption{Saturated output caused by the maximum current erogated}
+\end{figure}
+In the last circuit \eqref{common gain} we measured the commond gain, by using 
+\[A_{CM} = \frac{2 v_{o}}{v_{in1} + v_{in2}}\]
+which gave us an unitary gain, as it is evident in the plot.

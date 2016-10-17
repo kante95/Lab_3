@@ -1,5 +1,5 @@
-\chapter{The gain with a changing frequency}
-ABSTRACT
+\chapter{Gain in function of the frequency}
+In a real op-amp the open loop gain ($A_{ol}$) is a function of the input frequency. In this experience we explored systematically this behaviour using 2 different circuits, one for the lower frequencies and the other for the higher one. After this study we built a non inverting amplifier with $\approx 10$ and $\approx 100$ gain for measuring its bandwidth.
 
 \section{Materials}
 \begin{itemize}
@@ -12,7 +12,55 @@ ABSTRACT
 \end{itemize}
 The resistor chosen were $R_1, R_2, R_3 = 10\text{k} \Omega$, $R_4 = 10 \Omega$, $R_5 = 100 \Omega, R_6 = 1\text{k}\Omega$ with an error of $5\%$ of the value.
 \section{Experimental setup}
-
+\begin{figure}
+\centering
+\begin{circuitikz}
+\draw(0,0) node[op amp] (opamp) {}
+	%(opamp.+) node[left] {$v_+$}
+	(opamp.+) to[short] (-1.5,-.49)to[short](-1.5,-1.5)to[short](-2.5,-1.5)
+	(opamp.out) to [short,-o](1.8,0) node[right] {$v_o$}
+	(opamp.down) ++(0,-.5) node[below] {$-v_{cc}$} -- (opamp.down)
+	(opamp.up) ++ (0,.5) node[above] {$+v_{cc}$} -- (opamp.up)
+	(opamp.down) ++ (0,-.25)to[C,/tikz/circuitikz/bipoles/length=1cm] (1,-.8)node[ground,rotate = 90,yshift = 1em] {}
+	(opamp.up) ++ (0,.25)to[C,/tikz/circuitikz/bipoles/length=1cm] (1,.8)node[ground,rotate = 90,yshift = 1em] {};
+	\draw(opamp.-) to[short](-2.5,.49) to[R,-*](-2.5,2.2)node[above]{$v_a$} to[R,l=R$_{10\text{k}\Omega}$](1.5,2.2) to[short](1.5,0);
+	\draw(-2.5,.49)to[R](-2.5,-1.5) node[ground]{};
+	\draw(-4.5,.49)node[ground]{}to[sV](-4.5,2.2) to[R](-2.5,2.2);
+\end{circuitikz}
+\caption{Open loop gain measure low frequencies}
+\end{figure}
+\begin{figure}
+\centering
+\begin{circuitikz}
+\draw(0,0) node[op amp] (opamp) {}
+	%(opamp.+) node[left] {$v_+$}
+	(opamp.+) ++ (-.3,0) node[ground] {} -- (opamp.+) 
+	(opamp.out) to [short,-o](1.8,0) node[right] {$v_o$}
+	(opamp.down) ++(0,-.5) node[below] {$-v_{cc}$} -- (opamp.down)
+	(opamp.up) ++ (0,.5) node[above] {$+v_{cc}$} -- (opamp.up)
+	(opamp.down) ++ (0,-.25)to[C,/tikz/circuitikz/bipoles/length=1cm] (1,-.8)node[ground,rotate = 90,yshift = 1em] {}
+	(opamp.up) ++ (0,.25)to[C,/tikz/circuitikz/bipoles/length=1cm] (1,.8)node[ground,rotate = 90,yshift = 1em] {};
+	\draw(opamp.-) to[short](-2.5,.49) to[short,-*](-2.5,2.2)node[above]{$v_a$} to[R,l=R$_{10\text{k}\Omega}$](1.5,2.2) to[short](1.5,0);
+	\draw(-4.5,.49)node[ground]{}to[sV](-4.5,2.2) to[R](-2.5,2.2);
+\end{circuitikz}
+\caption{Open loop gain measure high frequencies}
+\end{figure}
+\begin{figure}
+  \centering
+  \begin{circuitikz}
+ \draw(0,0) node[op amp,yscale=-1] (opamp) {}
+%(opamp.+) node[left] {$v_+$}
+(opamp.-) ++ (-.3,0) -- (opamp.-) 
+(opamp.-) ++ (-.3,0) to[R = $R_1$] (-3,-0.5) to (-3,-1) node[ground]{}
+(opamp.-) ++ (-.3,0) -- (-1.5,-1.8) to[R,l_=$R_2$] (1,-1.8) -- (1,0)
+(opamp.out) node[right] {$v_o$}
+(opamp.up) ++(0,-.5) node[below] {$-v_{cc}$} -- (opamp.up)
+(opamp.down) ++ (0,.5) node[above] {$+v_{cc}$} -- (opamp.down);
+\draw(-4,-1) to[sV] (-4,.5) to[short] (opamp.+);
+\draw(-4,-1) node[ground] {};
+\end{circuitikz}
+\caption{Non inverting amplifier}
+\end{figure}
 In this experience we took the measurament in all circuis by changing the frequency of the input, that was a  sine wave signal. The voltage chosen is not important, because we are interested in the ratio between the amplitude of two signal.
 In the first circuit was used for calculating the gain in the open loop configuration $A_{ol}$ in low frequencies by measuring $v_A$ and $v_{o}$. This circuit was chosen for low freqencies instead of the second one, beacause the gain is too high for allowing us to acquiring directly the voltage difference between the two input pins. 
 We didn't measure at lower frequencies than 30 Hz because the noise didn't allow us to make a reliable extimate of the amplitude of the two signals.\\

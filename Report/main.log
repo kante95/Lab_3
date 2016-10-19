@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.9.21)  19 OCT 2016 14:53
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.9.21)  19 OCT 2016 18:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1508,17 +1508,35 @@ Package pdftex.def Info: 3/Amplification_in_common_mode.png used on input line
 Experiment 4.
 [18
 
-]) [19] (./main.aux)
+]
+
+LaTeX Warning: File `4/decibel.png' not found on input line 74.
+
+
+! Package pdftex.def Error: File `4/decibel.png' not found.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.74 ...raphics[width=.7\textwidth]{4/decibel.png}
+                                                  
+? 
+[19]) (./5.tex [20]
+Experiment 5.
+) [21
+
+] (./main.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 32689 strings out of 493029
- 720864 string characters out of 6136234
- 870709 words of memory out of 5000000
- 35797 multiletter control sequences out of 15000+600000
- 12429 words of font info for 43 fonts, out of 8000000 for 9000
+ 32734 strings out of 493029
+ 721841 string characters out of 6136234
+ 871448 words of memory out of 5000000
+ 35836 multiletter control sequences out of 15000+600000
+ 12597 words of font info for 44 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  55i,16n,54p,10375b,1124s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texli
@@ -1539,11 +1557,12 @@ nts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/ty
 pe1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
 lic/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
 fonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmti12.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on main.pdf (20 pages, 1325677 bytes).
+cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmt
+t10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb>
+Output written on main.pdf (22 pages, 1341491 bytes).
 PDF statistics:
- 182 PDF objects out of 1000 (max. 8388607)
- 111 compressed objects within 2 object streams
+ 192 PDF objects out of 1000 (max. 8388607)
+ 118 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  83 words of extra memory for PDF output out of 10000 (max. 10000000)
 

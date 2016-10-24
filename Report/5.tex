@@ -1,0 +1,105 @@
+
+\chapter{A new device: the comparator}
+Abstract
+
+
+\section{Materials}
+\begin{itemize}
+\item Operational amplifier UA741
+\item Operational amplifier LM311
+\item Fototransistor OP550A
+\item Resistors, trimmer, LED, capacitors
+\item Power supply RIGOL DP831A
+\item Waveform generator RIGOL DG1032
+\item Multimeter RIGOL DM3068
+\item Oscilloscope RIGOL MS02102A
+\end{itemize}
+MANCANO VALORI ED ERRORI DI CONDENSATORE, RESISTORI,LED
+
+\section{Experimental setup}
+
+We can use an op-amp to compare two input signals: its output corresponds to a logic value (let's say 0) if $v_- > v_+$, to the other (1) in the opposite case. Verified this feature for two different op-amps, we build a Schmitt's trigger in order to adjust the comparator sensitivity and we try it in a twilight switch circuit.
+
+We have always powered the op-amps with a $\pm15$ V DC voltage and, in order to reduce possible noises, we added two capacitors to both op-amps pins for the power supply and the ground, one of 100nF and the other of 10nF (4 in total).\\
+At first we used the UA741 as a comparator in order to build a relaxation oscillator producing a square wave from a capacitor charge and discharge: we chose $R_1 = R_2 = 10k\Omega$ and a 0.1 nF capacitor. The circuit (see figure ?) has been tested with 5 different values of R: 1, 5, 10, 15, 20 k$\Omega$ in order to have different periods and no imput signal was needed. A measure has been taken also setting the oscilloscope in single mode and then switching on the power supply.
+We than tested the LM311 as both a non-invertent and an invertent comparator using $R_L = 1k\Omega$ and a triangular input signal of ? V and ? Hz.\\
+Regarding the Schmitt's trigger, we added to the previous circuit the resistences $R_1 = 10 k\Omega$ and $R_2 = 100 \Omega$ in order to shift the reference voltage of a factor $\frac{1}{100}$ upward and downward and analyzed the behaviour at the point when $v_{in}\approx v_{ref}$.\\
+At last, we built the twilight switch:\\
+DA FINIRE E RIVEDERE
+
+
+\begin{circuitikz}
+\draw(0,0) node[op amp] (opamp) {}
+%(opamp.+) node[left] {$v_+$}
+(opamp.+) ++ (-.3,0) -- (opamp.+) 
+(opamp.+) ++ (-.3,0) -- (-1.5,-1.8) to[R,l_=$R_6$] (1,-1.8) -- (1,0)
+(opamp.out) node[right] {$v_o$}
+(opamp.down) ++(0,-.5) node[below] {$-v_{cc}$} -- (opamp.down)
+(opamp.up) ++ (0,.5) node[above] {$+v_{cc}$} -- (opamp.up);
+\draw(-4,-1)node[ground] {} to[sV,l=$v_{in}$](-4,.5) to[C] (-2,.5) to[short] (opamp.-);
+\draw (-1.5,-1.8) to[R=$R$] (-1.5,-3.8)node[ground]{};
+\draw(1,0) to[short] (1,2) to[R] (-2,2) to[short](-2,.5);
+\end{circuitikz}
+
+\begin{circuitikz}
+\draw(0,0) node[op amp,yscale=-1] (opamp) {}
+(opamp.+) node[left] {$v_+$}
+(opamp.-) node[left] {$v_-$}
+%(opamp.+) ++ (-.3,0) -- (opamp.+) 
+(opamp.out) node[right] {$v_o$}
+%(opamp.down) ++(0,-.5) node[below] {$-v_{cc}$} -- (opamp.down)
+(opamp.down) to[short] (-.0825,1) node[above] {$+v_{cc}$} 
+(opamp.up) to[short] (-.0825,-1) node[below] {$-v_{cc}$};
+\draw(1.1,2)node[above]{$v_{cc}$}to[R,o-](1.1,0); 
+\draw(opamp.up) ++ (.6,.36)node[right,yshift=-.3em]{\scriptsize$1$} to[short](.515,-.35)node[ground]{};
+\draw(0,0)node[xshift=-.3em]{LM311};
+\end{circuitikz}
+
+
+\begin{circuitikz}
+\draw(0,0) node[op amp,yscale=-1] (opamp) {}
+(opamp.+) node[left] {$v_+$}
+%(opamp.-) node[left] {$v_-$}
+(opamp.-) ++ (-.3,0) -- (opamp.-) 
+(opamp.out) node[right] {$v_o$}
+%(opamp.down) ++(0,-.5) node[below] {$-v_{cc}$} -- (opamp.down)
+(opamp.down) to[short] (-.0825,1) node[above] {$+v_{cc}$} 
+(opamp.up) to[short] (-.0825,-1) node[below] {$-v_{cc}$};
+\draw(1.1,2)node[above]{$v_{cc}$}to[R,o-](1.1,0); 
+\draw(opamp.up) ++ (.6,.36)node[right,yshift=-.3em]{\scriptsize$1$} to[short](.515,-.35)node[ground]{};
+\draw(0,0)node[xshift=-.3em]{LM311};
+\draw(opamp.-) ++ (-.3,0) -- (-1.5,-1.8) to[R,l_=$R_6$] (1,-1.8) -- (1,0)
+(-1.5,-1.8) to[R=$R$] (-1.5,-3.8)node[ground]{};
+\end{circuitikz}
+
+
+\begin{circuitikz}
+%\draw[help lines] (-5,-2) grid (5,3);
+
+%STAGE PHOTO TRANSISTOR
+\draw(-5,1)node[above]{$-v_{cc}$}to[R,o-](-5,-1)node[ground]{};
+\draw(-3.3,.865)node[npn,photo](npn){};
+\draw[-stealth](npn.E) -- (-4.71,.09);
+
+%STAGE CONVERTER
+\draw(npn.C)to[short](-2.7,1.635);
+\draw(-1.52,1.1462) node[op amp] (opamp1) {};
+\draw(opamp1.+)to[R](-2.7,-1)node[ground]{};
+\draw(-1.52,1.1462)node[xshift=-.3em]{$\mu$A741};
+\draw(opamp1.-)to[short](-2.7,3.2)to[R](-.3335,3.2)to[short](opamp1.out)
+(opamp1.up)--++(0,.5)node[above]{$+v_{cc}$}
+(opamp1.down)--++(0,-.5)node[below]{$-v_{cc}$};
+
+
+%STAGE COMPARATOR
+\draw(2.359,.655) node[op amp,yscale=-1] (opamp) {}
+(opamp.down) to[short] (2.2765,1.655) node[above] {$+v_{cc}$}
+(opamp.up) to[short] (2.2765,-0.345) node[below] {$-v_{cc}$};
+\draw(opamp.up) ++ (.6,.36)node[right,yshift=-.3em]{\scriptsize$1$} to[short](2.874,0.305)node[ground]{};
+\draw(2.359,.655)node[xshift=-.3em]{LM311};
+\draw(opamp.-)to[R,-o](-.5,0.155)node[left]{$v_{ref}$};
+\draw(opamp1.out)to[R](opamp.+);
+\draw(opamp.+)to[short](1.17,2.5)to[R](3.5,2.5)to[short](3.5,.655);
+\draw(opamp.out)to[short](4.5,.655);
+\draw(4.5,3.7)node[above]{$+v_{cc}$}to[R,o-](4.5,1.9)to[leDo](4.5,.655);
+\end{circuitikz}

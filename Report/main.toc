@@ -10,7 +10,14 @@
 \contentsline {section}{\numberline {3.1}Materials}{13}
 \contentsline {section}{\numberline {3.2}Experiment setup}{13}
 \contentsline {section}{\numberline {3.3}Data analysis}{15}
-\contentsline {chapter}{\numberline {4}The gain with a changing frequency}{18}
+\contentsline {chapter}{\numberline {4}Gain in function of the frequency}{18}
 \contentsline {section}{\numberline {4.1}Materials}{18}
 \contentsline {section}{\numberline {4.2}Experimental setup}{18}
-\contentsline {section}{\numberline {4.3}Data Analysis}{18}
+\contentsline {section}{\numberline {4.3}Data Analysis}{19}
+<<<<<<< HEAD
+\contentsline {chapter}{\numberline {5}Stuff}{21}
+=======
+\contentsline {chapter}{\numberline {5}A new device: the comparator}{21}
+>>>>>>> 916cd6f0c163ef7cefb684419505e0bfbf55ada4
+\contentsline {section}{\numberline {5.1}Materials}{21}
+\contentsline {section}{\numberline {5.2}Experimental setup}{21}

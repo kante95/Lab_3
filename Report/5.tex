@@ -1,0 +1,82 @@
+\chapter{Stuff}
+abstract
+
+
+\section{Materials}
+
+\section{Experimental setup}
+\begin{circuitikz}
+\draw(0,0) node[op amp] (opamp) {}
+%(opamp.+) node[left] {$v_+$}
+(opamp.+) ++ (-.3,0) -- (opamp.+) 
+(opamp.+) ++ (-.3,0) -- (-1.5,-1.8) to[R,l_=$R_6$] (1,-1.8) -- (1,0)
+(opamp.out) node[right] {$v_o$}
+(opamp.down) ++(0,-.5) node[below] {$-v_{cc}$} -- (opamp.down)
+(opamp.up) ++ (0,.5) node[above] {$+v_{cc}$} -- (opamp.up);
+\draw(-4,-1)node[ground] {} to[sV,l=$v_{in}$](-4,.5) to[C] (-2,.5) to[short] (opamp.-);
+\draw (-1.5,-1.8) to[R=$R$] (-1.5,-3.8)node[ground]{};
+\draw(1,0) to[short] (1,2) to[R] (-2,2) to[short](-2,.5);
+\end{circuitikz}
+
+\begin{circuitikz}
+\draw(0,0) node[op amp,yscale=-1] (opamp) {}
+(opamp.+) node[left] {$v_+$}
+(opamp.-) node[left] {$v_-$}
+%(opamp.+) ++ (-.3,0) -- (opamp.+) 
+(opamp.out) node[right] {$v_o$}
+%(opamp.down) ++(0,-.5) node[below] {$-v_{cc}$} -- (opamp.down)
+(opamp.down) to[short] (-.0825,1) node[above] {$+v_{cc}$} 
+(opamp.up) to[short] (-.0825,-1) node[below] {$-v_{cc}$};
+\draw(1.1,2)node[above]{$v_{cc}$}to[R,o-](1.1,0); 
+\draw(opamp.up) ++ (.6,.36)node[right,yshift=-.3em]{\scriptsize$1$} to[short](.515,-.35)node[ground]{};
+\draw(0,0)node[xshift=-.3em]{LM311};
+\end{circuitikz}
+
+
+\begin{circuitikz}
+\draw(0,0) node[op amp,yscale=-1] (opamp) {}
+(opamp.+) node[left] {$v_+$}
+%(opamp.-) node[left] {$v_-$}
+(opamp.-) ++ (-.3,0) -- (opamp.-) 
+(opamp.out) node[right] {$v_o$}
+%(opamp.down) ++(0,-.5) node[below] {$-v_{cc}$} -- (opamp.down)
+(opamp.down) to[short] (-.0825,1) node[above] {$+v_{cc}$} 
+(opamp.up) to[short] (-.0825,-1) node[below] {$-v_{cc}$};
+\draw(1.1,2)node[above]{$v_{cc}$}to[R,o-](1.1,0); 
+\draw(opamp.up) ++ (.6,.36)node[right,yshift=-.3em]{\scriptsize$1$} to[short](.515,-.35)node[ground]{};
+\draw(0,0)node[xshift=-.3em]{LM311};
+\draw(opamp.-) ++ (-.3,0) -- (-1.5,-1.8) to[R,l_=$R_6$] (1,-1.8) -- (1,0)
+(-1.5,-1.8) to[R=$R$] (-1.5,-3.8)node[ground]{};
+\end{circuitikz}
+
+
+\begin{circuitikz}
+%\draw[help lines] (-5,-2) grid (5,3);
+
+%STAGE PHOTO TRANSISTOR
+\draw(-5,1)node[above]{$-v_{cc}$}to[R,o-](-5,-1)node[ground]{};
+\draw(-3.3,.865)node[npn,photo](npn){};
+\draw[-stealth](npn.E) -- (-4.71,.09);
+
+%STAGE CONVERTER
+\draw(npn.C)to[short](-2.7,1.635);
+\draw(-1.52,1.1462) node[op amp] (opamp1) {};
+\draw(opamp1.+)to[R](-2.7,-1)node[ground]{};
+\draw(-1.52,1.1462)node[xshift=-.3em]{$\mu$A741};
+\draw(opamp1.-)to[short](-2.7,3.2)to[R](-.3335,3.2)to[short](opamp1.out)
+(opamp1.up)--++(0,.5)node[above]{$+v_{cc}$}
+(opamp1.down)--++(0,-.5)node[below]{$-v_{cc}$};
+
+
+%STAGE COMPARATOR
+\draw(2.359,.655) node[op amp,yscale=-1] (opamp) {}
+(opamp.down) to[short] (2.2765,1.655) node[above] {$+v_{cc}$}
+(opamp.up) to[short] (2.2765,-0.345) node[below] {$-v_{cc}$};
+\draw(opamp.up) ++ (.6,.36)node[right,yshift=-.3em]{\scriptsize$1$} to[short](2.874,0.305)node[ground]{};
+\draw(2.359,.655)node[xshift=-.3em]{LM311};
+\draw(opamp.-)to[R,-o](-.5,0.155)node[left]{$v_{ref}$};
+\draw(opamp1.out)to[R](opamp.+);
+\draw(opamp.+)to[short](1.17,2.5)to[R](3.5,2.5)to[short](3.5,.655);
+\draw(opamp.out)to[short](4.5,.655);
+\draw(4.5,3.7)node[above]{$+v_{cc}$}to[R,o-](4.5,1.9)to[leDo](4.5,.655);
+\end{circuitikz}

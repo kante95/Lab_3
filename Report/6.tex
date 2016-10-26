@@ -1,19 +1,31 @@
 \chapter{Building an electronic thermometer}
-We can manage to measure a temperature analysing the voltage drop between the ends of a resistor in which flows a known curent, having the resistance depending on temperature by a fixed formula.
-We build this electronic thermometer, testing during the process the new coponents.
+We build and electronic thermometer. This was done by using the PT100, a platinum resistor with a known thermal coefficient. We made a fixed current pass through the PT100 and we took the voltage on each end of the resistor, we amplified this signal and with an intrumentation amplifier we imposed the final output to be 0 V when the temperature was 0 °C. In the end the signal was liked with the resistor's temperature with this law: $T = \eta v_{fo}$
 
 \section{Materials}
 \begin{itemize}
 \item Operational amplifiers OP07
 \item Instrumentation amplifier (INA) AD622
 \item Precision +5V Voltage Reference REF02
-\item thermistor PT100
+\item Thermoresistor PT100
 \item Resistors, trimmers
 \item Power supply RIGOL DP831A
 \item Waveform generator RIGOL DG1032
 \item Multimeter RIGOL DM3068
 \end{itemize}
-MANCANO VALORI ED ERRORI 
-
+The resistors used were all with an uncertainty of 5\%
 \section{Experimental setup}
+Firstly we measured the resistance of the PT100 with two methods. With the standard two wires measure, by adding on each end two 10 $\Omega$ resistor to simulate the presence of parassite resisor. We measured $R_t = 13x \Omega$ which converted with $T = \frac{R_t - R_0}{R_0 \alpha}$\footnote{R_0 is the PT100's resistance at 0 °C and $\alpha$ is the thermal coefficient, that is around 0.003850 $°C^{-1}$} gave us $80 xx$ °C. We then used the 4 wires configuration and meausured $R_t = 10x \Omega$ and the temperaure of  $ °C$.\\
+
+For letting flow a fixed current in the PT100 we needed a highly stable current generator. The one in figure XXX needed a stable input voltage, for this  reason we used the REF02 that had an output of $4.9993 \pm 0.0003$ V. Then we measured the current passing through the the PT100 and we made it as close as 1mA by tweaking the trimmer attached to the inverting pin.\\
+
+We then built an inverting amplifier with gain of 50. For setting the gain we used an input voltage of around 100 mV and we made the output signal as close as possible to 5 V, by using a trimmer.\\
+
+In the last part of the circuit we used AD622 that had to be tested and needed some getting used  to, for this reason we built a bridge circuit with attached the AD622. We used two resistors of 100k$\Omega$, one of $1k\Omega$ and one of $100 \Omega$ with in series a trimmer, we used also a resistance of 51.1 $\Omega$ (1\% of uncertainty) to set the gain of the AD622 to 1000 (989.3 to be exact). By changing the resistance of the trimmer we were able to null the output voltage.\\
+
+After this test we felt confident to build a differational amplifier with a gain of 5.195, by putting to ground the inverting signal and using a sine wave signal of 100mV on the non-inverting pin and changing the output by tweaking the trimmer attached to the $R_G$ pin.\\
+
+At last we connected all the circuits together. The signal from the current generator was used as input signal in the amplifier and the output of the amplifier was placed on the non-inverting pin of the differential amplifier and on the inverting pin was placed the voltage generated  from the REF02
+
+
+
 

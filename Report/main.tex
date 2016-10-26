@@ -16,12 +16,19 @@
 \usepackage{xcolor}
 \usepackage{xfrac}
 \usepackage{caption}
+\usepackage{fancyhdr}
 
 \usepackage[a4paper, inner=1.5cm, outer=3cm, top=3cm, 
 bottom=3cm, bindingoffset=1cm]{geometry} 
 
 \renewcommand{\thesubfigure}{\arabic{subfigure}}
 
+\pagestyle{fancy}
+%\fancyhead[LE,RO]{\textsl{\rightmark}}
+%\fancyhead[LO,RE]{\textsl{\leftmark}}
+
+\fancyhead[L]{\leftmark}
+\fancyhead[R]{}
 
 \usepackage{fancyhdr}
 \renewcommand{\chaptername}{Experiment}

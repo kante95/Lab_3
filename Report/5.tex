@@ -1,13 +1,12 @@
 
-\chapter{A new device: the comparator}
-Abstract
-
+\chapter{Introducing the comparator}
+We first built a relaxation oscillator with different periods, then we tested the LM311 comparator and used it for designing a switch that goes on and off depending on the environment light.
 
 \section{Materials}
 \begin{itemize}
-\item Operational amplifier UA741
+\item Comparator $\mu$A741
 \item Operational amplifier LM311
-\item Fototransistor OP550A
+\item Phototransistor OP550A
 \item Resistors, trimmer, LED, capacitors
 \item Power supply RIGOL DP831A
 \item Waveform generator RIGOL DG1032
@@ -17,16 +16,10 @@ Abstract
 MANCANO VALORI ED ERRORI DI CONDENSATORE, RESISTORI,LED
 
 \section{Experimental setup}
-
-We can use an op-amp to compare two input signals: its output corresponds to a logic value (let's say 0) if $v_- > v_+$, to the other (1) in the opposite case. Verified this feature for two different op-amps, we build a Schmitt's trigger in order to adjust the comparator sensitivity and we try it in a twilight switch circuit.
-
-We have always powered the op-amps with a $\pm15$ V DC voltage and, in order to reduce possible noises, we added two capacitors to both op-amps pins for the power supply and the ground, one of 100nF and the other of 10nF (4 in total).\\
-At first we used the UA741 as a comparator in order to build a relaxation oscillator producing a square wave from a capacitor charge and discharge: we chose $R_1 = R_2 = 10k\Omega$ and a 0.1 nF capacitor. The circuit (see figure ?) has been tested with 5 different values of R: 1, 5, 10, 15, 20 k$\Omega$ in order to have different periods and no imput signal was needed. A measure has been taken also setting the oscilloscope in single mode and then switching on the power supply.
-We than tested the LM311 as both a non-invertent and an invertent comparator using $R_L = 1k\Omega$ and a triangular input signal of ? V and ? Hz.\\
-Regarding the Schmitt's trigger, we added to the previous circuit the resistences $R_1 = 10 k\Omega$ and $R_2 = 100 \Omega$ in order to shift the reference voltage of a factor $\frac{1}{100}$ upward and downward and analyzed the behaviour at the point when $v_{in}\approx v_{ref}$.\\
-At last, we built the twilight switch:\\
-DA FINIRE E RIVEDERE
-
+At first we used the $\mu$A741 (powered with $\pm15$ V) as a comparator in order to build a relaxation oscillator producing a square wave from a capacitor charge and discharge: we chose $R_1 = R_2 = 10k\Omega$ and a 0.1 nF capacitor. The circuit has been tested with 5 different values of R in order to have different periods. A measure has been taken also setting the oscilloscope in single mode and then switching on the power supply.\\
+We than tested the LM311 both as non-inverting and inverting comparator using $R_L = 1k\Omega$ and a triangular input signal of ? V and ? Hz.\\
+Regarding the Schmitt's trigger, we added to the previous circuit the resistences $R_1 = 10 k\Omega$ and $R_2 = 100 \Omega$ and analyzed the behaviour at the point when $v_{in}\approx v_{ref}$.\\
+At last, we built the twilight switch in circuit (). We used a phototransistor, which give us a costant current based on the light, a op-amp stage for converting the current in voltage, so in the last stage we used a comparator for switch a led on and off comparing a voltage reference $v_{ref}$ with the op-amp stage output.
 
 \begin{circuitikz}
 \draw(0,0) node[op amp] (opamp) {}

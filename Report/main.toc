@@ -17,3 +17,6 @@
 \contentsline {chapter}{\numberline {5}Introducing the comparator}{21}
 \contentsline {section}{\numberline {5.1}Materials}{21}
 \contentsline {section}{\numberline {5.2}Experimental setup}{21}
+\contentsline {chapter}{\numberline {6}Building an electronic thermometer}{23}
+\contentsline {section}{\numberline {6.1}Materials}{23}
+\contentsline {section}{\numberline {6.2}Experimental setup}{23}

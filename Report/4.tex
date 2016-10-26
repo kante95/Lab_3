@@ -69,6 +69,13 @@ In the last two circuits we built an non inverting amplifier with gain of 100 an
 \caption{Non inverting amplifier}
 \end{figure}
 \section{Data Analysis}
+<<<<<<< HEAD
+
+In the first circuit we can extimate the open loop gain by using $A_{ol} = - \frac{v_{o}}{v_A} \frac{R_3 + R_4}{R_4}$.
+In the second circuit we calculated $A_{ol} = - \frac{v_{o}}{v_-}$. \\
+We can see from the plot that the data appears to be on a straight line, we can also see if that line is compatible with the values in the datasheet. We can compute the theoretical open loop gain with: $$A_{ol}^{teo}(f) = \frac{A}{1 + j\frac{f}{f_0}}$$ Where $A = 1.5 \times 10^5$ and $f_0 = 8$ Hz are two parameters available in the datasheet, $j$ is the immaginary unit and $f$ is the frequency. We can see from the plot that our data is consistent with the theory and the datasheet.
+For the last two circuit we plotted $H = \frac{v_{o}}{v_-}$. We can see if the data is in accordance with the theory by computing $\frac{\frac{A}{1 + A\beta}}{1 + j \frac{f}{(1 + A\beta)f_0}}$
+=======
 \begin{figure}[H]
 \centering
 \includegraphics[width=.7\textwidth]{4/decibel.png}
@@ -78,3 +85,4 @@ In the second circuit we calculated $A_{ol} = - \frac{v_{o}}{v_a}$. \\
 We can see from the plot that the data appears to be on a straight line, we can also see if that line is compatible with the values in the datasheet. We can compute the theoretical open loop gain with: $$A_{ol}^{teo}(f) = \frac{A}{1 + j\frac{f}{f_0}}$$ Where $f_0 = 8$ Hz is a parameters available in the datasheet and  $A = 1.5 \times 10^5$ was obtained with the best fit, $j$ is the immaginary unit and $f$ is the frequency. We can see from the plot that our data is consistent with the theory and the datasheet.\\
 For the last two circuit we plotted $H = \frac{v_{o}}{v_{in}}$, the theoretical curve is the following:
 \[H(f) = \frac{\frac{A_{ol} }{1 + A_{ol} \beta}}{1 + j \frac{f}{(1 + A_{ol} \beta)f_0}}\]
+>>>>>>> b85e6bac9be578443450962c623a96d1c11a0c18

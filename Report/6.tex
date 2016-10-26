@@ -17,3 +17,37 @@ MANCANO VALORI ED ERRORI
 
 \section{Experimental setup}
 
+\begin{figure}[H]
+\centering
+\begin{circuitikz}
+%ponte
+\draw(0,0);
+\draw(0,6.7)--(0,7.2);
+\node[above] at (0,7.2) {$v_{+}$};
+\draw(-1,6.7)--(1,6.7);
+\draw(-1,6.7)--(-1,6.2);
+\draw(1,6.7)--(1,6.2);
+\draw (-1,6.2) to[R,l^=$R_1$](-1 ,4.7);
+\draw (1,6.2) to[R,l^=$R_2$](1,4.7);
+\draw(-1,4.7)--(-1,3.5);
+\draw(1,4.7)--(1,3.5);
+\draw (-1,3.5) to[R,l^=$R_4$](-1 ,2);
+\draw (1,3.5) to[vR,l^=$R_3$](1,2);
+\draw(-1,2)--(-1,1.5);
+\draw(1,2)--(1,1.5);
+\draw(-1,1.5)--(1,1.5);
+\node[sground] at (0,1.5) {};
+%opamp
+\draw(-1,4.69)--(4,4.69);
+\draw(1,3.71)--(4,3.71);
+\node[op amp] (opamp) at (5,4.2) {};
+\draw(5,5.3)--(5,4.7);
+\node[above] at (5,5.3) {$+v_{cc}$};
+\draw(5,3.0)--(5,3.7);
+\node[below] at (5,3.0) {$-v_{cc}$};
+\node[right] at (6.19,4.2) {$v_{out}$};
+
+\end{circuitikz}
+\caption{Ponte}\label{Ponte}
+\end{figure}
+

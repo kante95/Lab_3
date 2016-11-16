@@ -1,0 +1,50 @@
+\documentclass[oneside]{book}
+
+\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage{float}
+\usepackage{tabularx}
+\usepackage[toc,page]{appendix}
+\usepackage{gensymb}
+\usepackage{subcaption}
+\usepackage{tikz}
+\usepackage{circuitikz}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{colortbl}
+\usepackage{xcolor}
+\usepackage{xfrac}
+\usepackage{caption}
+\usepackage{fancyhdr}
+
+\usepackage[a4paper, inner=1.5cm, outer=3cm, top=3cm, 
+bottom=3cm, bindingoffset=1cm]{geometry} 
+
+\renewcommand{\thesubfigure}{\arabic{subfigure}}
+
+\pagestyle{fancy}
+%\fancyhead[LE,RO]{\textsl{\rightmark}}
+%\fancyhead[LO,RE]{\textsl{\leftmark}}
+
+\fancyhead[L]{\leftmark}
+\fancyhead[R]{}
+
+\usepackage{fancyhdr}
+\renewcommand{\chaptername}{Experiment}
+
+\input{volt.tex}
+
+\begin{document}
+
+\begin{figure}[H]
+\centering
+\begin{circuitikz}[american currents]
+\draw(0,0);
+\draw(-1.5,.3) to[R=$R_1$](-3.5,.3) to[R=$R_L$](-3.5,2.4)  to[R=$R_1$](-1.5,2.4) to[voltmeter](-1.5,.3);
+\draw(-1.5,.3) --(1.5,.3) to[I](1.5,2.4) --(-1.5,2.4);
+\end{circuitikz}
+\caption{two wire measure}\label{two wire measure}
+\end{figure}
+
+\end{document}

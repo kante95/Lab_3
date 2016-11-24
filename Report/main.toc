@@ -20,4 +20,5 @@
 \contentsline {section}{\numberline {5.3}Data Analysis}{23}
 \contentsline {chapter}{\numberline {6}Building an electronic thermometer}{25}
 \contentsline {section}{\numberline {6.1}Materials}{25}
-\contentsline {section}{\numberline {6.2}Experimental setup}{25}
+\contentsline {section}{\numberline {6.2}Electronic thermometer}{25}
+\contentsline {section}{\numberline {6.3}The P of PID}{28}

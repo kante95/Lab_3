@@ -21,7 +21,11 @@
 \contentsline {chapter}{\numberline {6}Building an electronic thermometer}{25}
 \contentsline {section}{\numberline {6.1}Materials}{25}
 \contentsline {section}{\numberline {6.2}Electronic thermometer}{25}
-\contentsline {section}{\numberline {6.3}The P of PID}{28}
-\contentsline {chapter}{\numberline {7}ECG: electrocardiogram}{29}
+\contentsline {section}{\numberline {6.3}The P of PID}{27}
+\contentsline {chapter}{\numberline {7}ECG: Electrocardiogram}{29}
 \contentsline {section}{\numberline {7.1}Materials}{29}
 \contentsline {section}{\numberline {7.2}Experimental setup}{29}
+\contentsline {section}{\numberline {7.3}Data analysis}{30}
+\contentsline {chapter}{\numberline {8}Wien bridge oscillator and digital electronic}{31}
+\contentsline {section}{\numberline {8.1}Materials}{31}
+\contentsline {section}{\numberline {8.2}Experimental setup}{31}

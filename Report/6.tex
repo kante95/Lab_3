@@ -22,15 +22,11 @@ gave us $80 xx \degree C$. We then used the 4 wires configuration and meausured 
 \centering
 \includegraphics[width=.7\textwidth]{6/circuit.png}
 \end{figure}
-
 For build the thermometer circuit first we turned the resistor's mesurament in a voltage's mesurament, we've done this simply using a fixed current in the PT100.
 For letting flow a fixed current in the PT100 we needed a highly stable current generator. The one we built needed a stable input voltage, for this  reason we used the REF02 that had an output of $4.9993 \pm 0.0003$ V. Then we measured the current passing through the the PT100 and we made it as close as 1mA by tweaking the trimmer attached to the inverting pin.\\
-
-For having the output with the format required in the abstract we needed the total gain of the circuit to be $G_{tot} = \frac{100 \frac{mV}{\degree C}}{\alpha} = 259.740$. Because we also needed to set the output to 0 mV at 0 \degree C we decided to first amplify the voltage on the ends of the PT100 by a factor of 50 and then use this output in the differential amplifier, that had a gain of 5.195, this allowed us to take the first amplified signal and compare it with the signal that would had been at $0\degree C$ (in our case exactly 5V).
-
+For having the output with the format required in the abstract we needed the total gain of the circuit to be $G_{tot} = \frac{100 \frac{mV}{\degree C}}{\alpha} = 259.740$. Because we also needed to set the output to 0 mV at 0 \degree C we decided to first amplify the voltage on the ends of the PT100 by a factor of 50 and then use this output in the differential amplifier, that had a gain of 5.195, this allowed us to take the first amplified signal and compare it with the signal that would had been at $0\degree C$ (in our case exactly 5V).\\
 For the amplifier stage we used a OP07 in inverting configuration. For setting the gain of the amplifier stage we used an input voltage of around 100 mV and we made the output signal as close as possible to 5 V, by using a trimmer.\\
-In the last stage of the circuit we used AD622 that had to be tested and needed some getting used to, for this reason we built a bridge circuit with attached the AD622. We used two resistors of 100k$\Omega$, one of $1k\Omega$ and one of $100 \Omega$ with in series a trimmer, we used also a resistance of 51.1 $\Omega$ (1\% of uncertainty) to set the gain of the AD622 to 1000 (989.3 to be exact). By changing the resistance of the trimmer we were able to null the output voltage.\\
-
+In the last stage of the circuit we used AD622 that had to be tested and needed some getting used to, for this reason we built a bridge circuit with attached the AD622. We used two resistors of 100k$\Omega$, one of $1k\Omega$ and one of $100 \Omega$ with in series a trimmer, we used also a resistance of 51.1 $\Omega$ (1\% of uncertainty) to set the gain of the AD622 to 1000 (989.3 to be exact). By changing the resistance of the trimmer we were able to null the output voltage.
 \begin{figure}[H]
 \centering
 \begin{circuitikz}
@@ -66,12 +62,11 @@ In the last stage of the circuit we used AD622 that had to be tested and needed 
 \draw(5.5,6.3)--(5.5,4.4);
 
 \end{circuitikz}
-\caption{Ponte}\label{Ponte}
+\caption{Testing bridge}\label{Ponte}
 \end{figure}
 
 
 After this test we felt confident to build a differational amplifier with a gain of 5.195, by putting to ground the inverting signal and using a sine wave signal of 100mV on the non-inverting pin and changing the output by tweaking the trimmer attached to the $R_G$ pin.\\
-
 At last we connected all the circuits together. The signal from the current generator was used as input signal in the amplifier and the output of the amplifier was placed on the non-inverting pin of the differential amplifier and on the inverting pin was placed the voltage generated from the REF02. we connected the output to the multimeter and changed the setting to output 1 \degree C to for each 100mV in the output. The value visible was about 25 \degree C and we made sure that  it was changing by heating the PT100.
 
 \section{The P of PID}

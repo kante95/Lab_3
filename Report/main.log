@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Arch Linux) (preloaded format=pdflatex 2016.11.19)  24 NOV 2016 12:14
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Arch Linux) (preloaded format=pdflatex 2016.11.26)  28 NOV 2016 11:43
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -772,8 +772,8 @@ File: pgfmodulematrix.code.tex 2013/09/17  (rcs-revision 1.8)
 topaths.code.tex
 File: tikzlibrarytopaths.code.tex 2008/06/17 v3.0.1a (rcs-revision 1.2)
 ))) (/usr/share/texmf-dist/tex/latex/circuitikz/circuitikz.sty
-Package: circuitikz 2016/06/06{} The CircuiTikz circuit drawing package version
- 0.6
+Package: circuitikz 2016/09/08{} The CircuiTikz circuit drawing package version
+ 0.7
 
 (/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrary
 calc.code.tex
@@ -833,37 +833,37 @@ Package: colortbl 2012/02/13 v1.0a Color table columns (DPC)
 )
 (/usr/share/texmf-dist/tex/latex/l3packages/xfrac/xfrac.sty
 (/usr/share/texmf-dist/tex/latex/l3kernel/expl3.sty
-Package: expl3 2016/05/18 v6512 L3 programming layer (loader) 
+Package: expl3 2016/10/19 v6730 L3 programming layer (loader) 
 
 (/usr/share/texmf-dist/tex/latex/l3kernel/expl3-code.tex
-Package: expl3 2016/05/18 v6512 L3 programming layer (code)
-L3 Module: l3bootstrap 2016/02/12 v6412 L3 Bootstrap code
-L3 Module: l3names 2016/03/11 v6433 L3 Namespace for primitives
-L3 Module: l3basics 2015/11/22 v6315 L3 Basic definitions
-L3 Module: l3expan 2015/09/10 v5983 L3 Argument expansion
-L3 Module: l3tl 2016/03/26 v6465 L3 Token lists
-L3 Module: l3str 2016/03/24 v6441 L3 Strings
-L3 Module: l3seq 2015/08/05 v5777 L3 Sequences and stacks
-L3 Module: l3int 2016/03/24 v6441 L3 Integers
+Package: expl3 2016/10/19 v6730 L3 programming layer (code)
+L3 Module: l3bootstrap 2016/06/13 v6596 L3 Bootstrap code
+L3 Module: l3names 2016/10/13 v6722 L3 Namespace for primitives
+L3 Module: l3basics 2016/09/01 v6696 L3 Basic definitions
+L3 Module: l3expan 2016/08/19 v6684 L3 Argument expansion
+L3 Module: l3tl 2016/08/19 v6692 L3 Token lists
+L3 Module: l3str 2016/08/19 v6692 L3 Strings
+L3 Module: l3seq 2016/08/19 v6685 L3 Sequences and stacks
+L3 Module: l3int 2016/09/07 v6700 L3 Integers
 \c_max_int=\count136
 \l_tmpa_int=\count137
 \l_tmpb_int=\count138
 \g_tmpa_int=\count139
 \g_tmpb_int=\count140
-L3 Module: l3quark 2015/08/17 v5855 L3 Quarks
-L3 Module: l3prg 2015/11/01 v6216 L3 Control structures
+L3 Module: l3quark 2016/08/19 v6685 L3 Quarks
+L3 Module: l3prg 2016/08/18 v6679 L3 Control structures
 \g__prg_map_int=\count141
-L3 Module: l3clist 2015/09/02 v5901 L3 Comma separated lists
-L3 Module: l3token 2016/04/03 v6470 L3 Experimental token manipulation
-L3 Module: l3prop 2016/01/05 v6366 L3 Property lists
-L3 Module: l3msg 2016/03/26 v6464 L3 Messages
-L3 Module: l3file 2016/03/25 v6458 L3 File and I/O operations
+L3 Module: l3clist 2016/08/19 v6685 L3 Comma separated lists
+L3 Module: l3token 2016/09/01 v6695 L3 Experimental token manipulation
+L3 Module: l3prop 2016/08/19 v6685 L3 Property lists
+L3 Module: l3msg 2016/08/19 v6691 L3 Messages
+L3 Module: l3file 2016/08/19 v6685 L3 File and I/O operations
 \l_iow_line_count_int=\count142
 \l__iow_target_count_int=\count143
 \l__iow_current_line_int=\count144
 \l__iow_current_word_int=\count145
 \l__iow_current_indentation_int=\count146
-L3 Module: l3skip 2016/01/05 v6366 L3 Dimensions and skips
+L3 Module: l3skip 2016/08/19 v6692 L3 Dimensions and skips
 \c_zero_dim=\dimen263
 \c_max_dim=\dimen264
 \l_tmpa_dim=\dimen265
@@ -882,26 +882,25 @@ L3 Module: l3skip 2016/01/05 v6366 L3 Dimensions and skips
 \l_tmpb_muskip=\muskip14
 \g_tmpa_muskip=\muskip15
 \g_tmpb_muskip=\muskip16
-L3 Module: l3keys 2015/11/17 v6284 L3 Key-value interfaces
-\g__keyval_level_int=\count147
-\l_keys_choice_int=\count148
-L3 Module: l3fp 2016/03/26 v6465 L3 Floating points
-\c__fp_leading_shift_int=\count149
-\c__fp_middle_shift_int=\count150
-\c__fp_trailing_shift_int=\count151
-\c__fp_big_leading_shift_int=\count152
-\c__fp_big_middle_shift_int=\count153
-\c__fp_big_trailing_shift_int=\count154
-\c__fp_Bigg_leading_shift_int=\count155
-\c__fp_Bigg_middle_shift_int=\count156
-\c__fp_Bigg_trailing_shift_int=\count157
-L3 Module: l3box 2015/08/09 v5822 L3 Experimental boxes
+L3 Module: l3keys 2016/09/21 v6711 L3 Key-value interfaces
+\l_keys_choice_int=\count147
+L3 Module: l3fp 2016/08/19 v6685 L3 Floating points
+\c__fp_leading_shift_int=\count148
+\c__fp_middle_shift_int=\count149
+\c__fp_trailing_shift_int=\count150
+\c__fp_big_leading_shift_int=\count151
+\c__fp_big_middle_shift_int=\count152
+\c__fp_big_trailing_shift_int=\count153
+\c__fp_Bigg_leading_shift_int=\count154
+\c__fp_Bigg_middle_shift_int=\count155
+\c__fp_Bigg_trailing_shift_int=\count156
+L3 Module: l3box 2016/08/19 v6685 L3 Experimental boxes
 \c_empty_box=\box41
 \l_tmpa_box=\box42
 \l_tmpb_box=\box43
 \g_tmpa_box=\box44
 \g_tmpb_box=\box45
-L3 Module: l3coffins 2016/05/17 v6508 L3 Coffin code layer
+L3 Module: l3coffins 2016/08/19 v6685 L3 Coffin code layer
 \l__coffin_internal_box=\box46
 \l__coffin_internal_dim=\dimen269
 \l__coffin_offset_x_dim=\dimen270
@@ -921,9 +920,9 @@ L3 Module: l3coffins 2016/05/17 v6508 L3 Coffin code layer
 \l__coffin_display_offset_dim=\dimen276
 \l__coffin_display_x_dim=\dimen277
 \l__coffin_display_y_dim=\dimen278
-L3 Module: l3color 2014/08/23 v5354 L3 Experimental color support
+L3 Module: l3color 2016/06/13 v6596 L3 Experimental color support
 L3 Module: l3sys 2015/09/25 v6087 L3 Experimental system/runtime functions
-L3 Module: l3candidates 2016/05/13 v6484 L3 Experimental additions to l3kernel
+L3 Module: l3candidates 2016/08/19 v6688 L3 Experimental additions to l3kernel
 \l__box_top_dim=\dimen279
 \l__box_bottom_dim=\dimen280
 \l__box_left_dim=\dimen281
@@ -940,15 +939,15 @@ L3 Module: l3candidates 2016/05/13 v6484 L3 Experimental additions to l3kernel
 \l__coffin_top_corner_dim=\dimen291
 \l__coffin_scaled_total_height_dim=\dimen292
 \l__coffin_scaled_width_dim=\dimen293
-L3 Module: l3luatex 2016/03/26 v6465 L3 Experimental LuaTeX-specific functions
+L3 Module: l3luatex 2016/08/18 v6679 L3 Experimental LuaTeX-specific functions
 )
 (/usr/share/texmf-dist/tex/latex/l3kernel/l3pdfmode.def
-File: l3pdfmode.def 2016/03/26 v6465 L3 Experimental driver: PDF mode
-\l__driver_color_stack_int=\count158
+File: l3pdfmode.def 2016/08/18 v6679 L3 Experimental driver: PDF mode
+\l__driver_color_stack_int=\count157
 \l__driver_tmp_box=\box56
 ))
 (/usr/share/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e.sty
-Package: l3keys2e 2016/05/18 v6512 LaTeX2e option processing using LaTeX3 keys
+Package: l3keys2e 2016/10/19 v6730 LaTeX2e option processing using LaTeX3 keys
 )
 (/usr/share/texmf-dist/tex/latex/base/textcomp.sty
 Package: textcomp 2016/06/19 v1.99m Standard LaTeX package
@@ -1107,22 +1106,22 @@ Package textcomp Info: Setting ptmx sub-encoding to TS1/4 on input line 408.
 Package textcomp Info: Setting ptmj sub-encoding to TS1/4 on input line 409.
 )
 (/usr/share/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
-Package: xparse 2016/05/18 v6512 L3 Experimental document command parser
-\l__xparse_current_arg_int=\count159
-\l__xparse_m_args_int=\count160
-\l__xparse_mandatory_args_int=\count161
-\l__xparse_processor_int=\count162
-\l__xparse_v_nesting_int=\count163
+Package: xparse 2016/10/19 v6730 L3 Experimental document command parser
+\l__xparse_current_arg_int=\count158
+\l__xparse_m_args_int=\count159
+\l__xparse_mandatory_args_int=\count160
+\l__xparse_processor_int=\count161
+\l__xparse_v_nesting_int=\count162
 )
 (/usr/share/texmf-dist/tex/latex/l3packages/xtemplate/xtemplate.sty
-Package: xtemplate 2016/05/18 v6512 L3 Experimental prototype document function
+Package: xtemplate 2016/10/19 v6730 L3 Experimental prototype document function
 s
 \l__xtemplate_tmp_dim=\dimen294
-\l__xtemplate_tmp_int=\count164
+\l__xtemplate_tmp_int=\count163
 \l__xtemplate_tmp_muskip=\muskip17
 \l__xtemplate_tmp_skip=\skip59
 )
-Package: xfrac 2016/05/18 v6512 L3 Experimental split-level fractions
+Package: xfrac 2016/10/19 v6730 L3 Experimental split-level fractions
 \l__xfrac_slash_box=\box57
 \l__xfrac_tmp_box=\box58
 \l__xfrac_denominator_bot_sep_dim=\dimen295
@@ -1144,6 +1143,7 @@ Package: xfrac 2016/05/18 v6512 L3 Experimental split-level fractions
 .................................................
 )
 (/usr/share/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
+Package: fancyhdr 2016/09/06 3.8 Extensive control of page headers and footers
 \fancy@headwidth=\skip60
 \f@ncyO@elh=\skip61
 \f@ncyO@erh=\skip62
@@ -1167,9 +1167,9 @@ Package ifvtex Info: VTeX not detected.
 (/usr/share/texmf-dist/tex/generic/ifxetex/ifxetex.sty
 Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 )
-\Gm@cnth=\count165
-\Gm@cntv=\count166
-\c@Gm@tempcnt=\count167
+\Gm@cnth=\count164
+\Gm@cntv=\count165
+\c@Gm@tempcnt=\count166
 \Gm@bindingoffset=\dimen300
 \Gm@wd@mp=\dimen301
 \Gm@odd@mp=\dimen302
@@ -1204,16 +1204,16 @@ LaTeX Font Info:    ... okay on input line 38.
 
 (/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count168
+\scratchcounter=\count167
 \scratchdimen=\dimen308
 \scratchbox=\box59
-\nofMPsegments=\count169
-\nofMParguments=\count170
+\nofMPsegments=\count168
+\nofMParguments=\count169
 \everyMPshowfont=\toks40
-\MPscratchCnt=\count171
+\MPscratchCnt=\count170
 \MPscratchDim=\dimen309
-\MPnumerator=\count172
-\makeMPintoPDFobject=\count173
+\MPnumerator=\count171
+\makeMPintoPDFobject=\count172
 \everyMPtoPDFconversion=\toks41
 ) (/usr/share/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
 Package: pdftexcmds 2016/05/21 v0.22 Utility functions of pdfTeX for LuaTeX (HO
@@ -1541,19 +1541,48 @@ File: 6/circuit2.png Graphic file (type png)
 Package pdftex.def Info: 6/circuit2.png used on input line 80.
 (pdftex.def)             Requested size: 352.81554pt x 255.77844pt.
  [27])
-[28 <./6/circuit2.png (PNG copy)>] (./main.aux)
+(./8.tex [28 <./6/circuit2.png (PNG copy)>]
+Experiment 7.
+
+Underfull \hbox (badness 10000) in paragraph at lines 20--22
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 23--25
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 26--27
+
+ []
+
+[29
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 28--29
+
+ []
+
+)
+Underfull \hbox (badness 10000) in paragraph at lines 30--48
+
+ []
+
+[30] (./main.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 34609 strings out of 493013
- 769000 string characters out of 6139316
- 924945 words of memory out of 5000000
- 37703 multiletter control sequences out of 15000+600000
+ 34705 strings out of 493013
+ 772118 string characters out of 6139316
+ 924539 words of memory out of 5000000
+ 37796 multiletter control sequences out of 15000+600000
  15550 words of font info for 53 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,16n,54p,10375b,1123s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 55i,16n,54p,10375b,1127s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/
 texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb></usr/share/texmf-dist/fo
 nts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texmf-dist/fonts/type1/publ
@@ -1576,10 +1605,10 @@ r/share/texmf-dist/fonts/type1/public/cm-super/sfrm0500.pfb></usr/share/texmf-d
 ist/fonts/type1/public/cm-super/sfrm0700.pfb></usr/share/texmf-dist/fonts/type1
 /public/cm-super/sfrm0800.pfb></usr/share/texmf-dist/fonts/type1/public/cm-supe
 r/sfrm1000.pfb>
-Output written on main.pdf (29 pages, 1818313 bytes).
+Output written on main.pdf (31 pages, 1841182 bytes).
 PDF statistics:
- 243 PDF objects out of 1000 (max. 8388607)
- 145 compressed objects within 2 object streams
+ 250 PDF objects out of 1000 (max. 8388607)
+ 150 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  123 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -22,3 +22,6 @@
 \contentsline {section}{\numberline {6.1}Materials}{25}
 \contentsline {section}{\numberline {6.2}Electronic thermometer}{25}
 \contentsline {section}{\numberline {6.3}The P of PID}{28}
+\contentsline {chapter}{\numberline {7}ECG: electrocardiogram}{29}
+\contentsline {section}{\numberline {7.1}Materials}{29}
+\contentsline {section}{\numberline {7.2}Experimental setup}{29}

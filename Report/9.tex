@@ -1,14 +1,41 @@
+
 \chapter{Wien bridge oscillator and digital electronic}
-In the first part ogf the experience we built a wien bridge oscillator with an automatic gain control so the oscillation is automatic controlled. We focused our attention on the wave's quality and the critical time of startup. The second part was about digital electronics, after we got confident with a NAND port we designed a circuit for an house alarm system.
+In the first part ogf the experience we built a wien bridge oscillator with an automatic gain control which was made possibile by a tungsten light. We focused our attention on the wave's quality and the critical time of startup. The second part was about digital electronics, after we got confident with a NAND port we designed a circuit for an house alarm system.
 \section{Materials}
 \begin{itemize}
-\item Operational amplifiers $\mu$A741
+\item Operational amplifiers OP07
 \item Instrumentation amplifier (INA) AD622
+\item Precision +5V Voltage Reference REF02
 \item Resistors, trimmers
 \item Power supply RIGOL DP831A
 \item Waveform generator RIGOL DG1032
 \item Multimeter RIGOL DM3068
-\item NAND 74LS00
+\item OP741
+\item DM74LS244
+\item DM74LS00
 \end{itemize}
 The resistors used were all with an uncertainty of 5\%
+
 \section{Experimental setup}
+\subsection{Wien brigde oscillator}
+For building the wien bridge and have it oscillate it is needed $R_2 = 2 R_1$, for this reason we used a trimmer as $R_2$ and we used in series a resistor of $47 \Omega$ with the tugset light. We have  set the trimmer at a resistance around twice the resistance of 47 $\Omega$ and the light. This way when we turn on the circuit, the current start flowing in the tugsten resistor increasing its resistance, thanks to the heat, and bringing it closer to half $R_2$. This is what is needed for the circuit to oscillate, but it can be seen in the analysis that the circuit took some time for stablizing.
+\subsection{Logic gates}
+We needed to use some DM74LS00, so the first thing we did was testing it by using it as NAND with the help of DM74LS244 for a visual confirm.
+For designing the alarm we wrote the table of Karnaugh, that has been used for minimizing the use of the NAND gates.
+
+\begin{table}[]
+\centering
+\caption{D = Door, W = Window, I = Infrared, K = Key}
+\label{my-label}
+\begin{tabular}{lllll}
+\hline
+ DW/IK & 00 & 01 & 11 & 10 \\ \hline
+ 00    & 0  & 0  & 0  & 1 \\
+ 01    & 1  & 1  & 1  & 1 \\
+ 11    & 1  & 1  & 1  & 1 \\ 
+ 10    & 1  & 1  & 1  & 1 \\ \hline
+\end{tabular}
+\end{table}
+
+The simplified form is $Y = D + W + I\overline{C}$. The problem was that we only had NAND gates so we needed to write OR, AND and NOT with NAND. NOT is the easiest one, because you only need to connect the signal with both inputs of the NAND. AND you get it by negating the output of the NAND. For the OR gate you need to negate both input and use the two signal as input  for a NAND.
+

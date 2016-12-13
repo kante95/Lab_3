@@ -1,0 +1,4 @@
+la frequenza del segnale a regime con i condensatori sul power supply calcolato col multimetro è:
+f = 1.12187 kHz
+fondo scala = 40 Hz/300 kHz
+cambia solo l'ultima cifra

@@ -1,17 +1,17 @@
 Model:MSO2102A
-SN:DS2F181600100
+SN:DS2F181600110
 Manufacturer:RIGOL TECHNOLOGIES
 Hardware Ver:2.2
 Firmware:00.03.04.02.01
 Status:
 L:[HEX] 0000 0000	[BIN] 0000 0000 0000 0000 0000 0000 0000 0000
 H:[HEX] 0000 0000	[BIN] 0000 0000 0000 0000 0000 0000 0000 0000
-2016:11:23 17:22:0
+2016:11:28 19:7:29
 
 	DSO Vertical System 
 CH1:On
-Scale:5.000e+03mV/
-Position:0.000e+00mV
+Scale:2.000e+03mV/
+Position:8.000e+01mV
 Coupling:DC
 Invert:Off
 Bandwidth Limit:OFF
@@ -21,8 +21,8 @@ Unit:V
 User Cal:0ps
 
 CH2:Off
-Scale:2.000e+03mV/
-Position:0.000e+00mV
+Scale:1.000e+03mV/
+Position:-2.000e+03mV
 Coupling:DC
 Invert:Off
 Bandwidth Limit:OFF
@@ -63,16 +63,16 @@ D8-D15 Cal:0ps
 Delay:Off
 Time Vernier:Off
 Time Mode:YT
-Time Scale:2.000000e-02s
-Delay Time Scale:1.000000e-02s
-Time Offset:1.130000e-01s
+Time Scale:1.000000e-01s
+Delay Time Scale:5.000000e-02s
+Time Offset:6.440000e-01s
 Delay Time Offset:0.000000e+00s
 
 	DSO Acquire System
 Acquire Mode:Normal
 Memory Depth:14000000
 Average Num:2
-Sampling Rate:5.000e+07
+Sampling Rate:1.000e+07
 LA Sampling Rate:5.000e+08
 
 	DSO Normal Trigger System
@@ -82,7 +82,7 @@ Trigger Sweep:Single
 Trigger Coupling:DC
 Trigger Noise Reject:Off
 Trigger HoldOff:1.000000e-07s
-CH1 Level:0.000000V
+CH1 Level:-0.040000V
 CH2 Level:0.000000V
 Ext Level:0.000000V
 Trigger Edge Slope:Rising
@@ -100,8 +100,8 @@ NCycle Num:2
 Slope Condition:Positive More
 Slope High:2.000e-06s
 Slope Low:1.000e-06s
-Slope Level1:0.248000V
-Slope Level2:-0.252000V
+Slope Level1:1.000000V
+Slope Level2:0.000000V
 Video Polarity:Negative
 Video Sync:All Lines
 Video Standard:NTSC

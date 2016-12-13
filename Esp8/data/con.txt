@@ -1,17 +1,17 @@
 Model:MSO2102A
-SN:DS2F181000092
+SN:DS2F181600110
 Manufacturer:RIGOL TECHNOLOGIES
 Hardware Ver:2.2
 Firmware:00.03.04.02.01
 Status:
 L:[HEX] 0000 0000	[BIN] 0000 0000 0000 0000 0000 0000 0000 0000
 H:[HEX] 0000 0000	[BIN] 0000 0000 0000 0000 0000 0000 0000 0000
-2016:11:16 18:49:47
+2016:11:28 19:4:22
 
 	DSO Vertical System 
-CH1:Off
+CH1:On
 Scale:1.000e+03mV/
-Position:2.000e+03mV
+Position:4.000e+01mV
 Coupling:DC
 Invert:Off
 Bandwidth Limit:OFF
@@ -20,9 +20,9 @@ Impedance:1M
 Unit:V
 User Cal:0ps
 
-CH2:On
-Scale:2.000e+02mV/
-Position:0.000e+00mV
+CH2:Off
+Scale:1.000e+03mV/
+Position:-2.000e+03mV
 Coupling:DC
 Invert:Off
 Bandwidth Limit:OFF
@@ -61,29 +61,29 @@ D8-D15 Cal:0ps
 
 	DSO Horizontal System
 Delay:Off
-Time Vernier:Off
+Time Vernier:On
 Time Mode:YT
-Time Scale:2.000000e-01s
-Delay Time Scale:1.000000e-01s
+Time Scale:2.760000e-04s
+Delay Time Scale:1.000000e-04s
 Time Offset:0.000000e+00s
 Delay Time Offset:0.000000e+00s
 
 	DSO Acquire System
 Acquire Mode:Normal
-Memory Depth:17500000
+Memory Depth:7728000
 Average Num:2
-Sampling Rate:5.000e+06
+Sampling Rate:2.000e+09
 LA Sampling Rate:5.000e+08
 
 	DSO Normal Trigger System
 Trigger Mode:Edge
-Trigger Source:CH2
+Trigger Source:CH1
 Trigger Sweep:Auto
 Trigger Coupling:DC
 Trigger Noise Reject:Off
 Trigger HoldOff:1.000000e-07s
-CH1 Level:0.000000V
-CH2 Level:-0.031999V
+CH1 Level:-0.040000V
+CH2 Level:0.000000V
 Ext Level:0.000000V
 Trigger Edge Slope:Rising
 Pulse Condition:Positive More

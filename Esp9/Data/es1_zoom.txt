@@ -6,11 +6,11 @@ Firmware:00.03.04.02.01
 Status:
 L:[HEX] 0000 0000	[BIN] 0000 0000 0000 0000 0000 0000 0000 0000
 H:[HEX] 0000 0000	[BIN] 0000 0000 0000 0000 0000 0000 0000 0000
-2016:11:23 17:29:28
+2016:11:30 16:52:12
 
 	DSO Vertical System 
 CH1:On
-Scale:2.000e+03mV/
+Scale:1.460e+03mV/
 Position:0.000e+00mV
 Coupling:DC
 Invert:Off
@@ -20,8 +20,8 @@ Impedance:1M
 Unit:V
 User Cal:0ps
 
-CH2:Off
-Scale:2.000e+03mV/
+CH2:On
+Scale:1.460e+03mV/
 Position:0.000e+00mV
 Coupling:DC
 Invert:Off
@@ -63,26 +63,26 @@ D8-D15 Cal:0ps
 Delay:Off
 Time Vernier:Off
 Time Mode:YT
-Time Scale:1.000000e+00s
-Delay Time Scale:5.000000e-01s
-Time Offset:5.482800e+00s
+Time Scale:2.000000e-08s
+Delay Time Scale:1.000000e-08s
+Time Offset:5.440000e-08s
 Delay Time Offset:0.000000e+00s
 
 	DSO Acquire System
 Acquire Mode:Normal
-Memory Depth:17500000
+Memory Depth:700
 Average Num:2
-Sampling Rate:1.000e+06
+Sampling Rate:1.000e+09
 LA Sampling Rate:5.000e+08
 
 	DSO Normal Trigger System
 Trigger Mode:Edge
 Trigger Source:CH1
-Trigger Sweep:Single
+Trigger Sweep:Auto
 Trigger Coupling:DC
 Trigger Noise Reject:Off
 Trigger HoldOff:1.000000e-07s
-CH1 Level:0.000000V
+CH1 Level:0.800000V
 CH2 Level:0.000000V
 Ext Level:0.000000V
 Trigger Edge Slope:Rising
@@ -100,8 +100,8 @@ NCycle Num:2
 Slope Condition:Positive More
 Slope High:2.000e-06s
 Slope Low:1.000e-06s
-Slope Level1:0.248000V
-Slope Level2:-0.252000V
+Slope Level1:1.000000V
+Slope Level2:0.000000V
 Video Polarity:Negative
 Video Sync:All Lines
 Video Standard:NTSC

@@ -21,7 +21,7 @@ def read_data(file, numcols=2):
     return t, vin
 
 
-t, vin = read_data("con.csv")
+t, vin = read_data("Newfile4.csv")
 plt.figure("ciao")
 plt.grid(True)
 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.9.21)  26 DEC 2016 18:20
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.9.21)  26 DEC 2016 19:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1577,12 +1577,8 @@ Package pdftex.def Info: 6/circuit2.png used on input line 75.
 )
 (./8.tex [28 <./6/circuit2.png (PNG copy)>] [29]
 Experiment 7.
-[30
 
-]
-Experiment 8.
-
-LaTeX Warning: File `8/circuit.png' not found on input line 29.
+LaTeX Warning: File `8/circuit.png' not found on input line 24.
 
 
 ! Package pdftex.def Error: File `8/circuit.png' not found.
@@ -1591,33 +1587,43 @@ See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.29 ...raphics[width=.8\textwidth]{8/circuit.png}
+l.24 ...raphics[width=.8\textwidth]{8/circuit.png}
                                                   
 ? 
 
-Underfull \hbox (badness 10000) in paragraph at lines 25--35
+Underfull \hbox (badness 10000) in paragraph at lines 20--26
+
+ []
+
+[30
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 27--28
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 36--37
-
- []
-
-[31
-
-] [32]
-Underfull \hbox (badness 10000) in paragraph at lines 38--39
+Underfull \hbox (badness 10000) in paragraph at lines 29--30
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 40--41
+Underfull \hbox (badness 10000) in paragraph at lines 31--32
 
  []
 
 
-LaTeX Warning: File `8/ecg.png' not found on input line 48.
+Underfull \hbox (badness 10000) in paragraph at lines 33--34
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 35--36
+
+ []
+
+
+LaTeX Warning: File `8/ecg.png' not found on input line 40.
 
 
 ! Package pdftex.def Error: File `8/ecg.png' not found.
@@ -1626,40 +1632,24 @@ See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.48 ...udegraphics[width=.7\textwidth]{8/ecg.png}
+l.40 ...udegraphics[width=.7\textwidth]{8/ecg.png}
                                                   
 ? 
-) (./9.tex
-Overfull \hbox (78.22412pt too wide) in paragraph at lines 51--2
-\OT1/cmr/m/n/10 quency, the sig-nal above is smoothed with a run-ning mean al-g
-o-rithm. >>>>>>> dc20f9f46ec22df18b09c1f93ce855ae4a2cf82f
- []
-
-[33] [34]
-Experiment 9.
-
-Overfull \hbox (68.223pt too wide) in paragraph at lines 3--6
-\OT1/cmr/m/n/10 signed an al-larm sys-tem by only us-ing 7 NAND gates. ======= 
->>>>>>> dc20f9f46ec22df18b09c1f93ce855ae4a2cf82f 
- []
-
-[35
-
-]
-Experiment 10.
-[36
+[31]) (./9.tex [32]
+Experiment 8.
+[33
 
 ]
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 31.
+               Default added (so using `tbp') on input line 25.
 
-) (./10.tex [37]
-Experiment 11.
-) (./11.tex [38
+) (./10.tex [34]
+Experiment 9.
+) (./11.tex [35
 
 ]
-Experiment 12.
+Experiment 10.
 ! Undefined control sequence.
 <recently read> \overbar 
                          
@@ -1667,15 +1657,15 @@ l.20 ...the output we  connected $Q$ and $\overbar
                                                   {Q}$ to an 8-led chip. Lat...
 
 ? 
-[39
+[36
 
 ]) (./12.tex
 Underfull \hbox (badness 10000) in paragraph at lines 27--1
 
  []
 
-[40]
-Experiment 13.
+[37]
+Experiment 11.
 ! Undefined control sequence.
 <recently read> \Ohm 
                      
@@ -1690,18 +1680,21 @@ l.20 ...t was connected with ground with a 2k$\Ohm
                                                   $ resistor and with a comp...
 
 ? 
-) [41
+) [38
 
 ] (./main.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
  ) 
 Here is how much of TeX's memory you used:
- 33607 strings out of 493029
- 741837 string characters out of 6136234
- 873840 words of memory out of 5000000
- 36682 multiletter control sequences out of 15000+600000
+ 33589 strings out of 493029
+ 741393 string characters out of 6136234
+ 873878 words of memory out of 5000000
+ 36664 multiletter control sequences out of 15000+600000
  12551 words of font info for 44 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  55i,16n,54p,10375b,1124s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1728,10 +1721,10 @@ onts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
 </usr/share/texmf/fonts/type1/public/cm-super/sfrm0500.pfb></usr/share/texmf/fo
 nts/type1/public/cm-super/sfrm0700.pfb></usr/share/texmf/fonts/type1/public/cm-
 super/sfrm0800.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on main.pdf (42 pages, 1909847 bytes).
+Output written on main.pdf (39 pages, 1907216 bytes).
 PDF statistics:
- 286 PDF objects out of 1000 (max. 8388607)
- 175 compressed objects within 2 object streams
+ 277 PDF objects out of 1000 (max. 8388607)
+ 169 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  123 words of extra memory for PDF output out of 10000 (max. 10000000)
 

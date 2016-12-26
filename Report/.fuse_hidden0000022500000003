@@ -47,6 +47,4 @@ bottom=3cm, bindingoffset=1cm]{geometry}
 \input{8.tex}
 \input{9.tex}
 \input{10.tex}
-\input{11.tex}
-\input{12.tex}
 \end{document}

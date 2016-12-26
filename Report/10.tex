@@ -1,31 +1,22 @@
 \chapter{TTL and multiplexer}
-In this session we first measured the latancy between the input and output signal, then we used a NOT gate with open collector to turn on a LED, thirdly we designed and built an half dulpex with two 3state gates and lastly we projecteda and implemented an multiplex depultiplex system with 3 signals and two bit of selection.
+In this session we first measured the latancy between the input and output signal, then we used a NOT gate with open collector to turn on a LED, thirdly we designed and built an half dulpex with two 3state gates and lastly we projected and implemented a multiplex depultiplex system with 4 signals and two bit of selection.
 
 \section{Materials}
 \begin{itemize}
-\item Operational amplifiers OP07
-\item Instrumentation amplifier (INA) AD622
-\item Precision +5V Voltage Reference REF02
-\item Resistors, trimmers
+\item A resistor
+\item A LED
 \item Power supply RIGOL DP831A
 \item Waveform generator RIGOL DG1032
 \item Multimeter RIGOL DM3068
-\item OP741
-\item DM74LS244
-\item DM74LS00
-<<<<<<< HEAD
-=======
-\item 74LS125
+\item 74LS00
 \item 74LS05
 \item 74LS04
->>>>>>> dc20f9f46ec22df18b09c1f93ce855ae4a2cf82f
+\item 74LS125
 \end{itemize}
+
 \section{Experimental setup}
 For measuring the time propagation of the signal in the 7400 we used the configuration in figure XXX. As input we used a square-wave with 0-5 V voltage and the frequency of 100kHz. With the oscilloscope we took the signal in the changing phase, that can be seen in XXX.\\
 For switching on and off the LED we used the circuit in X with a power supply of 9 V and a resistor 1  k $\Omega$.\\
 For the half duplex we built it as in figure XX, we connected the two input by first passing the signals into a  3state that had the enable bits opposite to one another, so they passed just one singal at the time. It was possible to change signal by changing the voltage in S.\\
-<<<<<<< HEAD
 Lastly we designed a network to pass 4 different signals to all of our friends, we call this network ``''Canteriphone``''. First we needed to design a multiplexer to choose between the 4 signals with 2 bits, this was implemented in XXX. Then we used the signals from the multiplexer to enable and disable 4 3state gates that were connected with the information that we wanted to transmit, this was done in a fashon similar to the half duplex and we can see the circuit in XXX. Then we took the signal from the output of the 3state gates and connected it with our friends with a cable, we also transmitted the two bits that were used to choose  the signal. Our friends built a multiplexer themself and used the outputs from the multiplexer to light a led with the circuit XXX.
-=======
-Lastly we designed a network to pass 4 different signals to all of our friends, we call this network ``''Canteriphone``''. First we needed to design a multiplexer to choose between the 4 signals with 2 bits, this was implemented in XXX. Then we used the signals from the multiplexer to enable and disable 4 3state gates that were connected with the information that we wanted to transmit, this was done in a fashon similar to the half duplex and we can see the circuit in XXX. Then we took the signal from the output of the 3state gates and connected it with our friends with a cable, we also transmitted the two bits that were used to choose  the signal. Our friends built a multiplexer themself and used the outputs from the multiplexer to light a led with the circuit XXX.
->>>>>>> dc20f9f46ec22df18b09c1f93ce855ae4a2cf82f
+

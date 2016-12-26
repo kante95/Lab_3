@@ -116,7 +116,7 @@ Regarding the emitter follower we expect, ideally, an output voltage equal to th
 \includegraphics[width=.7\textwidth]{1/scope3.png}
 \caption{Non-inverting amplifier}
 \end{figure}
-In the non-inverting amplifier configuration we expect the output voltage to be: $v_o = v_{in} (1 + \frac{R_2}{R_1})$. The theoretical value for the  peak-peak output voltage calculated using $R_1$, $R_2$ and $v_{in}$ is $320.3\pm 1.9$ mV. This prediction is not compatible with the output measured $313.4\pm 0.8$ mV of a $3.3 \sigma$ factor, probably because the op-amp is not ideal.
+In the non-inverting amplifier configuration we expect the output voltage to be: $v_o = v_{in} (1 + \frac{R_2}{R_1})$. The theoretical value for the  peak-peak output voltage calculated using $R_1$, $R_2$ and $v_{in}$ is $320.3\pm 1.9$ mV. This prediction is not compatible with the output measured $313.4\pm 0.8$ mV of a 3.5\sigma factor, probably because the op-amp is not ideal.
 \begin{figure}[H]
 \centering
 \includegraphics[width=.7\textwidth]{1/scope4.png}
@@ -128,4 +128,4 @@ In the inverting amplifier the output should be : $v_o = - v_{in} \frac{R_2}{R_1
 \includegraphics[width=.7\textwidth]{1/scope5.png}
 \caption{Weighted summing circuit}
 \end{figure}
-In the circuit 1.10 we used two inputs for aquiring an output voltage. This configuration sums these signals $v_1 = 135.1\pm 0.8$ mV and $v_2 = 101.3\pm 0.8$ mV using the resistors $R_1$ and $R_3$ as weights, giving as output $v_o = - R_2 (\frac{v_1}{R_1} + \frac{v_2}{R_3})$, which gives a pk-pk value of $516.7\pm 2.7$ mV. The theory in this case is not compatible with the measurament $506\pm 0.8$ mV of a $3.8 \sigma$ factor, a little more than the previous result, but that's most likely caused by the noise in the output.
+In the circuit \eqref{weightedsummingamplifier} we used two inputs for aquiring an output voltage. This configuration sums these signals $v_1 = 135.1\pm 0.8$ mV and $v_2 = 101.3\pm 0.8$ mV using the resistors $R_1$ and $R_3$ as weights, giving as output $v_o = - R_2 (\frac{v_1}{R_1} + \frac{v_2}{R_3})$, which gives a pk-pk value of $516.7\pm 2.7$ mV. The theory in this case it's not at all compatible with the measurament $506\pm 0.8$ mV, but that's, most likely, caused by the noise in the output.

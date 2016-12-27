@@ -1,14 +1,21 @@
-\chapter{Digital sampling}
-We studied how to reconstruct a signal starting from its sampling. We tried different sampling frequency and two different waves then using the Whittaker–Shannon formula we have reconstructed the orginal signal. 
+\chapter{ADC tracking}
+In this experience we built an ADC with a resolution of around 1 over 256, going from 0 to almost 5V.
 
 \section{Materials}
 \begin{itemize}
-\item Digital sampler (???)
+\item Operational amplifiers OP07
+\item Instrumentation amplifier (INA) AD622
+\item Precision +5V Voltage Reference REF02
+\item Resistors, trimmers
+\item Power supply RIGOL DP831A
+\item Waveform generator RIGOL DG1032
+\item Multimeter RIGOL DM3068
+\item NAND 74LS00
+\item NOT 74LS04
+\item 74LS109 
 \end{itemize}
+The resistors used were all with an uncertainty of 5\%
+
 \section{Experimental setup}
-The waveform generator and the XXX were connected so we could have use the LabView software for aquiring the data. The sampling frequency and the number of samples were set with the software. As source signal we used a sine wave with frequency $10$ Hz and an amplitude pk-pk of $5$ V, we sampled this wave with a frequency of 5,10 and 25 Hz. Then we switched wave with a triangular one of 100 Hz and 4 V pk-pk amplitude, this last signal was sampled with a 500 Hz frequency.
-\section{Data analysis}
-The Whittaker–Shannon formula states that:
-\[x(t) = \sum_n x_n\cdot\text{sinc}\left(\frac{t-t_n}{T}\right)\]
-where $x_n$ are the data corresponding to the time $t_n$ and $T$ is the sampling period. Appling this formula to our data we obtain the following plot
+We used the circuit of the counter of the previous experience and we connected it to the DAC08. We selected an input current in the pin VR+ of 2mA, this was done by using a power supply of 4.4V and resistor of 2.2k$\Ohm$. We verified the value of output current was according to the table XX by changing the bits of the counter and The output was connected with ground with a 2k$\Ohm$ resistor and with a comparator that compares the signal we want to follow. The comparator is used to determine if the signal is too low of high by enabling or diabling the D-FF.
 

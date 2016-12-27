@@ -1,0 +1,14 @@
+\chapter{Digital sampling}
+We studied how to reconstruct a signal starting from its sampling. We tried different sampling frequency and two different waves then using the Whittaker–Shannon formula we have reconstructed the orginal signal. 
+
+\section{Materials}
+\begin{itemize}
+\item Digital sampler (???)
+\end{itemize}
+\section{Experimental setup}
+The waveform generator and the XXX were connected so we could have use the LabView software for aquiring the data. The sampling frequency and the number of samples were set with the software. As source signal we used a sine wave with frequency $10$ Hz and an amplitude pk-pk of $5$ V, we sampled this wave with a frequency of 5,10 and 25 Hz. Then we switched wave with a triangular one of 100 Hz and 4 V pk-pk amplitude, this last signal was sampled with a 500 Hz frequency.
+\section{Data analysis}
+The Whittaker–Shannon formula states that:
+\[x(t) = \sum_n x_n\cdot\text{sinc}\left(\frac{t-t_n}{T}\right)\]
+where $x_n$ are the data corresponding to the time $t_n$ and $T$ is the sampling period. Appling this formula to our data we obtain the following plot
+

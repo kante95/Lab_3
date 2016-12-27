@@ -1,5 +1,5 @@
 \chapter{System stability analysis and Logic circuits}
-In the first  part of the experience we implemented the cicuits latch SR, latch SR synchronized (flip flop) and FF type D, by using just NAND and NOT gates. Later we built an anti-bounce latch SR and a circuit that registers an impulsive input by storing it in the memory. Later we used and tested an J-K FF shift register.
+In the first  part of the experience we implemented the cicuits: latch SR, latch SR synchronized (flip flop) and FF type D. All of them by using just NAND and NOT gates. Later we built an anti-bounce latch SR and a circuit that registers an impulsive input by storing it in the memory. Later we used and tested an J-K FF shift register and an 8-bit counter.
 
 \section{Materials}
 \begin{itemize}
@@ -24,7 +24,7 @@ We built the latch SR as in the figure \ref{SR_NAND} and for visualizing the out
 Later we modified the circuit as in figure \ref{SR_FF_NAND} and we verified that when EN is low voltage the circuit is in the HOLD configuration, that is it keeps the memory of the previous state. 
 \begin{figure}[H]
 \centering
-\includegraphics[width=.7\textwidth]{11/SR_FF_NAND.png}
+\includegraphics[width=.7\textwidth]{11/FF_SR_NAND.png}
 \caption{Flip-flop built with NAND gates}\label{FF_SR_NAND}
 
 \end{figure}
@@ -50,7 +50,7 @@ We later built an on/off system (figure \ref{ON_OFF}) that had a HIGH output on 
 \caption{On-off circuit}\label{ON_OFF}
 
 \end{figure}\\
-We also built a circuit in \ref{f_div} that gave as output a square wave with frequency that was half or a quarter of  the clock, depending on where we took the output. This was done by using two J/K FF connecting the clock with the output of the previous  FF or the clock (for the first FF) and connecing J to $V_{cc}$ and K to ground.
+We also built a circuit in \ref{f_div} that gave as output a square wave with frequency that was half or a quarter of the clock, depending on where we took the output. This was done by using two J/K FF connecting the clock with the output of the previous  FF or the clock (for the first FF) and connecing J to $V_{cc}$ and K to ground. The frequency of clock used was 10 Hz.
 \begin{figure}[H]
 \centering
 \includegraphics[width=.7\textwidth]{11/f_div.png}
@@ -70,5 +70,16 @@ Laslty we built a counter with two 74LS191 an a D-FF as in figure \ref{count}. T
 \caption{8-bit counter}\label{count}
 \end{figure}
 \section{Data analysis}
-We can see in the plots for the anti-bounce system that the input has a lot more noise than the output, this it's exaclty what we expected.\\
-The plot X shows the various frequencies of the frequency divider.\\
+We can see in the plot \ref{bounce_time} that the output of the latch SR is really noisy without the anti bounce expedient.
+\begin{figure}[H]
+\centering
+\includegraphics[width=.7\textwidth]{11/bounce_time.png}
+\caption{Output of a standard latch SR}\label{bounce_time}
+\end{figure}
+When we modify as in \ref{bounce} we can see that the output is much more stable.
+\begin{figure}[H]
+\centering
+\includegraphics[width=.7\textwidth]{11/anti_bounce_time3.png}
+\caption{Output of a standard latch SR}\label{anti_bounce_time3}
+\end{figure}\\
+We can see the fre

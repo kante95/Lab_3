@@ -1,20 +1,79 @@
 \chapter{ADC tracking}
-In this experience we built an ADC with a resolution of around 1 over 256, going from 0 to almost 5V.
+In this experience we built an 8-bit ADC tracking with thw output switching from 0 and 5 volt (TTL logic).
 
 \section{Materials}
 \begin{itemize}
-\item Operational amplifiers OP07
-\item Instrumentation amplifier (INA) AD622
-\item Precision +5V Voltage Reference REF02
-\item Resistors, trimmers
+\item Resistors, capacitors
 \item Power supply RIGOL DP831A
+\item 5V power supply NI myDAQ
 \item Waveform generator RIGOL DG1032
 \item Multimeter RIGOL DM3068
-\item NAND 74LS00
-\item NOT 74LS04
-\item 74LS109 
+\item Digital counter (from previous experiment)
+\item DAC08
+\item 8-bit LED viewer
+\item Comparator LM311
 \end{itemize}
 The resistors used were all with an uncertainty of 5\%
 
 \section{Experimental setup}
-We used the circuit of the counter of the previous experience and we connected it to the DAC08. We selected an input current in the pin VR+ of 2mA, this was done by using a power supply of 4.4V and resistor of 2.2k$\Ohm$. We verified the value of output current was according to the table XX by changing the bits of the counter and The output was connected with ground with a 2k$\Ohm$ resistor and with a comparator that compares the signal we want to follow. The comparator is used to determine if the signal is too low of high by enabling or diabling the D-FF.
+First of all we tested our DAC08 powering it with \(\pm\)15V and setting the input current in the $+V_{Ref}$ pin to 2mA: this was acheved by using a 4.4V voltage from the RIGOL power supply and a resistor of 2.2k\(\Omega\). In order to clear as much as possible the bias current effects, we used another identical resistor between the $-V_{Ref}$ pin and ground and also added a 10nF capacitor between the COMP pin and -15V to optimize the behavior of the component.\\
+Since we used TTL logic and only one output, we put to ground both the $V_{LC}$ and the $\overline{I_{Out}}$ pins.\\
+At this point we had an output current, but we desired an output voltage: for that reason we added a 2081.7\(\pm\)0.4\(\Omega\) resistor between the $I_{Out}$ pin and ground.\\
+We than tested the component with various different inputs and measured its resolution.\\
+Once done these measurements we connected the counter circuit from last experiment as the DAC08 input, verifying the output to be a sawtooth signal.\\
+Finally we connected this output to a comparator together with the input voltage to be converted, obtained from the -15V power supply voltage with a 5.6k\(\Omega\) resistor and a 5k\(\Omega\) trimmer (therefore freely variable), and used this new output as the $\overline{Up}$/Down counter input, removing the D-FlipFlop being now useless its signal slowing function.\\
+We chose different signals at different frequencies and visualized them with the 8-bit LED viewer. We verified this way the correct working of the circuit.\\
+0.1\(\mu\)F were added to all the connections with power supply.\\
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=.8\textwidth]{12/circuit.png}
+\caption{Circuit used}
+\end{figure}
+
+\section{Data Analysis}
+Once mounted the DAC08, we tested its output with different configurations of the input. The results are shown in table 11.1 \\
+
+\begin{table}[H]
+\centering
+ \begin{tabular}{lllllllllll}
+ \toprule
+  Range Fraction & B1 & B2 & B3 & B4 & B5 & B6 & B7 & B8 & $I_{out}$ (measured) & $V_{out}$ (measured) \\
+ \midrule
+  FULL RANGE & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1.9870\(\pm\)0.0011 mA & -4.1358\(\pm\)0.0003 V \\
+  HALF-SCALE +LSB & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 1.0057\(\pm\)0.0006 mA & -2.09378\(\pm\)0.00018 V \\
+  HALF-SCALE & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0.9979\(\pm\)0.0006 mA & -2.07775\(\pm\)0.00018 V \\
+  HALF-SCALE  -LSB & 0 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 0.9892\(\pm\)0.0006 mA & -2.05968\(\pm\)0.00018 V \\
+  ZERO-SCALE +LSB & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 8.08\(\pm\)0.03 \(\mu\)A & -16.807\(\pm\)0.006 mV \\
+  ZERO-SCALE & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0.33\(\pm\)0.03 \(\mu\)A & -0.744\(\pm\)0.005 mV \\
+ \bottomrule
+ \end{tabular}
+\caption{Test DAC08: measures}
+\end{table}  
+
+\begin{table}[H]
+\centering
+ \begin{tabular}{lllllllllll}
+ \toprule
+  Range Fraction & B1 & B2 & B3 & B4 & B5 & B6 & B7 & B8 & $I_{out}$ (theoretical) & $V_{out}$ (theoretical)\\
+ \midrule
+  FULL RANGE & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1.992\(\pm\)0.004 mA & -4.147\(\pm\)0.008 V \\
+  HALF-SCALE +LSB & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 1.008\(\pm\)0.002 mA & -2.098\(\pm\)0.004 V \\
+  HALF-SCALE & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1.000\(\pm\)0.002 mA & -2.082\(\pm\)0.004 V \\
+  HALF-SCALE  -LSB & 0 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 0.992\(\pm\)0.002 mA & -2.065\(\pm\)0.004 V \\
+  ZERO-SCALE +LSB & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 7.8125\(\pm\)0.016 \(\mu\)A & -16.39\(\pm\)0.03 mV \\
+  ZERO-SCALE & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\(\pm\)0 \(\mu\)A & 0\(\pm\)0 mV \\
+ \bottomrule
+ \end{tabular}
+\caption{Test DAC08: expected values given $I_{Ref}=2.000$\(\pm\)0.004 mA, $R_{out}=2081.7$\(\pm\)0.4 \(\Omega\)}
+\end{table}  
+
+Comparing the results in these last 2 tables, we can see that the measurements are sufficiently compatible with the expected values (with the only exeption of the zero-scale that theoretically should be zero with no uncertainty at all).\\
+We can as well measure the resolution of our converter: it is actually the least difference that we can distinguish between two different outputs. Making an average, we come to the result of 1LSB = 16.72\(\pm\)0.12 mV \\
+Then, connected the DAC08 to the counter and verified the signal tracking and "capture" feature of our system, we observed the response to a 0.3V continue input, using a 30Hz clock frequency and setting the oscilloscope time scale to 20ms/div. We obtained the graphic shown in figure 11.2\\
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=.8\textwidth]{12/mis2.png}
+\caption{signal tracking and "capture" feature of our circuit with a constant input}
+\end{figure}

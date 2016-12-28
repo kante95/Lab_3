@@ -82,4 +82,21 @@ When we modify as in \ref{bounce} we can see that the output is much more stable
 \includegraphics[width=.7\textwidth]{11/anti_bounce_time3.png}
 \caption{Output of a standard latch SR}\label{anti_bounce_time3}
 \end{figure}\\
-We can see the fre
+We can see that in the plots of fequency divider circuit we have the outputs as expected with half and a quarter of the frequency of the clock.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=.7\textwidth]{11/freq_div_m.png}
+\caption{Output of frequency divider at half frequency}\label{freq_div_m}
+\end{figure}
+\begin{figure}[H]
+\centering
+\includegraphics[width=.7\textwidth]{11/freq_div_q.png}
+\caption{Output of frequency divider at quarter frequency}\label{freq_div_q}
+\end{figure}\\
+In the counter circuit we used a capacitor for presetting the starting bits. For this reason we measured the voltage at the capacitors ends at the stating time and, as we expected, in the plot \ref{start_count} the voltage slowly goes to the HIGH level
+\begin{figure}[H]
+\centering
+\includegraphics[width=.7\textwidth]{11/start_count.png}
+\caption{In the counting circuit: the voltage of the power supply and the voltage on the ends of the capacitor}\label{start_count}
+\end{figure}

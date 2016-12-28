@@ -28,8 +28,6 @@ For switching on and off the LED we used the circuit in \ref{LED_ON_OFF} with a 
 \includegraphics[width=.7\textwidth]{10/LED_ON_OFF.png}
 \caption{NOT TTL Open Collector}\label{LED_ON_OFF}
 \end{figure}
-
-\\
 For the half duplex we built it as in figure XX, we connected the two input by first passing the signals into a  3state that had the enable bits opposite to one another, so they passed just one singal at the time. It was possible to change signal by changing the voltage in S.
 \begin{figure}[H]
 \centering
@@ -37,7 +35,6 @@ For the half duplex we built it as in figure XX, we connected the two input by f
 \caption{Half duplex used for sharing a transmission channel}\label{TTL_3state}
 \end{figure}
 
-\\
 Lastly we designed a network to pass 4 different signals to all of our friends, we called this network  ``Canteriphone''. First we needed to design a multiplexer to choose between the 4 signals with 2 bits, this was implemented with the circuit \ref{multi_select}.
 \begin{figure}[H]
 \centering

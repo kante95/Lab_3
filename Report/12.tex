@@ -1,5 +1,5 @@
 \chapter{ADC tracking}
-In this experience we built an 8-bit ADC tracking with thw output switching from 0 and 5 volt (TTL logic).
+In this experience we built an 8-bit ADC tracking with the output switching from 0 and 5 volt (TTL logic).
 
 \section{Materials}
 \begin{itemize}
@@ -61,19 +61,22 @@ Once mounted the DAC08, we tested its output with different configurations of th
   HALF-SCALE +LSB & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 1.008\(\pm\)0.002 mA & -2.098\(\pm\)0.004 V \\
   HALF-SCALE & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1.000\(\pm\)0.002 mA & -2.082\(\pm\)0.004 V \\
   HALF-SCALE  -LSB & 0 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 0.992\(\pm\)0.002 mA & -2.065\(\pm\)0.004 V \\
-  ZERO-SCALE +LSB & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 7.8125\(\pm\)0.016 \(\mu\)A & -16.39\(\pm\)0.03 mV \\
+  ZERO-SCALE +LSB & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 7.8125\(\pm\)0.016 \(\mu\)A & -16.26\(\pm\)0.03 mV \\
   ZERO-SCALE & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\(\pm\)0 \(\mu\)A & 0\(\pm\)0 mV \\
  \bottomrule
  \end{tabular}
-\caption{Test DAC08: expected values given $I_{Ref}=2.000$\(\pm\)0.004 mA, $R_{out}=2081.7$\(\pm\)0.4 \(\Omega\)}
+\caption{Test DAC08: expected values given $I_{Ref}=2.000$\(\pm\)0.004mA, $R_{out}=2081.7$\(\pm\)0.4\(\Omega\)}
 \end{table}  
 
 Comparing the results in these last 2 tables, we can see that the measurements are sufficiently compatible with the expected values (with the only exeption of the zero-scale that theoretically should be zero with no uncertainty at all).\\
-We can as well measure the resolution of our converter: it is actually the least difference that we can distinguish between two different outputs. Making an average, we come to the result of 1LSB = 16.72\(\pm\)0.12 mV \\
-Then, connected the DAC08 to the counter and verified the signal tracking and "capture" feature of our system, we observed the response to a 0.3V continue input, using a 30Hz clock frequency and setting the oscilloscope time scale to 20ms/div. We obtained the graphic shown in figure 11.2\\
+We can as well measure the resolution of our converter: it is actually the least difference that we can distinguish between two different outputs. Making an average, we come to the result of 1LSB = 16.72\(\pm\)0.12 mV, that is distant from its theoretical value of 16.26\(\pm\)0.03 mV of only 3\(\sigma\). \\
+Then, connected the DAC08 to the counter and verified the signal tracking and "capture" feature of our system, we observed the response to a 0.3V continue input, using a 30Hz clock frequency and setting the oscilloscope time scale to 20ms/div: We got a ladder in the first part, beginning from 0V and approaching to the input voltage with subsequent steps at the clock frequency, each step modifiyng the output of a value equal to the resolution of the circuit. As the output overtook the signal in input, it began decreasing and increasing one step after another, keeping the medium value equal to the input one.
+We can see the graphic obtained in figure 11.2\\
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=.8\textwidth]{12/mis2.png}
 \caption{signal tracking and "capture" feature of our circuit with a constant input}
 \end{figure}
+
+If we had kept the flip-flop from the previous experiment, once the input signal was reached we would have had 2 steps more both in the increasing and the decreasing stage: this because the change in the direction in which to count would have arrived to the counter one clock pulse after it left the comparator, and not at the same time.

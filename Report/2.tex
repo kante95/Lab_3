@@ -11,7 +11,7 @@ We designed a non-inverting amplifier with a variable gain using a trimmer. The 
 \item Two capacitance of nominal value of $100$nF
 \end{itemize}
 \section{Experiment setup}
-In each circuit we powered the op-amp with a $\pm15$ V DC voltage and, in order to reduce possible noises, we added two 100nF capacitors connecting the op-amp's pins for the power supply with the ground. The input signal has a frequency of 100 Hz and a peak-peak voltage of 1V except for the differential amplifier.For every specific circuit we designed them as follow:
+In each circuit we powered the op-amp with a $\pm15$ V DC voltage and, in order to reduce possible noises, we added two 100nF capacitors connecting the op-amp's pins for the power supply with the ground. The input signal has a frequency of 100 Hz and a peak-peak voltage of 1V except for the differential amplifier. For every specific circuit we designed them as follow:
 \begin{itemize}
 \item Inverting amplifier: we placed a 10k$\Omega$ trimmer along the feedback branch in series to a resistor $R_f = 983.9 \pm 0.1 \Omega$. In order to have a minimal gain of 5, we used $R_{in} = 199.84\pm 0.03 \Omega$ as in figure \eqref{Non-inverting variable amplifier}.
 \item Summing amplifier: caring for the simplest calculations, we used $R_1 = 1484.7 \pm 0.2 \Omega \simeq R_2= 1483.5\pm 0.2\Omega$ so the equation is $\displaystyle\frac{v_1+v_2}{2}\left(1+\frac{R_4}{R_3}\right)$. For obtaining the sum of the input in output, we had to choose $R_3 = R_4 = 1001.3 \pm 0.1 \Omega$. The inputs $v_1$ and $v_2$ are the same 100 Hz, 1 V peak-peak sine wave signal.
@@ -146,7 +146,7 @@ we first set to ground $v_b$, in this way we were able to set up the gain of the
 \end{figure}
 In the inverting amplifier we used a trimmer in order to vary the gain, in fact the equation is:
 \[v_{o} = -v_{in}\frac{R_f+R_x}{R_{in}}\]
-so increasing $R_x$ cause output to linear increasing. The output voltage is limited by the op-amps's power supply voltage, it cannot increase further and the signal goes flat, as we can see in figure \eqref{Variableamplifier} (light blue line), this behavior is called ``Clipping''. The graphic also shows a discrepance between the absolut value of maximum and minimum voltage during the clipping: this is due to the asimmetry between \emph{pnp} and \emph{npn} transistors in the op-amp's final stage.
+so increasing $R_x$ cause the output to increase linearly. The output voltage is limited by the op-amps's power supply voltage, it cannot increase further and the signal goes flat, as we can see in figure \eqref{Variableamplifier} (light blue line), this behavior is called ``Clipping''. The graphic also shows a discrepance between the absolut value of maximum and minimum voltage during the clipping: this is due to the asimmetry between \emph{pnp} and \emph{npn} transistors in the op-amp's final stage.
 \begin{figure}[H]
 \centering
 \includegraphics[width=.7\textwidth]{2/Weighted_amplifier.png}

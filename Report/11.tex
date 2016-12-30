@@ -21,7 +21,7 @@ We built the latch SR as in the figure \ref{SR_NAND} and for visualizing the out
 \includegraphics[width=.7\textwidth]{11/SR_NAND.png}
 \caption{Latch SR}\label{SR_NAND}
 \end{figure}
-Later we modified the circuit as in figure \ref{SR_FF_NAND} and we verified that when EN is low voltage the circuit is in the HOLD configuration, that is it keeps the memory of the previous state. 
+Later we modified the circuit as in figure \ref{FF_SR_NAND} and we verified that when EN is low voltage the circuit is in the HOLD configuration, that is it keeps the memory of the previous state. 
 \begin{figure}[H]
 \centering
 \includegraphics[width=.7\textwidth]{11/FF_SR_NAND.png}
@@ -49,26 +49,28 @@ We later built an on/off system (figure \ref{ON_OFF}) that had a HIGH output on 
 \includegraphics[width=.7\textwidth]{11/ON_OFF.png}
 \caption{On-off circuit}\label{ON_OFF}
 
-\end{figure}\\
+\end{figure}
 We also built a circuit in \ref{f_div} that gave as output a square wave with frequency that was half or a quarter of the clock, depending on where we took the output. This was done by using two J/K FF connecting the clock with the output of the previous  FF or the clock (for the first FF) and connecing J to $V_{cc}$ and K to ground. The frequency of clock used was 10 Hz.
 \begin{figure}[H]
 \centering
 \includegraphics[width=.7\textwidth]{11/f_div.png}
 \caption{Frequency divider}\label{f_div}
-\end{figure}\\
+\end{figure}
 We built the shift register in \ref{shift_reg} with four J/K FF used as FF type. We connected the FF in circle connecting the output of one with the input of the other. We also used the pin CL and PR to preset the bit in the registers with the help of a capacitor that kept the voltage LOW for a short amount of time. We visualizied the shift register connecting the output of each FF to some LED.
 \begin{figure}[H]
 \centering
 \includegraphics[width=.7\textwidth]{11/shift_reg.png}
 \caption{Shift register}\label{shift_reg}
 
-\end{figure}\\
+\end{figure}
 Laslty we built a counter with two 74LS191 an a D-FF as in figure \ref{count}. The FF was  used to set if we wanted to count up or down by connecting the output to the D / $\overline{U}$. We connected the clock to the elements of the cicuit for  setting the frequency of each bit. We used the same method used in the shift register for presetting the bits in the counter. For using an 8 bit system we needed to activate the second 74LS191 just when the bits of the first were all on, this was done by connecting RCD to G of the second one used to enable.
 \begin{figure}[H]
 \centering
 \includegraphics[width=.7\textwidth]{11/count.png}
 \caption{8-bit counter}\label{count}
 \end{figure}
+
+
 \section{Data analysis}
 We can see in the plot \ref{bounce_time} that the output of the latch SR is really noisy without the anti bounce expedient.
 \begin{figure}[H]
@@ -81,5 +83,22 @@ When we modify as in \ref{bounce} we can see that the output is much more stable
 \centering
 \includegraphics[width=.7\textwidth]{11/anti_bounce_time3.png}
 \caption{Output of a standard latch SR}\label{anti_bounce_time3}
-\end{figure}\\
-We can see the fre
+\end{figure}
+We can see that in the plots of fequency divider circuit we have the outputs as expected with half and a quarter of the frequency of the clock.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=.7\textwidth]{11/freq_div_m.png}
+\caption{Output of frequency divider at half frequency}\label{freq_div_m}
+\end{figure}
+\begin{figure}[H]
+\centering
+\includegraphics[width=.7\textwidth]{11/freq_div_q.png}
+\caption{Output of frequency divider at quarter frequency}\label{freq_div_q}
+\end{figure}
+In the counter circuit we used a capacitor for presetting the starting bits. For this reason we measured the voltage at the capacitors ends at the stating time and, as we expected, in the plot \ref{start_count} the voltage slowly goes to the HIGH level
+\begin{figure}[H]
+\centering
+\includegraphics[width=.7\textwidth]{11/start_count.png}
+\caption{In the counting circuit: the voltage of the power supply and the voltage on the ends of the capacitor}\label{start_count}
+\end{figure}

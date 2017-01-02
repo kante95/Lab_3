@@ -1,5 +1,5 @@
 \chapter{Basic circuits with an operational amplifier}
-In this experiment we have built five different circuits. The first is an open loop circuit with the operational amplifier uA741, the goal was to find the maximum voltage output by the op-amp. The last four circuits are in closed loop configuration with a negative feedback and they consist in a follower, a non inverting amplifier, an inverting amplifier and a weighted summing amplifier. We have measured the voltage input and the voltage output of every circut.
+In this experiment we have built five different circuits. The first is an open loop circuit with the operational amplifier uA741, the goal was to find the maximum voltage output by the op-amp. The last four circuits are in closed loop configuration with a negative feedback and they consist in a follower, a non inverting amplifier, an inverting amplifier and a weighted summing amplifier. We have measured the input voltage and the output voltage of every circut.
 \section{Materials}
 \begin{itemize}
 \item Operational amplifier uA741
@@ -24,7 +24,7 @@ We measured the waveform input signal $v_{in}$ and the output voltage $v_o$ of t
 	(opamp.up) ++(0,-.5) node[below] {$-v_{cc}$} -- (opamp.up)
 	(opamp.down) ++ (0,.5) node[above] {$+v_{cc}$} -- (opamp.down);
 	\draw(-3,-1) to[sV] (-3,.5) to[short] (opamp.+);
-	\draw(-3,-1) node[ground] {};
+	\draw(-3,-1) node[ground] {}; 
 	\end{circuitikz}
 	\caption{Open loop circuit}
 \end{minipage}%
@@ -122,10 +122,10 @@ In the non-inverting amplifier configuration we expect the output voltage to be:
 \includegraphics[width=.7\textwidth]{1/scope4.png}
 \caption{Inverting amplifier}
 \end{figure}
-In the inverting amplifier the output should be : $v_o = - v_{in} \frac{R_2}{R_1}$. The pk-pk value of the output is $219.4\pm 0.8$ mV that is compatible with theoretical value $219.8\pm 1.9$ mV.
+In the inverting amplifier the output should be : $v_o = - v_{in} \frac{R_2}{R_1}$. The pk-pk value of the output is $219.4\pm 0.8$ mV that is fully compatible with theoretical value $219.8\pm 1.9$ mV.
 \begin{figure}[H]
 \centering
 \includegraphics[width=.7\textwidth]{1/scope5.png}
 \caption{Weighted summing circuit}
 \end{figure}
-In the circuit 1.10 we used two inputs for aquiring an output voltage. This configuration sums these signals $v_1 = 135.1\pm 0.8$ mV and $v_2 = 101.3\pm 0.8$ mV using the resistors $R_1$ and $R_3$ as weights, giving as output $v_o = - R_2 (\frac{v_1}{R_1} + \frac{v_2}{R_3})$, which gives a pk-pk value of $516.7\pm 2.7$ mV. The theory in this case is not compatible with the measurament $506\pm 0.8$ mV of a $3.8 \sigma$ factor, a little more than the previous result, but that's most likely caused by the noise in the output.
+In circuit 1.10 we used two different inputs for aquiring an output voltage: this configuration sums these signals $v_1 = 135.1\pm 0.8$ mV and $v_2 = 101.3\pm 0.8$ mV using the resistors $R_1$ and $R_3$ as weights, giving as output $v_o = - R_2 (\frac{v_1}{R_1} + \frac{v_2}{R_3})$, which gives a pk-pk value of $516.7\pm 2.7$ mV. The theory in this case is not compatible with the measurament $506\pm 0.8$ mV by a $3.8 \sigma$ factor, a little more than the previous result, but that's most likely caused by the unavoidable noise in the output.

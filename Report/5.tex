@@ -4,15 +4,16 @@ We first built a relaxation oscillator with different periods, then we tested th
 
 \section{Materials}
 \begin{itemize}
-\item Comparator $\mu$A741
-\item Operational amplifier LM311
+\item Comparator LM311
+\item Operational amplifier $\mu$A741
 \item Phototransistor OP550A
-\item Resistors, trimmer, LED, capacitors
+\item Resistors, trimmers, LED, capacitors
 \item Power supply RIGOL DP831A
 \item Waveform generator RIGOL DG1032
 \item Multimeter RIGOL DM3068
 \item Oscilloscope RIGOL MS02102A
 \end{itemize}
+All resistances and capacitances have an error of $5\%$ of the value.
 
 \section{Experimental setup}
 \begin{figure}[H]
@@ -31,9 +32,9 @@ We first built a relaxation oscillator with different periods, then we tested th
 \end{circuitikz}
 \caption{Relaxation oscillator}
 \end{figure}
-At first we used the $\mu$A741 (powered with $\pm15$ V) as a comparator in order to build a relaxation oscillator producing a square wave from a capacitor charge and discharge: we chose $R_1 = R_2 = 10k\Omega$ and a 0.1 nF capacitor. The circuit has been tested with 5 different values of R in order to have different periods. A measure has been taken also setting the oscilloscope in single mode and then switching on the power supply.\\
-We than tested the LM311 both as non-inverting and inverting comparator using $R_L = 1k\Omega$.\\
-Regarding the Schmitt's trigger, we added to the previous circuit the resistences $R_1 = 10 k\Omega$ and $R_2 = 100 \Omega$ and analyzed the behaviour at the point when $v_{in}\approx v_{ref}$.
+At first we used the $\mu$A741 (powered with $\pm15$ V) as a comparator in order to build a relaxation oscillator producing a square wave from a capacitor charge and discharge: we chose $R_1 = R_2 = 10.0 \pm 0.5 k\Omega$ and a $100 \pm 5 pF$ capacitor. The circuit has been tested with 5 different values of R in order to have different periods. A measure has been taken also setting the oscilloscope in single mode and then switching on the power supply.\\
+We then tested the LM311 both as non-inverting and inverting comparator using $R_L = 1000 \pm 50 \Omega$.\\
+Regarding the Schmitt's trigger, we added to the previous circuit the resisteors $R_1 = 10.0 \pm 0.5 k\Omega$ and $R_2 = 100 \pm 5 \Omega$ and analyzed the behaviour at the point when $v_{in}\approx v_{ref}$.\\
 \begin{figure}[H]
 \centering
 \begin{minipage}{.5\textwidth}
@@ -72,7 +73,7 @@ Regarding the Schmitt's trigger, we added to the previous circuit the resistence
 \end{minipage}
 \caption{Comparator test with and without Schmitt's trigger}
 \end{figure}
-At last, we built the twilight switch in circuit \ref{interruttorecrepuscolare}. We used a phototransistor, which give us a costant current based on the light, a op-amp stage for converting the current in voltage, due to the fact that che current of the phototransistor is very small we had to adjust the offset of the op-amp for avoiding sistematic errors. In the last stage we used a comparator for switch a led on and off comparing a voltage reference $v_{ref}$ with the op-amp stage output.
+At last, we built the twilight switch with circuit \ref{interruttorecrepuscolare}. We used a phototransistor (which gives us a current which intensity is based on the light one) followed by an op-amp stage (for converting the current in voltage): due to the fact that che current from the phototransistor is very small we had to adjust carefully the op-amp offset in order to avoid sistematic errors. In the last stage we used the LM311 comparator to switch a led on and off comparing a reference voltage $v_{ref}$ with the op-amp stage output.
 \begin{figure}[H]
 \centering
 \begin{circuitikz}
@@ -114,15 +115,16 @@ At last, we built the twilight switch in circuit \ref{interruttorecrepuscolare}.
 \includegraphics[width=.7\textwidth]{5/10k_plot.png}
 \caption{op-amp output $v_o$ and capacitor voltage $v_c$ with $R=10\text{k}\Omega$}
 \end{figure}
-The period of the oscillator is related to the resistor $R$ as follows:
-\[T = 2RC\log \left(1+\frac{2R_1}{R_2}\right)\]
-where $C$ is the the capacitor and $R_1=R_2=10\text{k}\Omega$. Using the value measured with the multimeter with plot a theoretical curve in funciton of $R$. We can see that the data are on that line. We've not done a regression because we did not have the error on the periods.
+The oscillator period is related to the resistor $R$ as follows:
+\[T = 2RC\ln \left(1+\frac{2R_1}{R_2}\right)\]
+where $C$ is the capacitor and $R_1=R_2=10\text{k}\Omega$. Using the values measured with the multimeter we plotted a theoretical curve in funciton of $R$ and we can see that the data are on that line: in fact the slope measured thanks to a linear fit $218.12 \pm 0.06 F$ is in perfect accordance with the expected value $220 \pm 3 F$ (but we have to say that only five points don't represent a great pool on which to do a linear regression and statistics). The errors needed for the regression have been provided by the oscilloscope and multimeter resolution. 
 \begin{figure}[H]
 \centering
 \includegraphics[width=.7\textwidth]{5/fit.png}
 \caption{Data (green dots) and theoretical curve (blue line)}
 \end{figure}
-In the following figures we can see the difference in the comparator output with and without the Schmitt's trigger. If there's not the Schmitt's trigger, the noise can cause a non desired on-off switching. The Schmitt's trigger raise and lower the threshold of the switching for avoiding this kind of problems.
+We then checked our comparator behaviour: actually it gave an high output when the voltage at the non invertent pin was higher than the other input and a low one when it became lower. The opposit effect happened with the inverting configuration.
+In the following figures we can see the difference in the comparator output with and without the Schmitt's trigger: when the Schmitt's trigger wasn't present, the noise caused an unwanted on-off repeated toggle. The Schmitt's trigger raises and lowers time to time the threshold of the switching in order to avoid this problem.
 \begin{figure}[H]
 \begin{minipage}{.5\textwidth}
 \centering
@@ -135,8 +137,11 @@ In the following figures we can see the difference in the comparator output with
 \caption{With Schmitt's trigger}
 \end{minipage}
 \end{figure}
-The Twilight switch worked, it was turning on when we was covering the phototransistor and we were able of choose the threshold for the switching by adjusting the voltage reference $v_{ref}$. Below a photo of this circuit. 
+Lastly, the circuit based on the phototransistor: once mounted, we verified its correct functioning noticing that when the light was weaker than a fixed amount it actually switched on the LED and kept it lighted till a new sufficent brightness increase.\\
+We were also able to choose the threshold for the switching by adjusting the voltage reference $v_{ref}$ using a trimmer.\\
+Below a photo of this circuit. 
 \begin{figure}[H]
 \centering
 \includegraphics[width=.6\textwidth]{5/sw.jpg}
+\caption{Twilight switch circuit}
 \end{figure}

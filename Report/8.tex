@@ -26,9 +26,9 @@ The signal that we should aquire from the electrodes has a frequency of around 1
 \end{figure}
 The  first step was removing high frequency noise by using two low-pass filters on the input by using two resitors and three capacitors.\\
 
-Than we removed the common signal by using the AD622 with a gain $G =   \frac{50.1 k\Omega}{440 \Omega} + 1 = 116$, where at the denominator there is the resistance of the resistor connecting pin 1 and 8. This resistor is actually built with two resistors in series with half its value. The signal between these two resistors is used in a follower that serves to set the potential of the cable's shield to the same of the wire.\\
+Then we removed the common signal by using the AD622 with a gain $G =   \frac{50.1 k\Omega}{440 \Omega} + 1 = 116$, where at the denominator there is the resistance of the resistor connecting pin 1 and 8. This resistor is actually built with two resistors in series with half its value. The signal between these two resistors is used in a follower that serves to set the potential of the cable's shield to the same of the wire.\\
 
-Than we chose to put the signal amplified by the AD622 into a high-pass filter for removing other DC (or almost DC) components and than we used a follower for mismatching the impedance of the circuit.\\
+Then we chose to put the signal amplified by the AD622 into a high-pass filter for removing other DC (or almost DC) components and then we used a follower for mismatching the impedance of the circuit.\\
 
 The penultimate step was taking the signal out of the follower and connecting it to a active low-pass filter.\\
 

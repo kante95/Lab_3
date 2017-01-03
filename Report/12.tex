@@ -19,7 +19,7 @@ The resistors used were all with an uncertainty of 5\%
 First of all we tested our DAC08 powering it with \(\pm\)15V and setting the input current in the $+V_{Ref}$ pin to 2mA: this was acheved by using a 4.4V voltage from the RIGOL power supply and a resistor of 2.2k\(\Omega\). In order to clear as much as possible the bias current effects, we used another identical resistor between the $-V_{Ref}$ pin and ground and also added a 10nF capacitor between the COMP pin and -15V to optimize the behavior of the component.\\
 Since we used TTL logic and only one output, we put to ground both the $V_{LC}$ and the $\overline{I_{Out}}$ pins.\\
 At this point we had an output current, but we desired an output voltage: for that reason we added a 2081.7\(\pm\)0.4\(\Omega\) resistor between the $I_{Out}$ pin and ground.\\
-We than tested the component with various different inputs and measured its resolution.\\
+We then tested the component with various different inputs and measured its resolution.\\
 Once done these measurements we connected the counter circuit from last experiment as the DAC08 input, verifying the output to be a sawtooth signal.\\
 Finally we connected this output to a comparator together with the input voltage to be converted, obtained from the -15V power supply voltage with a 5.6k\(\Omega\) resistor and a 5k\(\Omega\) trimmer (therefore freely variable), and used this new output as the $\overline{Up}$/Down counter input, removing the D-FlipFlop being now useless its signal slowing function.\\
 We chose different signals at different frequencies and visualized them with the 8-bit LED viewer. We verified this way the correct working of the circuit.\\

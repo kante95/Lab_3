@@ -16,14 +16,11 @@ In this experience we built an 8-bit ADC tracking with the output switching from
 The resistors used were all with an uncertainty of 5\%
 
 \section{Experimental setup}
-First of all we tested our DAC08 powering it with \(\pm\)15V and setting the input current in the $+V_{Ref}$ pin to 2mA: this was acheved by using a 4.4V voltage from the RIGOL power supply and a resistor of 2.2k\(\Omega\). In order to clear as much as possible the bias current effects, we used another identical resistor between the $-V_{Ref}$ pin and ground and also added a 10nF capacitor between the COMP pin and -15V to optimize the behavior of the component.\\
+First of all we tested our DAC08 powering it with \(\pm\)15V and setting the input current in the $+V_{Ref}$ pin to 2mA: this was achieved by tuning the voltage coming from the RIGOL power supply and a resistor of 2.2k\(\Omega\). In order to clear as much as possible the bias current effects, we used another identical resistor between the $-V_{Ref}$ pin and ground, we also added a 10nF capacitor between the COMP pin and -15V to optimize the behavior of the component.\\
 Since we used TTL logic and only one output, we put to ground both the $V_{LC}$ and the $\overline{I_{Out}}$ pins.\\
-At this point we had an output current, but we desired an output voltage: for that reason we added a 2081.7\(\pm\)0.4\(\Omega\) resistor between the $I_{Out}$ pin and ground.\\
-We then tested the component with various different inputs and measured its resolution.\\
-Once done these measurements we connected the counter circuit from last experiment as the DAC08 input, verifying the output to be a sawtooth signal.\\
-Finally we connected this output to a comparator together with the input voltage to be converted, obtained from the -15V power supply voltage with a 5.6k\(\Omega\) resistor and a 5k\(\Omega\) trimmer (therefore freely variable), and used this new output as the $\overline{Up}$/Down counter input, removing the D-FlipFlop being now useless its signal slowing function.\\
-We chose different signals at different frequencies and visualized them with the 8-bit LED viewer. We verified this way the correct working of the circuit.\\
-0.1\(\mu\)F were added to all the connections with power supply.\\
+At this point we had an output current, but we desired an output voltage: for that reason we added a 2081.7\(\pm\)0.4\(\Omega\) resistor between the $I_{Out}$ pin and ground. We then tested the component with various different inputs and measured its resolution. 
+\\Once done these measurements we connected the counter circuit from last experiment as the DAC08 input and we verified the ``sawtooth'' output of the DAC. Finally we connected this output to a comparator together with the input voltage to be converted, obtained from the -15V power supply voltage with a 5.6k\(\Omega\) resistor and a 5k\(\Omega\) trimmer (therefore freely variable), and used this new output as the $\overline{Up}$/Down counter input. We tested the circuit with the D flip flop between the counter and the $\overline{Up}$/Down input and without it. Capacitors 0.1\(\mu\)F were added to all the connections with power supply.\\
+We chose different analog voltage at different clock frequencies and visualized them with the 8-bit LED viewer. In this way we verified the correct working of the circuit.
 
 \begin{figure}[H]
 \centering
@@ -48,7 +45,7 @@ Once mounted the DAC08, we tested its output with different configurations of th
   ZERO-SCALE & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0.33\(\pm\)0.03 \(\mu\)A & -0.744\(\pm\)0.005 mV \\
  \bottomrule
  \end{tabular}
-\caption{Test DAC08: measures}
+\caption{Test DAC08: measurements}
 \end{table}  
 
 \begin{table}[H]
@@ -75,7 +72,7 @@ We can see the graphic obtained in figure 11.2\\
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=.8\textwidth]{12/mis2.png}
+%\includegraphics[width=.8\textwidth]{12/mis2.png}
 \caption{signal tracking and "capture" feature of our circuit with a constant input}
 \end{figure}
 

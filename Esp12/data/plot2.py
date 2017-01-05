@@ -21,10 +21,10 @@ def read_data(file, numcols=3):
     return t, vin, vout
 
 
-t, vin, vout = read_data("mis2.csv")
+t, vin, vout = read_data("mis1_zoom2.csv")
 plt.figure("ciao")
 plt.grid(True)
-
+vout = vout +2.54
 
 
 plt.xlabel("Time [s]")

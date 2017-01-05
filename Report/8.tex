@@ -18,7 +18,7 @@ All resistors and capacitors used had  an uncertainty of 5\% of their value.
 \section{Experimental setup}
 All the circuit connected with the patient was powered using a 9 V battery: thinking of a real situation in fact, we prevent this way the patient to be exposed to the electrical grid voltage of 220 V in case of any instrumentation malfunctioning.\\
 The signal we wanted to acquire from the electrodes had a frequency of nearly 1.25 Hz and an amplitude from 1 to 4 mV, with an offset of 0.7/0.8 V due to the internal electrodes potential. Obviously any cable or body movement would interfere with the measurement, generating some kind of current, and it is also important to keep in mind the presence of parasite capacitance and inductance. For these reasons our circuit needs to remove the common potential and reduce as much noise as possible, without removing signals at 1.25 Hz frequencies.\\
-During the measure the patient also had to be isolated from earth, otherways the signal would dissipate.\\
+During the measurament the patient also had to be isolated from earth, otherways the signal would dissipate.\\
 \begin{figure}[H]
 \centering
 \includegraphics[width=.8\textwidth]{8/circuit.png}
@@ -31,8 +31,7 @@ We took a last precaution: since also skin has a resistance that lowers the sign
 Like every other object that produces a ddp, a reference ground voltage was needed for the patient: besides the two electrodes on the wrists, we used also a third one on the left ankle to be connected to the ground of the first part of the circuit, the one powered with $\pm 9 V$ (as we said before, we had two different common reference voltages).
 
 \section{Data analysis}
-In this experiment there were many noise sources: one could be the patient's body itself, others could instead affect only some parts of the circuit and could be external: this means that the noise could have a component identical in the two input signals but also another different in each of them.
-In order to reduce as much as possible these noises we used many filters, but even with all those precautions the signal acquired was not completely evident. The result of our measures is shown in figure 7.2
+In this experiment there was a lot of noise, some of which was due to the patient body. Considering the low signal we had to prevent that the noise completly ruined, by using as many filter it was needed. The result of our measures is shown in figure 7.2
 \begin{figure}[H]
 \begin{minipage}{.5\textwidth}
 \centering
@@ -45,7 +44,7 @@ In order to reduce as much as possible these noises we used many filters, but ev
 \caption{Theoretical signal}
 \end{minipage}
 \end{figure}
-We can easily see a signal that surely resambles the expected one (see figure 7.3), but is still  not clear: fourier trasforming our signal we can analyze the noise frequency composition
+We can easily see a signal that surely resambles the expected one (see figure 7.3), but is still  not clear: fourier trasforming our signal we can analyze the noise frequency composition.
 \begin{figure}[H]
 \centering
 \includegraphics[width=.7\textwidth]{8/fft.png}

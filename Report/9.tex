@@ -15,17 +15,16 @@ The resistors used were all with an uncertainty of 5\%
 
 \section{Experimental setup}
 \subsection{Wien brigde oscillator}
-For building the wien bridge and have it oscillate it is needed $R_2 = 2 R_1$, for this reason we used a trimmer as $R_2$ and we used in series a resistor of $47 \Omega$ with the tungsten light. We have  set the trimmer at a resistance around twice the resistance of 47 $\Omega$ and the light. This way when we turn on the circuit, the current start flowing in the tungsten resistor increasing its resistance, thanks to the heat produced by the current, and bringing it closer to half $R_2$. This is, in theory, what is needed for the circuit to oscillate, but it can be seen in the analysis that the circuit took some time for stablizing.
+For building the wien bridge and have it oscillate it is needed $R_2 = 2 R_1$, for this reason we used a trimmer as $R_2$ and a resistor of $47 \Omega$ in series with the tungsten light. We set the trimmer at a resistance around twice the resistance of 47 $\Omega$ and the light. This way when we turn on the circuit, the current start flowing in the tungsten resistor increasing its resistance, thanks to the heat produced by the current, and bringing it closer to half $R_2$. This is, in theory, what is needed for the circuit to oscillate, but it can be seen in the analysis that the circuit took some time for stablizing.
 \begin{figure}[H]
 \centering
 \includegraphics[width=.7\textwidth]{9/wien.png}
 \caption{Wien bridge}\label{wwien}
 \end{figure}
 \subsection{Logic gates}
-We needed to use some DM74LS00, so the first thing we did was testing it by using it as NAND with the help of DM74LS244 for a visual confirmation.
-For designing the alarm system we wrote the table of Karnaugh and we minimized it.
+We needed to use some DM74LS00, so the first thing we did was testing it. For designing the alarm system we wrote the table of Karnaugh and minimized it.
 
-\begin{table}[]
+\begin{table}[H]
 \centering
 \label{my-label}
 \begin{tabular}{lllll}
@@ -43,7 +42,7 @@ The simplified form is $Y = D + W + I\overline{C}$. The problem was that we only
 
 
 \section{Data analysis}
-In the plot \ref{starting} we can see how the output oscillates a lot before stabilizing forming a sine wave (as in figure \ref{stable}) of frequency of 1110 Hz that is around the value of :::
+In the plot \ref{starting} we can see how the output oscillates a lot before stabilizing forming a sine wave (as in figure \ref{stable}) of frequency of 1122.1$\pm$1.4 Hz. The time of stabilization was around 7-8 seconds.
 
 
 \begin{figure}[H]

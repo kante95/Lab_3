@@ -16,28 +16,23 @@ In this experience we built an electrocardiograph and tested it on a group membe
 All resistors and capacitors used had  an uncertainty of 5\% of their value.
 
 \section{Experimental setup}
-All the circuit connected with the patient was powered using two 9 V batteries: thinking of a real situation in fact, we prevent this way the patient to be exposed to the electrical grid voltage of 220 V in case of any instrumentation malfunctioning.\\
-The signal we wanted to acquire from the electrodes had a frequency of nearly 1.25 Hz and an amplitude from 1 to 4 mV, with an offset of 0.7/0.8 V due to the internal electrodes potential. Obviously any cable or body movement would interfere with the measurement, generating some kind of current, and it is also important to keep in mind the presence of parasite capacitance and inductance. For these reasons our circuit needs to remove the common potential and reduce as much noise as possible, without removing signals at 1.5 Hz frequencies.\\
-During the measure the patient also had to be isolated from earth, otherways the signal would dissipate
+All the circuit connected with the patient was powered using a 9 V battery: thinking of a real situation in fact, we prevent this way the patient to be exposed to the electrical grid voltage of 220 V in case of any instrumentation malfunctioning.\\
+The signal we wanted to acquire from the electrodes had a frequency of nearly 1.25 Hz and an amplitude from 1 to 4 mV, with an offset of 0.7/0.8 V due to the internal electrodes potential. Obviously any cable or body movement would interfere with the measurement, generating some kind of current, and it is also important to keep in mind the presence of parasite capacitance and inductance. For these reasons our circuit needs to remove the common potential and reduce as much noise as possible, without removing signals at 1.25 Hz frequencies.\\
+During the measure the patient also had to be isolated from earth, otherways the signal would dissipate.\\
 \begin{figure}[H]
 \centering
 \includegraphics[width=.8\textwidth]{8/circuit.png}
 \caption{Circuit designed}
 \end{figure}
 The  first step was to remove high frequency noise by using two low-pass filters before the OP07 inputs: this was achieved by the use of two $3.9 k\Omega$ resitors ($R_F$) and three capacitors as shown in figure 7.1 (one connecting the two resistors of 100 nF ($C_D$), the others of 10 nF ($C_C$)).\\
-Then we removed the common signal thanks to a high-pass filter after the AD622, setting this component gain to $G =   \frac{50.1 k\Omega}{R_G} + 1 = 116$, where $R_G = 440 \Omega$ is the total resistance between pin 1 and 8. This resistance was obtained with two identical resistors in series: this way the voltage between them would have come to be equal to the cable one, so we brought this potential to the woven copper coaxial cable shield using an amplificator for the impedence mismatching. We did this in order to limit the electric dispersion of our signal, beeing it already low: if a cable and its shield share the same potential, there will be less electrons that flows from one to the other and so the signal travelling will be better preserved.\\
-After that we put the signal through a high-pass filter in order to remove other DC components and then we used again a follower for the same impedance mismatching function as before.\\
-The next step was a second low-pass filter, this time an active one.\\
-At this time we had the signal we needed, except that we wanted to see it with the oscilloscope, powered with undesired 220 V: in order to separate this "dangerous" component from the rest of the circuit we used the isolation amplifier ISO124, which function was to bring the signal from the 9 V powered part to the other one. That also means having two different reference voltages, one for each part of the circuit powered differently.\\
-We took a last precaution: since also skin has a resistance that lowers the signal, we cleaned with alcohol the surface where we would have stuck the electrodes, so as to remove the fat and reduce this resistance.
+Then we removed the common signal thanks to a differential amplifier, setting this component's gain to $G =   \frac{50.1 k\Omega}{R_G} + 1 = 116$, where $R_G = 440 \Omega$ is the total resistance between pin 1 and 8. This resistance was obtained with two identical resistors in series: this way the voltage between them would have come to be equal to the cable one, so we brought this potential to the coaxial cable shield using a follower for the impedence mismatching. We did this in order to limit the electric dispersion of our signal: if a cable and its shield share the same potential, there will be less electrons that flows from one to the other and so the signal travelling will be better preserved.\\
+After that we put the signal through a high-pass filter in order to remove other components and then we used again a follower for the impedance mismatching. The next step was a second low-pass filter, but active now. At this time we had the signal we needed, except that we wanted to see it with the oscilloscope, powered with undesired 220 V: in order to separate this "dangerous" component from the rest of the circuit we used the isolation amplifier ISO124, which means having two different reference voltages, one for each part of the circuit powered differently.
+We took a last precaution: since also skin has a resistance that lowers the signal, we cleaned with alcohol the surface where we attached the electrodes aiming to remove the fat and reducing this resistance.
 Like every other object that produces a ddp, a reference ground voltage was needed for the patient: besides the two electrodes on the wrists, we used also a third one on the left ankle to be connected to the ground of the first part of the circuit, the one powered with $\pm 9 V$ (as we said before, we had two different common reference voltages).
 
 \section{Data analysis}
-In this experiment there were many noise sources: one could be the patient's body itself, others could instead affect only some parts of the circuit and could be externernal: this means that the noise could have a component identical in the two input signals but also another different in each of them. The first low-pass filter reduces each noise component, in fact it has two different cutoff frequecies, one for the common signal ($f_{3dB}(C)$) and one for the differential one ($f_{3dB}(D)$):\\
-$f_{3dB}(C) = \frac{1}{2 \pi R_F C_C} = 4080 Hz$ and $f_{3dB}(D) = \frac{1}{2 \pi R_F (2 C_D + C_C)} = 194 Hz$\\
-Low frequences noise is still a problem however, but the following high-pass filter is the solution: at this point we have just one signal and beeing the filter cutoff frequency $f_{3dB}(H) = \frac{1}{2 \pi R_1 C_1} = 3.4 Hz$ it can remove easily the DC component and low frequency noise.\\
-Lastly we have to clear the high noise remained, since $f_{3dB}(C)$ in the first stage was too high. We than set the active low-pass filter with $f_{3dB}(L) = \frac{1}{2 \pi R_3 C_2} = 160$ Hz obtaining a much more clear signal.\\
-We measured the signal shown in figure 7.2
+In this experiment there were many noise sources: one could be the patient's body itself, others could instead affect only some parts of the circuit and could be external: this means that the noise could have a component identical in the two input signals but also another different in each of them.
+In order to reduce as much as possible these noises we used many filters, but even with all those precautions the signal acquired was not completely evident. The result of our measures is shown in figure 7.2
 \begin{figure}[H]
 \begin{minipage}{.5\textwidth}
 \centering
@@ -50,10 +45,10 @@ We measured the signal shown in figure 7.2
 \caption{Theoretical signal}
 \end{minipage}
 \end{figure}
-We can easily see a signal that resambles the expected one (see figure 7.3), but even with all these precautions we still have evidently some noise left: fourier trasforming our signal we can find the noise frequency
+We can easily see a signal that surely resambles the expected one (see figure 7.3), but is still  not clear: fourier trasforming our signal we can analyze the noise frequency composition
 \begin{figure}[H]
 \centering
 \includegraphics[width=.7\textwidth]{8/fft.png}
 \caption{Fourier transform of acquired signal}
 \end{figure}
-Besides the expected low frequency components, in figure 7.4 we find an evident peak at 50 Hz, a frequency too high for our signal. We can than suppose that with a filter at that frequency our measure would have been less noisy.
+Besides the expected low frequency components, in figure 7.4 we find an evident peak at 50 Hz, a frequency too high for our signal. We can than suppose that with a notch filter at that frequency our measure would have been much less noisy.

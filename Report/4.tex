@@ -51,7 +51,7 @@ The resistor chosen were $R_1, R_2, R_3 = 10\text{k} \Omega$, $R_4 = 10 \Omega$,
 In this experience we took the measurament in all circuits by changing the frequency of the input, that was a  sine wave signal 1 V peak-peak. The voltage chosen is not important, because we are interested in the ratio between the amplitude of the output and the input signals.\\
 The first circuit was used for calculating the gain in the open loop configuration ($A_{ol}$) at low frequencies by measuring $v_a$ and $v_{o}$. This circuit was chosen for low freqencies instead of the second one, because the gain is too high for us to acquire directly the voltage difference between the two input pins. 
 We didn't measure at frequencies lower than 30 Hz because the noise didn't allow us to make a reliable estimate of the two signals amplitude.\\
-In the second circuit we measured $v_{o}$ and	 the voltage of the non inverting pin $v_a$. The frequencies measured went from 10 - 200 kHz, because with high frequencies the absulute value of $A_{ol}$ is low enough.\\
+In the second circuit we measured $v_{o}$ and	 the voltage of the non inverting pin $v_a$. The frequencies measured went from 10 kHz to 200 kHz, because with high frequencies the absulute value of $A_{ol}$ is low enough.\\
 In the last two circuits we built a non inverting amplifier (with a compensated offset) with a closed loop gain of 100 and 10, in order to verify the passing bandwidth.
 \begin{figure}[H]
   \centering
@@ -83,4 +83,4 @@ We can  however compute the theoretical open loop gain with: $$A_{ol}^{teo}(f) =
 Regarding the last two circuit we plotted $H = \frac{v_{o}}{v_{in}}$ (the dots in the graph, experimental values), while the theoretical curve has been obtained thanks to the following formula:
 \[H(f) = \frac{\frac{A}{1 + A \beta}}{1 + j \frac{f}{(1 + A \beta)f_0}}\]
 where $\beta = \frac{R4}{R5+R4}$.\\
-With a closed loop gain $G$ of 100 we have a cutoff frequency of nearly $10^4$ Hz, while with $G = 10$ it becomes 10 times higher, in accordance with the prevision. This means that as long as we keep low the gain of our circuit, we have that it remains constant for a wider range of frequencies. 
+With a closed loop gain $G$ of 100 we have a cutoff frequency of nearly $10^4$ Hz, while with $G = 10$ it becomes 10 times higher, as anticipated. This means that as long as we keep low the gain of our circuit, we can use a wider range of frequencies. 

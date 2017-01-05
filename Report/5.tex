@@ -117,14 +117,14 @@ At last, we built the twilight switch with circuit \ref{interruttorecrepuscolare
 \end{figure}
 The oscillator period is related to the resistor $R$ as follows:
 \[T = 2RC\ln \left(1+\frac{2R_1}{R_2}\right)\]
-where $C$ is the capacitor and $R_1=R_2=10\text{k}\Omega$. Using the values measured with the multimeter we plotted a theoretical curve in funciton of $R$ and we can see that the data are on that line: in fact the slope measured thanks to a linear fit $218.12 \pm 0.06 F$ is in perfect accordance with the expected value $220 \pm 3 F$ (but we have to say that only five points don't represent a great pool on which to do a linear regression and statistics). The errors needed for the regression have been provided by the oscilloscope and multimeter resolution. 
+where $C$ is the capacitor and $R_1=R_2=10\text{k}\Omega$. Using the values measured with the multimeter we plotted a theoretical curve in function of $R$ and we can see that the data are on that line: in fact the slope measured thanks to a linear fit $218.12 \pm 0.06 F$ is in perfect accordance with the expected value $220 \pm 3 F$ (but we have to admit that only five points don't represent a great pool on which to do a linear regression and statistics, but they do still give an idea). The uncertainties needed for the regression have been provided by the oscilloscope and multimeter resolution. 
 \begin{figure}[H]
 \centering
 \includegraphics[width=.7\textwidth]{5/fit.png}
 \caption{Data (green dots) and theoretical curve (blue line)}
 \end{figure}
-We then checked our comparator behaviour: actually it gave an high output when the voltage at the non invertent pin was higher than the other input and a low one when it became lower. The opposit effect happened with the inverting configuration.
-In the following figures we can see the difference in the comparator output with and without the Schmitt's trigger: when the Schmitt's trigger wasn't present, the noise caused an unwanted on-off repeated toggle. The Schmitt's trigger raises and lowers time to time the threshold of the switching in order to avoid this problem.
+We then checked our comparator behaviour: it gave an high output when the voltage at the non invertent pin was higher than the other input and a low one when it became lower. The opposit effect happened with the inverting configuration.
+In the following figures we can see the difference in the comparator output with and without the Schmitt's trigger: when the Schmitt's trigger wasn't present, the noise caused an unwanted on-off repeated toggle. The Schmitt's trigger raises and lowers the threshold everytime it changes the output in order to avoid this problem.
 \begin{figure}[H]
 \begin{minipage}{.5\textwidth}
 \centering
@@ -137,7 +137,7 @@ In the following figures we can see the difference in the comparator output with
 \caption{With Schmitt's trigger}
 \end{minipage}
 \end{figure}
-Lastly, the circuit based on the phototransistor: once mounted, we verified its correct functioning noticing that when the light was weaker than a fixed amount it actually switched on the LED and kept it lighted till a new sufficent brightness increase.\\
+In the circuit based on the phototransistor we notices that when the light was weaker than a fixed amount it switched on the LED and kept it lighted until the light was increased.\\
 We were also able to choose the threshold for the switching by adjusting the voltage reference $v_{ref}$ using a trimmer.\\
 Below a photo of this circuit. 
 \begin{figure}[H]

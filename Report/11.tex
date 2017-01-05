@@ -1,5 +1,5 @@
-\chapter{System stability analysis and Logic circuits}
-In the first  part of the experience we implemented the cicuits: latch SR, latch SR synchronized (flip flop) and FF type D. All of them by using just NAND and NOT gates. Later we built an anti-bounce latch SR and a circuit that registers an impulsive input by storing it in the memory. Later we used and tested an J-K FF shift register and an 8-bit counter.
+\chapter{Flip flop and sequential logic}
+In the first part of the experience we implemented the cicuirts: latch SR, latch SR synchronized (flip flop) and a flip flop type D. All of them by using just NAND and NOT gates. Later we built an anti-bounce latch SR and a circuit that registers an impulsive input by storing it in the memory. Later we used a J-K flip flop for building a frequency divider and a shift register. Finally we built an up-down 8-bit counter.
 
 \section{Materials}
 \begin{itemize}
@@ -28,11 +28,11 @@ Later we modified the circuit as in figure \ref{FF_SR_NAND} and we verified that
 \caption{Flip-flop built with NAND gates}\label{FF_SR_NAND}
 
 \end{figure}
-We modified again the circuit to be an FF type D (figure \ref{D_FF}) and we verified that every time the EN is on the bit on D is registred in the memory.
+We modified again the circuit to be a FF type D (figure \ref{D_FF}) and we verified that every time the EN is on, the bit on D is registred in the memory.
 \begin{figure}[H]
 \centering
 \includegraphics[width=.7\textwidth]{11/D_FF.png}
-\caption{FF type D}\label{D_FF}
+\caption{Flip flop type D}\label{D_FF}
 
 \end{figure}
 
@@ -43,14 +43,14 @@ Then we  built a latch SR with an ``anti-bounce'' configuration (figure \ref{bou
 \caption{Anti bounce circuit}\label{bounce}
 
 \end{figure}
-We later built an on/off system (figure \ref{ON_OFF}) that had a HIGH output on when we activated SET for a short amount of time and a LOW one when we did the same with RESET.
+We later built an on/off system (figure \ref{ON_OFF}) that had a HIGH output when we activated SET for a short amount of time and a LOW one when we did the same with RESET.
 \begin{figure}[H]
 \centering
-\includegraphics[width=.7\textwidth]{11/ON_OFF.png}
+\includegraphics[width=.5\textwidth]{11/ON_OFF.png}
 \caption{On-off circuit}\label{ON_OFF}
 
 \end{figure}
-We also built a circuit in \ref{f_div} that gave as output a square wave with frequency that was half or a quarter of the clock, depending on where we took the output. This was done by using two J/K FF connecting the clock with the output of the previous  FF or the clock (for the first FF) and connecing J to $V_{cc}$ and K to ground. The frequency of clock used was 10 Hz.
+We also built the frequency divider (circuit in \ref{f_div}) that gave as output a square wave with frequency that was half or a quarter of the clock, depending on where we took the output. This was done by using two J/K FF connecting the clock with the output of the previous  FF or the clock (for the first FF) and connecing J to $V_{cc}$ and K to ground. The frequency of clock used was 10 Hz.
 \begin{figure}[H]
 \centering
 \includegraphics[width=.7\textwidth]{11/f_div.png}
@@ -63,7 +63,7 @@ We built the shift register in \ref{shift_reg} with four J/K FF used as FF type 
 \caption{Shift register}\label{shift_reg}
 
 \end{figure}
-At last we built a counter with two 74LS191 an a D-FF as in figure \ref{count}. The FF was  used to set if we wanted to count up or down by connecting the output to the D / $\overline{U}$. We connected the clock to the elements of the cicuit for  setting the frequency of each bit. We used the same method used in the shift register for presetting the bits in the counter. For using an 8 bit system we needed to activate the second 74LS191 just when the bits of the first were all on, this was done by connecting RCD to G of the second one used to enable.
+At last we built a counter with two 74LS191 an a D-FF as in figure \ref{count}. The FF was used because, as stated in the 74LS191 datasheet, the up/down signal must be on the raising edge of the clock. The FF remember what we chose and transmit it to the clock when this one goes from LOW to HIGH. We used the same method used in the shift register for presetting the bits in the counter. For using an 8 bit system we needed to activate the second 74LS191 just when the bits of the first were all on, this was done by connecting RCD to G of the second one used to enable.
 \begin{figure}[H]
 \centering
 \includegraphics[width=.7\textwidth]{11/count.png}
@@ -84,21 +84,23 @@ When we modify as in \ref{bounce} we can see that the output is much more stable
 \includegraphics[width=.7\textwidth]{11/anti_bounce_time3.png}
 \caption{Output of a standard latch SR}\label{anti_bounce_time3}
 \end{figure}
-We can see that in the plots of fequency divider circuit we have the outputs as expected with half and a quarter of the frequency of the clock.
+We can see that in the plots of frequency divider circuit we have the outputs as expected with half and a quarter of the frequency of the clock.
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=.7\textwidth]{11/freq_div_m.png}
+\begin{minipage}{.48\textwidth}
+\includegraphics[width=\textwidth]{11/freq_div_m.png}
 \caption{Output of frequency divider at half frequency}\label{freq_div_m}
-\end{figure}
-\begin{figure}[H]
+\end{minipage}\hfill
+\begin{minipage}{.48\textwidth}
 \centering
-\includegraphics[width=.7\textwidth]{11/freq_div_q.png}
+\includegraphics[width=\textwidth]{11/freq_div_q.png}
 \caption{Output of frequency divider at quarter frequency}\label{freq_div_q}
+\end{minipage}
 \end{figure}
-In the counter circuit we used a capacitor for presetting the starting bits. For this reason we measured the voltage at the capacitors ends at the stating time and, as we expected, in the plot \ref{start_count} the voltage slowly goes to the HIGH level
+In the counter circuit we used a capacitor for presetting the starting bits. For this reason we measured the voltage at the capacitor's ends at the stating time and, as we expected, in the plot \ref{start_count} the voltage slowly goes to the HIGH level
 \begin{figure}[H]
 \centering
 \includegraphics[width=.7\textwidth]{11/start_count.png}
-\caption{In the counting circuit: the voltage of the power supply and the voltage on the ends of the capacitor}\label{start_count}
+\caption{In the counting circuit: the voltage of the power supply $v_{in}$ and the voltage on the ends of the capacitor $v_c$}\label{start_count}
 \end{figure}

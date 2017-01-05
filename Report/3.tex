@@ -1,5 +1,5 @@
 \chapter{Unfortunately the op-amp is not so ideal}
-In this set of experiments we dealt with the problems of a real op-amp such as the offset $v_{os}$, the bias currents $i_{b+},i_{b-}$, the slew-rate, the maximum current output and the common gain $A_{cm}$: we performed the measures of these real parameters. The offset is studied with 3 different circuits and then compensated with a trimmer in the configuration suggested by the op-amp's datasheet. The bias currents were measured in two ways, one for the bias current in the non inverting op-amp input and one for the inverting one. The other parameters are studied simply adjusting the input for the measurement's purpose.
+In this set of experiments we dealt with the problems of a real op-amp such as the offset $v_{os}$, the bias currents $i_{b+},i_{b-}$, the slew-rate, the maximum current output and the common gain $A_{cm}$: we measured all of these parameters. The offset was studied with 3 different circuits and then compensated with a trimmer in the configuration suggested by the op-amp's datasheet. The bias currents were measured in two ways, one for the bias current in the non inverting op-amp input and one for the inverting one. The other parameters were studied simply adjusting the input for the measurement's purpose.
 
 \section{Materials}
 \begin{itemize}
@@ -87,9 +87,9 @@ In all the circuits we placed on the power supply's pins two capacitors each, on
 \caption{Offset voltage's direct measure with gain and bias current correction}\label{offset amp corrected}
 \end{minipage}
 \end{figure}
-In the first circuit we aquired $v_{os}$ directly by measuring with the multimiter a follower output voltage.
-We used the second circuit drawn to amplify $v_{os}$, thus we measured the output to calculate $v_{os}$.\\
-The third circuit is identical to  the second except for the added resistors in parallel that connect the non inverting pin to the ground: this was done for removing the bias current influence from the measurament according to the hypothesis that these currents are similar to each other. For that reason these added resistors must have toghether the same resistance of the parallel between the $R_{10 \Omega}$ and $R_{10 k\Omega}$ used before.\ Exploiting this last circuit we removed $v_{os}$ by using a trimmer between op-amp pins 1 and 5, paying attention to connect the central trimmer pin to the negative power supply voltage (according to the uA741 datasheet): we tried to make the output as close to 0 as possible (we used no input voltage in these steps).
+In the first circuit we measured $v_{os}$ directly by using the multimeter on the output voltage.
+We used the second circuit drawn to amplify $v_{os}$, we measured the amplified signal.\\
+The third circuit is identical to the second except for the added resistors in parallel that connect the non inverting pin to the ground: this was done for removing the bias current influence from the measurament according to the hypothesis that these currents are approximately equal. For this reason these added resistors need to have toghether the same resistance of the parallel between the $R_{10 \Omega}$ and $R_{10 k\Omega}$ used before.\ Exploiting this last circuit we removed $v_{os}$ by using a trimmer between op-amp pins 1 and 5, paying attention to connect the central trimmer pin to the negative power supply voltage (according to the uA741 datasheet): we tried to make the output as close to 0 as possible (we used no input voltage in these steps).
 \begin{figure}[H]
 \centering
 \begin{minipage}{.5\textwidth}
@@ -216,13 +216,13 @@ Finally, the last circuit allowed us to measure the common gain by using the dif
 \end{figure}
 
 \section{Data analysis}
-In the emitter follower \eqref{offset direct} the output measured is $-1.484 \pm 0.005$ mV. Being such a small output we expect to have problems with parassite impedance and other forms of noise, that's why we don't consider the output too reliable. It however gives us an order of magnitude that matches the op-amp datasheet, acording to which absolute typical values are from 1 mV to 5 mV.\\
+In the emitter follower \eqref{offset direct} the output measured is $-1.484 \pm 0.005$ mV. Being such a small output we expect to have problems with parassite impedance and other forms of noise, that's why we don't consider this value too reliable. It however gives us an order of magnitude that matches the op-amp datasheet, according to which the absolute typical values are from 1 mV to 5 mV.\\
 In the amplifier \eqref{offset amp} we can find $v_{os}$ resolving
 \[v_{os} = \frac{v_{o}}{1 + \frac{R_{10\text{k}\Omega}}{R_{10\Omega}}}\]
 From the calculation we get $v_{os} = -1.333 \pm 0.001$ mV, which has the same order of magnitude and sign of the previous result.\\
 Then, as stated in the experimental setup, we corrected the circuit \eqref{offset amp corrected} for compensating the bias currents effect. With the same formula used for the previous amplifier we got an offset voltage of $1.307 \pm 0.001$ mV.\\
 At this point we compensated the offset through the use of a trimmer (see experimental setup).\\
-Reguarding the fourth circuit \eqref{current positive}, we calculated the current flowing in the non invertent pin by using $$i_{b+} = -\frac{v_{o}}{R_{\text{M}\Omega} (1 + \frac{R_{100\text{k}\Omega}}{R_{1\text{k}\Omega}})}$$ The value calculated is $-39.042 \pm 0.009$ nA.\\
+Regarding the fourth circuit \eqref{current positive}, we calculated the current flowing in the non invertent pin by using $$i_{b+} = -\frac{v_{o}}{R_{\text{M}\Omega} (1 + \frac{R_{100\text{k}\Omega}}{R_{1\text{k}\Omega}})}$$ The value calculated is $-39.042 \pm 0.009$ nA.\\
 The fifth circuit \eqref{current negative} instead leads to the calculation of the current flowing in the invertent pin by using 
 \[i_{b-} = \frac{v_{o}}{R_{100\text{k}\Omega}} \frac{R_{\text{k}\Omega}}{R_{\text{M}\Omega}}\]
 we obtain the value $-39.724 \pm 0.009$ nA. Now we can compute the bias current $i_b = \frac{|i_{b-}| + |i_{b+}|}{2} = 39.383 \pm 0.006$ nA and the offset current $i_o = ||i_{b-}| - |i_{b+}|| = 0.68 \pm 0.01$ nA.\\
@@ -232,7 +232,7 @@ $i_b$ is less than 100 nA and near the typical value of 10 nA, as the datasheet 
 \includegraphics[width=.6\textwidth]{3/Maximum_current_erogated.png}
 \caption{Saturated output caused by the maximum current erogated}
 \end{figure}
-In the sixth circuit \eqref{max current} we calculated the maximum current erogated by computing the maximum/minimum output voltage over the resistance in the oscilloscope. In the plot is visible the different absolute value of the maximum and minimum output voltage, that's probably because the op-amp isn't perfectly symmetric in the packaging. So we chose to calculate two different maximum currents: $i_{max} = 0.0201 \pm 0.0001$ A (when the output was positive) and $i_{min} = -0.0328 \pm 0.0001$ (when the output was negative).
+In the sixth circuit \eqref{max current} we calculated the maximum current erogated by computing the maximum/minimum output voltage over the resistance in the oscilloscope. In the plot it is visible the different absolute value of the maximum and minimum output voltage, that's probably because the op-amp isn't perfectly symmetric in the packaging. So we chose to calculate two different maximum currents: $i_{max} = 0.0201 \pm 0.0001$ A (when the output was positive) and $i_{min} = -0.0328 \pm 0.0001$ (when the output was negative).
 \begin{figure}[H]
 \centering
 \includegraphics[width=.6\textwidth]{3/Slew_Ratio.png}
@@ -246,4 +246,4 @@ In the seventh circuit \eqref{slew rate} we find that the slew rate ($\frac{\Del
 \end{figure}
 With the last circuit \eqref{common gain} we measured the common gain of our op-amp by solving
 \[A_{CM} = \frac{2 v_{o}}{v_{in1} + v_{in2}} = \frac{v_o}{v_{in}}\]
-which gave us a unitary gain, $1.01 \pm 0.04 $, as it is evident in the plot. In an ideal situation this parameter should have been zero, but however the real value found is not huge: being the differential gain order of $10^5$ at low frequencies, we have a CMRR of 100 db that is still quite high, and we can then neglect the common amplification.
+which gave us a unitary gain, $1.01 \pm 0.04 $, as it is evident in the plot. In an ideal situation this parameter should have been zero, in fact the value is pretty low: being the differential gain order of $10^5$ at low frequencies, we have a CMRR of 100 db that is quite high, this allows us to neglect the common gain most of the times.

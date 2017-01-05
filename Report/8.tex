@@ -18,21 +18,37 @@ All resistors and capacitors used had  an uncertainty of 5\% of their value.
 \section{Experimental setup}
 All the circuit connected with the patient was powered using a 9 V battery: thinking of a real situation in fact, we prevent this way the patient to be exposed to the electrical grid voltage of 220 V in case of any instrumentation malfunctioning.\\
 The signal we wanted to acquire from the electrodes had a frequency of nearly 1.25 Hz and an amplitude from 1 to 4 mV, with an offset of 0.7/0.8 V due to the internal electrodes potential. Obviously any cable or body movement would interfere with the measurement, generating some kind of current, and it is also important to keep in mind the presence of parasite capacitance and inductance. For these reasons our circuit needs to remove the common potential and reduce as much noise as possible, without removing signals at 1.25 Hz frequencies.\\
+During the measure the patient also had to be isolated from earth, otherways the signal would dissipate.\\
 \begin{figure}[H]
 \centering
 \includegraphics[width=.8\textwidth]{8/circuit.png}
 \caption{Circuit designed}
 \end{figure}
 The  first step was to remove high frequency noise by using two low-pass filters before the OP07 inputs: this was achieved by the use of two $3.9 k\Omega$ resitors ($R_F$) and three capacitors as shown in figure 7.1 (one connecting the two resistors of 100 nF ($C_D$), the others of 10 nF ($C_C$)).\\
-Then we removed the common signal thanks to a differential amplifier, we set the component's gain to $G =   \frac{50.1 k\Omega}{R_G} + 1 = 116$, where $R_G = 440 \Omega$ is the total resistance between pin 1 and 8. This resistance was obtained with two identical resistors in series: this way the voltage between them would have come to be equal to the cable one, so we brought this potential to the coaxial cable shield using a follower for the impedence mismatching. We did this in order to limit the electric dispersion of our signal: if a cable and its shield share the same potential, there will be less electrons that flows from one to the other and so the signal travelling will be better preserved.\\
-After that we put the signal through a high-pass filter in order to remove other components and then we used a follower for the impedance mismatching. The next step was a second low-pass filter, but active now. At this time we had the signal we needed, except that we wanted to see it with the oscilloscope, powered with undesired 220 V: in order to separate this "dangerous" component from the rest of the circuit we used the isolation amplifier ISO124.
-We took a last precaution: since also skin has a resistance that lowers the signal, we cleaned with alcohol the surface where we attached the electrodes, in the prospective of removing the fat and reducing this resistance.
-Like every other object that produces a ddp, a reference ground voltage was needed for the patient: besides the two electrodes on the wrists, we used also a third one on the left ankle to be used as common reference.
+Then we removed the common signal thanks to a differential amplifier, setting this component's gain to $G =   \frac{50.1 k\Omega}{R_G} + 1 = 116$, where $R_G = 440 \Omega$ is the total resistance between pin 1 and 8. This resistance was obtained with two identical resistors in series: this way the voltage between them would have come to be equal to the cable one, so we brought this potential to the coaxial cable shield using a follower for the impedence mismatching. We did this in order to limit the electric dispersion of our signal: if a cable and its shield share the same potential, there will be less electrons that flows from one to the other and so the signal travelling will be better preserved.\\
+After that we put the signal through a high-pass filter in order to remove other components and then we used again a follower for the impedance mismatching. The next step was a second low-pass filter, but active now. At this time we had the signal we needed, except that we wanted to see it with the oscilloscope, powered with undesired 220 V: in order to separate this "dangerous" component from the rest of the circuit we used the isolation amplifier ISO124, which means having two different reference voltages, one for each part of the circuit powered differently.
+We took a last precaution: since also skin has a resistance that lowers the signal, we cleaned with alcohol the surface where we attached the electrodes aiming to remove the fat and reducing this resistance.
+Like every other object that produces a ddp, a reference ground voltage was needed for the patient: besides the two electrodes on the wrists, we used also a third one on the left ankle to be connected to the ground of the first part of the circuit, the one powered with $\pm 9 V$ (as we said before, we had two different common reference voltages).
 
 \section{Data analysis}
-In the circuit there were many filters for reducing noises, but even with all those precautions we still had some noise at nearly 150 Hz, so we decided to smooth the signal with a running mean algorithm. The result is shown in figure 7.2
+In this experiment there were many noise sources: one could be the patient's body itself, others could instead affect only some parts of the circuit and could be external: this means that the noise could have a component identical in the two input signals but also another different in each of them.
+In order to reduce as much as possible these noises we used many filters, but even with all those precautions the signal acquired was not completely evident. The result of our measures is shown in figure 7.2
+\begin{figure}[H]
+\begin{minipage}{.5\textwidth}
+\centering
+\includegraphics[width=\textwidth]{8/ecg.png}
+\caption{Signal measured}
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
+\centering
+\includegraphics[width=\textwidth]{8/theo.png}
+\caption{Theoretical signal}
+\end{minipage}
+\end{figure}
+We can easily see a signal that surely resambles the expected one (see figure 7.3), but is still  not clear: fourier trasforming our signal we can analyze the noise frequency composition
 \begin{figure}[H]
 \centering
-\includegraphics[width=.7\textwidth]{8/ecg.png}
-\caption{Signal measured smoothed}
+\includegraphics[width=.7\textwidth]{8/fft.png}
+\caption{Fourier transform of acquired signal}
 \end{figure}
+Besides the expected low frequency components, in figure 7.4 we find an evident peak at 50 Hz, a frequency too high for our signal. We can than suppose that with a notch filter at that frequency our measure would have been much less noisy.

@@ -11,65 +11,59 @@ In the first part of the experience we implemented the cicuirts: latch SR, latch
 \item NOT 74LS04
 \item 74LS109
 \item 74LS191
+\item 8-bit LED viewer
 \end{itemize}
 The resistors used were all with an uncertainty of 5\%
 
 \section{Experimental setup}
-We built the latch SR as in the figure \ref{SR_NAND} and for visualizing the output we  connected $Q$ and $\overline{Q}$ to an 8-led chip.
+We built the latch SR as in figure \ref{SR_NAND} and for visualizing the output we  connected $Q$ and $\overline{Q}$ to an 8-led chip.
 \begin{figure}[H]
 \centering
 \includegraphics[width=.7\textwidth]{11/SR_NAND.png}
 \caption{Latch SR}\label{SR_NAND}
 \end{figure}
-Later we modified the circuit as in figure \ref{FF_SR_NAND} and we verified that when EN is low voltage the circuit is in the HOLD configuration, that is it keeps the memory of the previous state. 
+Later we modified the circuit adding the clock control, as in figure \ref{FF_SR_NAND}. We verified that when EN was low state the circuit was in the HOLD configuration, i.e. it kept the memory of the previous state. 
 \begin{figure}[H]
 \centering
 \includegraphics[width=.7\textwidth]{11/FF_SR_NAND.png}
 \caption{Flip-flop built with NAND gates}\label{FF_SR_NAND}
-
 \end{figure}
-We modified again the circuit to be a FF type D (figure \ref{D_FF}) and we verified that every time the EN is on, the bit on D is registred in the memory.
+We modified again the circuit to obtain a FF type D (figure \ref{D_FF}) and we verified that every time the EN was on, the bit on D was registred in the memory.
 \begin{figure}[H]
 \centering
 \includegraphics[width=.7\textwidth]{11/D_FF.png}
 \caption{Flip flop type D}\label{D_FF}
-
 \end{figure}
-
-Then we  built a latch SR with an ``anti-bounce'' configuration (figure \ref{bounce}, in particular we made sure the output was changing from LOW to HIGH without too much noise.
+Then we built a latch SR with an ``anti-bounce'' configuration (figure \ref{bounce}), checking that the output switched from LOW to HIGH state without much noise.
 \begin{figure}[H]
 \centering
 \includegraphics[width=.7\textwidth]{11/bounce.png}
 \caption{Anti bounce circuit}\label{bounce}
-
 \end{figure}
-We later built an on/off system (figure \ref{ON_OFF}) that had a HIGH output when we activated SET for a short amount of time and a LOW one when we did the same with RESET.
+We later built an on/off system (figure \ref{ON_OFF}) that had a HIGH output even when we activated SET for just a short amount of time and a LOW one doing the same with RESET.
 \begin{figure}[H]
 \centering
 \includegraphics[width=.5\textwidth]{11/ON_OFF.png}
 \caption{On-off circuit}\label{ON_OFF}
-
 \end{figure}
-We also built the frequency divider (circuit in \ref{f_div}) that gave as output a square wave with frequency that was half or a quarter of the clock, depending on where we took the output. This was done by using two J/K FF connecting the clock with the output of the previous  FF or the clock (for the first FF) and connecing J to $V_{cc}$ and K to ground. The frequency of clock used was 10 Hz.
+We also built a frequency divider (circuit in \ref{f_div}) that gave as output a square wave with frequency that was half or a quarter of the clock one, depending on where we took the output. This was done by using two J/K FF connecting the clock with the output of the previous FF or the clock (for the first FF) and connecing J to $V_{cc}$ and K to ground. The frequency used for the clock was 10 Hz.
 \begin{figure}[H]
 \centering
 \includegraphics[width=.7\textwidth]{11/f_div.png}
 \caption{Frequency divider}\label{f_div}
 \end{figure}
-We built the shift register in \ref{shift_reg} with four J/K FF used as FF type D. We connected the FF in circle connecting the output of one with the input of the other. We also used the pin CL and PR to preset the bit in the registers with the help of a capacitor that kept the voltage LOW for a short amount of time. We visualizied the shift register connecting the output of each FF to some LEDs.
+We built the shift register in figure \ref{shift_reg} with four J/K FF used as FF type D. We linked these FF in a cyclic configuration connecting the output of one with the input of the other. We also used the pin CL and PR to preset the bit in the registers with the help of a capacitor that kept the voltage LOW for a short amount of time after the power up. We visualizied the shift register connecting the each FF output to the 8-bit LED viewer.
 \begin{figure}[H]
 \centering
 \includegraphics[width=.7\textwidth]{11/shift_reg.png}
 \caption{Shift register}\label{shift_reg}
-
 \end{figure}
-At last we built a counter with two 74LS191 an a D-FF as in figure \ref{count}. The FF was used because, as stated in the 74LS191 datasheet, the up/down signal must be on the raising edge of the clock. The FF remember what we chose and transmit it to the clock when this one goes from LOW to HIGH. We used the same method used in the shift register for presetting the bits in the counter. For using an 8 bit system we needed to activate the second 74LS191 just when the bits of the first were all on, this was done by connecting RCD to G of the second one used to enable.
+At last we built a counter with two 74LS191 an a D-FF as in figure \ref{count}. The FF was used because, as stated in the 74LS191 datasheet, the up/down signal had to change while the clock was high state. The FF remembered what we chose and transmitted it to the clock when this one goes from LOW to HIGH. We used the same method as in the shift register for presetting the bits in the counter. The use of an 8 bit system required us to activate the second 74LS191 just when the bits of the first were all on: this was done by connecting the first RCD pin to the second G one as an enabling signal.
 \begin{figure}[H]
 \centering
 \includegraphics[width=.7\textwidth]{11/count.png}
 \caption{8-bit counter}\label{count}
 \end{figure}
-
 
 \section{Data analysis}
 We can see in the plot \ref{bounce_time} that the output of the latch SR is really noisy without the anti bounce expedient.
@@ -78,14 +72,13 @@ We can see in the plot \ref{bounce_time} that the output of the latch SR is real
 \includegraphics[width=.7\textwidth]{11/bounce_time.png}
 \caption{Output of a standard latch SR}\label{bounce_time}
 \end{figure}
-When we modify as in \ref{bounce} we can see that the output is much more stable.
+When we modify the circuit as in figure \ref{bounce} we can see that the output becomes much more stable.
 \begin{figure}[H]
 \centering
 \includegraphics[width=.7\textwidth]{11/anti_bounce_time3.png}
 \caption{Output of a standard latch SR}\label{anti_bounce_time3}
 \end{figure}
 We can see that in the plots of frequency divider circuit we have the outputs as expected with half and a quarter of the frequency of the clock.
-
 \begin{figure}[H]
 \centering
 \begin{minipage}{.48\textwidth}

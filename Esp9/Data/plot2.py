@@ -21,7 +21,7 @@ def read_data(file, numcols=3):
     return t, vin, vout
 
 
-t, vin, vout = read_data("es1.csv")
+t, vin, vout = read_data("es1_zoom.csv")
 plt.figure("ciao")
 plt.grid(True)
 

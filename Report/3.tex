@@ -84,12 +84,12 @@ In all the circuits we placed on the power supply's pins two capacitors each, on
 	\draw(opamp.+) to[short](-1.7,-.5)to[short](-1.7,-1) to[short](-2.1,-1) to[R,l_=R$^*_{10\text{k}\Omega}$](-2.1,-3)to[short](-1.7,-3)node[ground]{};
 	\draw(-1.7,-1)to[short](-1.3,-1)to[R,l=R$^*_{10\Omega}$](-1.3,-3)to[short](-1.7,-3);
 \end{circuitikz}
-\caption{Offset voltage's direct measure with gain and bias current correction}\label{offset amp corrected}
+\caption{Offset voltage's direct measure with gain and bias currents correction}\label{offset amp corrected}
 \end{minipage}
 \end{figure}
 In the first circuit we measured $v_{os}$ directly by using the multimeter on the output voltage.
 We used the second circuit drawn to amplify $v_{os}$, we measured the amplified signal.\\
-The third circuit is identical to the second except for the added resistors in parallel that connect the non inverting pin to the ground: this was done for removing the bias current influence from the measurament according to the hypothesis that these currents are approximately equal. For this reason these added resistors need to have toghether the same resistance of the parallel between the $R_{10 \Omega}$ and $R_{10 k\Omega}$ used before.\ Exploiting this last circuit we removed $v_{os}$ by using a trimmer between op-amp pins 1 and 5, paying attention to connect the central trimmer pin to the negative power supply voltage (according to the uA741 datasheet): we tried to make the output as close to 0 as possible (we used no input voltage in these steps).
+The third circuit is identical to the second except for the added resistors in parallel that connect the non inverting pin to the ground: this was done for removing the bias currents influence from the measurament according to the hypothesis that these currents are approximately equal. For this reason these added resistors need to have toghether the same resistance of the parallel between the $R_{10 \Omega}$ and $R_{10 k\Omega}$ used before.\ Exploiting this last circuit we removed $v_{os}$ by using a trimmer between op-amp pins 1 and 5, paying attention to connect the central trimmer pin to the negative power supply voltage (according to the uA741 datasheet): we tried to make the output as close to 0 as possible (we used no input voltage in these steps).
 \begin{figure}[H]
 \centering
 \begin{minipage}{.5\textwidth}
@@ -140,7 +140,7 @@ The third circuit is identical to the second except for the added resistors in p
 \end{minipage}
 \end{figure}
 The fourth circuit and the fifth are used for measuring the bias currents indirectly basing on how the two currents are related to the output: we use a great resistance ($R_{M\Omega}$) in order to make relevant to a voltage measurement only one bias current with respect to the other.\\
-The sixth circuit was used for measuring the maximum current that the op-amp can erogate. In this configuration the oscilloscope's internal resitor was set to $50 \Omega$.\\
+The sixth circuit was used for measuring the maximum current that the op-amp can erogate. In this configuration the oscilloscope's internal resistor was set to $50 \Omega$.\\
 \begin{figure}[H]
 \centering
 \begin{minipage}{.5\textwidth}
@@ -189,7 +189,7 @@ The sixth circuit was used for measuring the maximum current that the op-amp can
 	\caption{Slew rate}\label{slew rate}
 \end{minipage}
 \end{figure}
-With the seventh circuit we measured the slew rate: the load capacitor used was 1 $\pm$ 0.05 nF, the resistor 2 $\pm$ 0.1 k$\Omega$ and the input used a 0-10 V square wave, that allowed us to aquire the image of the raising output.\\
+With the seventh circuit we measured the slew rate: the load capacitor used was 1 $\pm$ 0.05 nF, the resistor 2 $\pm$ 0.1 k$\Omega$ and the input was a 0-10 V square wave, that allowed us to aquire the image of the raising output.\\
 Finally, the last circuit allowed us to measure the common gain by using the differential amplifier with the same 2V peak-peak sine signal at 100 Hz as the two inputs.\\
 \begin{figure}[H]
 \centering
